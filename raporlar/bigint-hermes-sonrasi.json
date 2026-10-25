@@ -1,0 +1,16 @@
+{
+  "isHermes": true,
+  "modulesAvailable": true,
+  "platform": "ios",
+  "precisionFailures": [],
+  "syntheticDisplayCases": 9,
+  "syntheticPreviewDisplay": {
+    "balance": "₺10.000,00",
+    "bills": "₺2.000,00",
+    "daily": "₺700,00",
+    "days": 10,
+    "savings": "₺1.000,00",
+    "spendable": "₺7.000,00"
+  },
+  "syntheticPreviewStatus": "ready"
+}

@@ -1,0 +1,30 @@
+{
+  "formatterFailure": {
+    "message": "Cannot convert BigInt to number",
+    "name": "TypeError"
+  },
+  "formatterFound": true,
+  "formatterStack": [
+    {
+      "methodName": "formatMinorTRY",
+      "file": "src/features/budget-setup/format.ts",
+      "lineNumber": 10,
+      "column": 37
+    },
+    {
+      "methodName": "anonymous",
+      "file": "(runtime)",
+      "lineNumber": 16,
+      "column": 31
+    },
+    {
+      "methodName": "global",
+      "file": "(runtime)",
+      "lineNumber": 25,
+      "column": 2
+    }
+  ],
+  "isHermes": true,
+  "platform": "ios",
+  "renderStack": []
+}

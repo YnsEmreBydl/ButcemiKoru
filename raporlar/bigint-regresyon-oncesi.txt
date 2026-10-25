@@ -1,0 +1,280 @@
+
+> gunluk-butcem@1.0.0 test
+> node ./scripts/test-budget.mjs
+
+✖ Hermes regression: preview amounts render when Intl.NumberFormat rejects BigInt (24.84575ms)
+✖ Hermes regression: exact kuruş survives grouping boundaries and safe integer extremes (3.553791ms)
+✔ Turkish amount "0" becomes exactly 0 kuruş (1.790584ms)
+✔ Turkish amount "0,01" becomes exactly 1 kuruş (0.167792ms)
+✔ Turkish amount "12" becomes exactly 1200 kuruş (0.050542ms)
+✔ Turkish amount "12,5" becomes exactly 1250 kuruş (0.046ms)
+✔ Turkish amount "12,50" becomes exactly 1250 kuruş (0.036333ms)
+✔ Turkish amount "1234,56" becomes exactly 123456 kuruş (0.045084ms)
+✔ Turkish amount "1.234,56" becomes exactly 123456 kuruş (0.035417ms)
+✔ Turkish amount "1.234" becomes exactly 123400 kuruş (0.038916ms)
+✔ Turkish amount "1.000.000,99" becomes exactly 100000099 kuruş (0.045ms)
+✔ Turkish amount "-123,45" becomes exactly -12345 kuruş (0.033417ms)
+✔ Turkish amount "-0,01" becomes exactly -1 kuruş (0.034375ms)
+✔ Turkish amount "  1.234,50  " becomes exactly 123450 kuruş (0.033125ms)
+✔ Turkish amount "00012,50" becomes exactly 1250 kuruş (0.071458ms)
+✔ Turkish amount "-0" becomes exactly 0 kuruş (0.051667ms)
+✔ Turkish amount "90071992547409,91" becomes exactly 9007199254740991 kuruş (0.0495ms)
+✔ Turkish amount "-90.071.992.547.409,91" becomes exactly -9007199254740991 kuruş (0.0385ms)
+✔ invalid or unsafe money is rejected: "" (0.116833ms)
+✔ invalid or unsafe money is rejected: " " (0.032834ms)
+✔ invalid or unsafe money is rejected: "NaN" (0.030042ms)
+✔ invalid or unsafe money is rejected: "Infinity" (0.038166ms)
+✔ invalid or unsafe money is rejected: "-Infinity" (0.049959ms)
+✔ invalid or unsafe money is rejected: "1e3" (0.031625ms)
+✔ invalid or unsafe money is rejected: "1,001" (0.030375ms)
+✔ invalid or unsafe money is rejected: "1.234,567" (0.028875ms)
+✔ invalid or unsafe money is rejected: "1," (0.030292ms)
+✔ invalid or unsafe money is rejected: ",50" (0.035416ms)
+✔ invalid or unsafe money is rejected: "1234.50" (0.035875ms)
+✔ invalid or unsafe money is rejected: "1.23" (0.028708ms)
+✔ invalid or unsafe money is rejected: "12.34,50" (0.0285ms)
+✔ invalid or unsafe money is rejected: "0.001" (0.035834ms)
+✔ invalid or unsafe money is rejected: "01.234" (0.029584ms)
+✔ invalid or unsafe money is rejected: "1 234,50" (0.045958ms)
+✔ invalid or unsafe money is rejected: "₺100" (0.104875ms)
+✔ invalid or unsafe money is rejected: "100 TL" (0.031416ms)
+✔ invalid or unsafe money is rejected: "+100" (0.031875ms)
+✔ invalid or unsafe money is rejected: "--1" (0.028875ms)
+✔ invalid or unsafe money is rejected: "1,2,3" (0.0335ms)
+✔ invalid or unsafe money is rejected: "１２３" (0.205ms)
+✔ invalid or unsafe money is rejected: "90071992547409,92" (0.080375ms)
+✔ invalid or unsafe money is rejected: "-90071992547409,92" (0.031083ms)
+✔ invalid or unsafe money is rejected: "999999999999999999" (0.02375ms)
+✔ invalid or unsafe money is rejected: "99999999999999999999999999999999999999999999999999999999999999999" (0.024333ms)
+✔ excess decimal precision is rejected, never rounded (0.055583ms)
+✔ calendar input 06.11.2026 preserves its calendar date (0.218292ms)
+✔ calendar input 6.11.2026 preserves its calendar date (0.060666ms)
+✔ calendar input 29.02.2024 preserves its calendar date (0.024375ms)
+✔ calendar input 2026-11-06 preserves its calendar date (0.025541ms)
+✔ calendar input  31.12.2026  preserves its calendar date (0.061709ms)
+✔ invalid calendar input is rejected: "" (0.044417ms)
+✔ invalid calendar input is rejected: "29.02.2025" (0.075458ms)
+✔ invalid calendar input is rejected: "31.04.2026" (0.034875ms)
+✔ invalid calendar input is rejected: "00.01.2026" (0.030709ms)
+✔ invalid calendar input is rejected: "01.13.2026" (0.035791ms)
+✔ invalid calendar input is rejected: "01.01.0000" (0.02825ms)
+✔ invalid calendar input is rejected: "2026-02-30" (0.051667ms)
+✔ invalid calendar input is rejected: "06/11/2026" (0.092625ms)
+✔ invalid calendar input is rejected: "2026-11-06T00:00:00Z" (0.029208ms)
+✔ minor-unit display retains every kuruş up to the safe integer boundary (0.526084ms)
+✔ form strings become the existing domain contract without mixing in salary or DEMO expenses (33.472167ms)
+✔ optional blank savings and an empty bill list are valid (1.91025ms)
+✔ required blank fields are not silently converted to zero (0.126333ms)
+✔ zero balance is accepted and negative balance is preserved with a deficit (0.267125ms)
+✔ negative savings and nonpositive bill amounts are rejected in their fields (0.120416ms)
+✔ a partially filled added bill must be completed or removed (0.082042ms)
+✔ bill names are required and limited to 80 characters (0.083792ms)
+✔ same-day or later bill dates cannot be silently excluded in an active period (0.238583ms)
+✔ overdue but unpaid bills are reserved (0.163167ms)
+✔ a valid zero savings target is retained (0.116459ms)
+✔ payday today and past payday return a new-period preview without rolling dates (0.237ms)
+✔ local-day and DST behavior comes from the existing domain engine (0.159875ms)
+✔ combined reserves above the balance are shown as a deficit rather than rejected (0.118542ms)
+✔ invalid date and excess precision create field errors (0.088208ms)
+✔ aggregate monetary overflow is translated to a form error (0.172042ms)
+✔ duplicate or invalid bill row IDs are rejected before calculation (0.083917ms)
+✔ clock and time-zone errors are visible, never replaced with an implicit UTC fallback (0.160041ms)
+✔ the adapter leaves frozen drafts and contexts unchanged (0.317208ms)
+✔ normal budget: prior spending, today spending, bills and savings (19.3195ms)
+✔ no expenses, bills or savings reserves (1.886375ms)
+✔ overspending preserves negative balances and a separate deficit (0.373834ms)
+✔ unfunded reserves report a deficit even when the account is positive (0.327416ms)
+✔ zero opening balance produces zero daily allocations (0.334625ms)
+✔ payday-today: no invented future period and no division by zero (0.306292ms)
+✔ payday-passed: no invented future period and no division by zero (0.243959ms)
+✔ the day before payday has no fictional tomorrow allocation (0.295542ms)
+✔ multiple expenses do not reset or repeatedly divide the start-of-day target (0.567459ms)
+✔ an exact bill settlement debits cash and releases its reserve only once (0.48525ms)
+✔ bill amount 250000: only its difference from the reserve impacts today's target (0.334791ms)
+✔ bill amount 150000: only its difference from the reserve impacts today's target (0.304084ms)
+✔ a discount on an underfunded bill cannot create more today money than exists (0.392042ms)
+✔ overdue bills are reserved but payday and later bills are excluded (0.295667ms)
+✔ paying a bill not reserved for this period impacts spendable funds in full (0.258042ms)
+✔ a bill settled before the snapshot is neither reserved nor debited again (0.268084ms)
+✔ a bill settled yesterday does not consume today target again (0.265792ms)
+✔ opening snapshot includes all earlier, back-entered and exact-cutoff expenses (0.272583ms)
+✔ a midday initial snapshot does not subtract earlier purchases on that day (0.283708ms)
+✔ simulation is pure, repeatable and does not change frozen inputs or current results (1.193125ms)
+✔ simulation works at the exact snapshot instant without inventing a future transaction (0.447667ms)
+✔ simulation can show a deficit without an affordability promise (0.271584ms)
+✔ input order does not change the financial result (0.474667ms)
+✔ integer kuruş allocation leaves the remainder undistributed (0.253834ms)
+✔ one kuruş over three days never allocates three kuruş (0.247458ms)
+✔ maximum safe minor units preserve exact integer division (0.290958ms)
+✔ allocation conservation holds across deficits, cents, spending and large amounts (4.585792ms)
+✔ calendar days: 2025-01-31 → 2025-02-01 = 1 (0.713667ms)
+✔ calendar days: 2025-01-31 → 2025-03-01 = 29 (0.058792ms)
+✔ calendar days: 2025-04-30 → 2025-05-01 = 1 (0.047ms)
+✔ calendar days: 2024-02-28 → 2024-03-01 = 2 (0.039416ms)
+✔ calendar days: 2025-02-28 → 2025-03-01 = 1 (0.041209ms)
+✔ calendar days: 2000-02-28 → 2000-03-01 = 2 (2.665791ms)
+✔ calendar days: 1900-02-28 → 1900-03-01 = 1 (0.1395ms)
+✔ calendar days: 2026-12-31 → 2027-01-01 = 1 (0.100125ms)
+✔ calendar days: 2026-10-25 → 2026-10-25 = 0 (0.121584ms)
+✔ calendar days: 2026-10-25 → 2026-10-24 = -1 (0.159667ms)
+✔ calendar days: 0001-01-01 → 0002-01-01 = 365 (0.091125ms)
+✔ local calendar date uses the explicit zone rather than the UTC date (15.142042ms)
+✔ DST: spring 23-hour day still leaves exactly one local calendar day (0.583958ms)
+✔ DST: autumn 25-hour day still leaves exactly one local calendar day (0.124084ms)
+✔ both occurrences of the repeated DST hour are counted on the same local day (0.1995ms)
+✔ expenses around local midnight are allocated to different budget days (0.143417ms)
+✔ invalid calendar date is rejected: 2025-02-29 (0.265625ms)
+✔ invalid calendar date is rejected: 1900-02-29 (0.040709ms)
+✔ invalid calendar date is rejected: 2026-04-31 (0.035958ms)
+✔ invalid calendar date is rejected: 2026-13-01 (0.036334ms)
+✔ invalid calendar date is rejected: 2026-00-01 (0.041875ms)
+✔ invalid calendar date is rejected: 2026-01-00 (0.036167ms)
+✔ invalid calendar date is rejected: 0000-01-01 (0.035791ms)
+✔ invalid calendar date is rejected: 26-01-01 (0.043334ms)
+✔ invalid calendar date is rejected: 2026-1-01 (0.034833ms)
+✔ invalid calendar date is rejected: 2026-10-25T00:00:00Z (0.033042ms)
+✔ local dates outside the supported Gregorian range are rejected (0.385333ms)
+✔ missing input, required fields, records and arrays are rejected (17.100541ms)
+✔ invalid monetary input is rejected in every monetary field: undefined (1.3375ms)
+✔ invalid monetary input is rejected in every monetary field: null (0.324583ms)
+✔ invalid monetary input is rejected in every monetary field: NaN (0.280958ms)
+✔ invalid monetary input is rejected in every monetary field: Infinity (0.269833ms)
+✔ invalid monetary input is rejected in every monetary field: -Infinity (0.27175ms)
+✔ invalid monetary input is rejected in every monetary field: 0.5 (0.251709ms)
+✔ invalid monetary input is rejected in every monetary field: 100 (0.240458ms)
+✔ invalid monetary input is rejected in every monetary field: true (0.261625ms)
+✔ invalid monetary input is rejected in every monetary field: 9007199254740992 (0.275083ms)
+✔ negative opening balances are supported, negative reserves and nonpositive debits are not (0.648292ms)
+✔ ambiguous or invalid instant is rejected: 2026-10-25T12:00:00 (0.098791ms)
+✔ ambiguous or invalid instant is rejected: 2026-10-25 (0.069375ms)
+✔ ambiguous or invalid instant is rejected: 2026-10-25T24:00:00Z (0.074291ms)
+✔ ambiguous or invalid instant is rejected: 2026-10-25T12:60:00Z (0.089375ms)
+✔ ambiguous or invalid instant is rejected: 2026-10-25T12:00:60Z (0.092458ms)
+✔ ambiguous or invalid instant is rejected: 2026-10-25T12:00:00.0001Z (0.079167ms)
+✔ ambiguous or invalid instant is rejected: 2026-10-25T12:00:00-00:00 (0.069459ms)
+✔ ambiguous or invalid instant is rejected: 2026-10-25T12:00:00+24:00 (0.074708ms)
+✔ invalid timestamp dates are rejected rather than normalized by Date.parse (0.154416ms)
+✔ invalid time zones and unsupported currencies are rejected (0.180334ms)
+✔ future snapshots and future actual transactions are rejected (0.182541ms)
+✔ duplicate transaction IDs and duplicate bill definitions are rejected (0.342125ms)
+✔ the same bill cannot be settled twice even using different transaction IDs (0.379084ms)
+✔ unknown bills, missing bill IDs and mislabeled bill transactions are rejected (3.368958ms)
+✔ empty and untrimmed identifiers are rejected (1.678625ms)
+✔ aggregate expense overflow is detected before returning imprecise money (0.412333ms)
+✔ reserve overflow and negative balance overflow are rejected (0.51925ms)
+(node:6125) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ Persistence mapping: metadata edits preserve the old balance anchor and zone (12.317167ms)
+✔ Persistence mapping: changing balance establishes an explicit new snapshot, without fake expenses (3.804834ms)
+✔ Mock native API: every query uses the transaction callback connection (1.489583ms)
+✔ Mock native API: callback completion does not resolve before commit completion (0.169041ms)
+✔ Mock native API: commit rejection never reports a saved result (0.413459ms)
+✔ Web capability: unsupported storage rejects instead of returning an in-memory fake (0.138042ms)
+(node:6127) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ SQLite integration: migration v1 is atomic, versioned and idempotent (16.690041ms)
+✔ SQLite integration: a failed migration rolls back DDL and keeps version zero (1.584167ms)
+✔ SQLite integration: unknown future schema is rejected without downgrade (1.569917ms)
+✔ SQLite integration: save, close and reopen retain exact budget and names (3.053958ms)
+✔ SQLite integration: reopen recomputes with the actual clock but preserves opening instant (2.831459ms)
+✔ SQLite integration: updates replace invoices atomically and increment revision (2.335875ms)
+✔ SQLite integration: identical retry is durable and does not insert duplicates (2.681334ms)
+✔ SQLite integration: operation identifiers are generated without creating budget rows (2.236792ms)
+✔ SQLite integration: acknowledgement retry after payday does not create or rewrite an expired period (1.963916ms)
+✔ SQLite integration: queued save captures its own request before caller mutation (1.795791ms)
+✔ SQLite integration: duplicate initial operation and concurrent taps create only one budget (2.175209ms)
+✔ SQLite integration: operation key cannot be reused for different content (2.338833ms)
+✔ SQLite integration: optimistic revision rejects stale edits and old operation replay (3.107375ms)
+✔ SQLite integration: initial budget and invoice inserts roll back together on SQL failure (2.202875ms)
+✔ SQLite integration: failed update restores the old budget, revision and all invoices (2.215125ms)
+✔ SQLite integration: commit succeeded but acknowledgement failed; same operation recovers safely (2.020833ms)
+✔ SQLite integration: parameterized invoice text cannot execute SQL (1.795834ms)
+✔ SQLite integration: STRICT and CHECK constraints reject REAL money, duplicates and unsafe amounts (1.906541ms)
+✔ SQLite integration: relations also hold when a transaction connection has FK disabled (1.905333ms)
+✔ SQLite integration: stored invalid calendar data is rejected, not trusted or erased (2.191084ms)
+✔ SQLite integration: corrupt currency is rejected even after bypassing SQL checks (1.823ms)
+✔ SQLite integration: a non-SQLite file is rejected without replacement (0.503166ms)
+✔ SQLite integration: orphan rows never masquerade as a fresh empty installation (1.994ms)
+✔ SQLite integration: version one with missing schema is not silently recreated (1.572583ms)
+✔ SQLite integration: no fake transactions or new expired periods can be saved (1.745625ms)
+✔ SQLite integration: negative available money survives disk roundtrip (1.812459ms)
+ℹ tests 192
+ℹ suites 0
+ℹ pass 190
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 246.461333
+ℹ start of coverage report
+ℹ ------------------------------------------------------------------------------------------------
+ℹ file                                            | line % | branch % | funcs % | uncovered lines
+ℹ ------------------------------------------------------------------------------------------------
+ℹ ..                                              |        |          |         | 
+ℹ  ..                                             |        |          |         | 
+ℹ   ..                                            |        |          |         | 
+ℹ    ..                                           |        |          |         | 
+ℹ     private                                     |        |          |         | 
+ℹ      var                                        |        |          |         | 
+ℹ       folders                                   |        |          |         | 
+ℹ        2z                                       |        |          |         | 
+ℹ         msn8nczn0dbff_v5y45q58xc0000gn          |        |          |         | 
+ℹ          T                                      |        |          |         | 
+ℹ           gunluk-butcem-budget-tests-eqZk7J     |        |          |         | 
+ℹ            src                                  |        |          |         | 
+ℹ             data                                |        |          |         | 
+ℹ              budget                             |        |          |         | 
+ℹ               errors.js                         |  73.68 |   100.00 |   66.67 | 14-18
+ℹ               exclusive-adapter.js              | 100.00 |    90.00 |  100.00 | 
+ℹ               migrations.js                     |  97.62 |    81.25 |  100.00 | 77-78
+ℹ               platform.js                       | 100.00 |   100.00 |  100.00 | 
+ℹ               repository.js                     | 100.00 |    92.59 |  100.00 | 
+ℹ               validation.js                     | 100.00 |    68.57 |  100.00 | 
+ℹ             domain                              |        |          |         | 
+ℹ              budget                             |        |          |         | 
+ℹ               calculate-budget.js               | 100.00 |   100.00 |  100.00 | 
+ℹ               calendar.js                       |  97.53 |    95.35 |  100.00 | 43-44
+ℹ               currencies.js                     | 100.00 |   100.00 |  100.00 | 
+ℹ               errors.js                         | 100.00 |   100.00 |  100.00 | 
+ℹ               index.js                          | 100.00 |   100.00 |   83.33 | 
+ℹ               money.js                          | 100.00 |   100.00 |  100.00 | 
+ℹ               validation.js                     | 100.00 |   100.00 |  100.00 | 
+ℹ             features                            |        |          |         | 
+ℹ              budget-setup                       |        |          |         | 
+ℹ               format.js                         | 100.00 |   100.00 |  100.00 | 
+ℹ               input.js                          | 100.00 |   100.00 |  100.00 | 
+ℹ               persistence.js                    | 100.00 |    66.67 |  100.00 | 
+ℹ               preview.js                        | 100.00 |   100.00 |  100.00 | 
+ℹ               types.js                          | 100.00 |   100.00 |  100.00 | 
+ℹ ------------------------------------------------------------------------------------------------
+ℹ all files                                       |  99.01 |    92.84 |   97.59 | 
+ℹ ------------------------------------------------------------------------------------------------
+ℹ end of coverage report
+
+✖ failing tests:
+
+test at ../../../../private/var/folders/2z/msn8nczn0dbff_v5y45q58xc0000gn/T/gunluk-butcem-budget-tests-eqZk7J/tests/budget-setup/format-hermes.test.js:40:22
+✖ Hermes regression: preview amounts render when Intl.NumberFormat rejects BigInt (24.84575ms)
+  TypeError [Error]: Cannot convert BigInt to number
+      at NumberOnlyFormat.format (/private/var/folders/2z/msn8nczn0dbff_v5y45q58xc0000gn/T/gunluk-butcem-budget-tests-eqZk7J/tests/budget-setup/format-hermes.test.js:21:23)
+      at formatMinorTRY (format-hermes-regression.js:13:34)
+      at /private/var/folders/2z/msn8nczn0dbff_v5y45q58xc0000gn/T/gunluk-butcem-budget-tests-eqZk7J/tests/budget-setup/format-hermes.test.js:34:24
+      at TestContext.<anonymous> (/private/var/folders/2z/msn8nczn0dbff_v5y45q58xc0000gn/T/gunluk-butcem-budget-tests-eqZk7J/tests/budget-setup/format-hermes.test.js:54:9)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1062:25)
+      at Test.start (node:internal/test_runner/test:959:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:332:17)
+
+test at ../../../../private/var/folders/2z/msn8nczn0dbff_v5y45q58xc0000gn/T/gunluk-butcem-budget-tests-eqZk7J/tests/budget-setup/format-hermes.test.js:59:22
+✖ Hermes regression: exact kuruş survives grouping boundaries and safe integer extremes (3.553791ms)
+  TypeError [Error]: Cannot convert BigInt to number
+      at NumberOnlyFormat.format (/private/var/folders/2z/msn8nczn0dbff_v5y45q58xc0000gn/T/gunluk-butcem-budget-tests-eqZk7J/tests/budget-setup/format-hermes.test.js:21:23)
+      at formatMinorTRY (format-hermes-regression.js:13:34)
+      at /private/var/folders/2z/msn8nczn0dbff_v5y45q58xc0000gn/T/gunluk-butcem-budget-tests-eqZk7J/tests/budget-setup/format-hermes.test.js:34:24
+      at TestContext.<anonymous> (/private/var/folders/2z/msn8nczn0dbff_v5y45q58xc0000gn/T/gunluk-butcem-budget-tests-eqZk7J/tests/budget-setup/format-hermes.test.js:61:28)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1062:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:752:18)
+      at Test.postRun (node:internal/test_runner/test:1191:19)
+      at Test.run (node:internal/test_runner/test:1119:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:332:3)

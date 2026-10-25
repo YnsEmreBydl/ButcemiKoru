@@ -1,0 +1,123 @@
+
+> gunluk-butcem@1.0.0 test
+> node ./scripts/test-budget.mjs
+
+✔ normal budget: prior spending, today spending, bills and savings (15.742875ms)
+✔ no expenses, bills or savings reserves (0.551708ms)
+✔ overspending preserves negative balances and a separate deficit (0.414583ms)
+✔ unfunded reserves report a deficit even when the account is positive (0.62325ms)
+✔ zero opening balance produces zero daily allocations (0.653ms)
+✔ payday-today: no invented future period and no division by zero (0.779166ms)
+✔ payday-passed: no invented future period and no division by zero (0.475958ms)
+✔ the day before payday has no fictional tomorrow allocation (0.305875ms)
+✔ multiple expenses do not reset or repeatedly divide the start-of-day target (0.7635ms)
+✔ an exact bill settlement debits cash and releases its reserve only once (0.699458ms)
+✔ bill amount 250000: only its difference from the reserve impacts today's target (0.424125ms)
+✔ bill amount 150000: only its difference from the reserve impacts today's target (0.421792ms)
+✔ a discount on an underfunded bill cannot create more today money than exists (0.519625ms)
+✔ overdue bills are reserved but payday and later bills are excluded (0.745666ms)
+✔ paying a bill not reserved for this period impacts spendable funds in full (0.317166ms)
+✔ a bill settled before the snapshot is neither reserved nor debited again (0.364584ms)
+✔ a bill settled yesterday does not consume today target again (0.302834ms)
+✔ opening snapshot includes all earlier, back-entered and exact-cutoff expenses (0.170333ms)
+✔ a midday initial snapshot does not subtract earlier purchases on that day (0.130209ms)
+✔ simulation is pure, repeatable and does not change frozen inputs or current results (0.462709ms)
+✔ simulation works at the exact snapshot instant without inventing a future transaction (0.221375ms)
+✔ simulation can show a deficit without an affordability promise (0.179917ms)
+✔ input order does not change the financial result (0.246417ms)
+✔ integer kuruş allocation leaves the remainder undistributed (0.12125ms)
+✔ one kuruş over three days never allocates three kuruş (0.098625ms)
+✔ maximum safe minor units preserve exact integer division (0.128292ms)
+✔ allocation conservation holds across deficits, cents, spending and large amounts (2.037291ms)
+✔ calendar days: 2025-01-31 → 2025-02-01 = 1 (0.690208ms)
+✔ calendar days: 2025-01-31 → 2025-03-01 = 29 (0.055333ms)
+✔ calendar days: 2025-04-30 → 2025-05-01 = 1 (0.043834ms)
+✔ calendar days: 2024-02-28 → 2024-03-01 = 2 (0.039708ms)
+✔ calendar days: 2025-02-28 → 2025-03-01 = 1 (0.039458ms)
+✔ calendar days: 2000-02-28 → 2000-03-01 = 2 (0.038916ms)
+✔ calendar days: 1900-02-28 → 1900-03-01 = 1 (2.185375ms)
+✔ calendar days: 2026-12-31 → 2027-01-01 = 1 (0.166917ms)
+✔ calendar days: 2026-10-25 → 2026-10-25 = 0 (0.068875ms)
+✔ calendar days: 2026-10-25 → 2026-10-24 = -1 (0.035459ms)
+✔ calendar days: 0001-01-01 → 0002-01-01 = 365 (0.031166ms)
+✔ local calendar date uses the explicit zone rather than the UTC date (16.183333ms)
+✔ DST: spring 23-hour day still leaves exactly one local calendar day (1.931791ms)
+✔ DST: autumn 25-hour day still leaves exactly one local calendar day (0.154083ms)
+✔ both occurrences of the repeated DST hour are counted on the same local day (0.206625ms)
+✔ expenses around local midnight are allocated to different budget days (0.150958ms)
+✔ invalid calendar date is rejected: 2025-02-29 (0.27225ms)
+✔ invalid calendar date is rejected: 1900-02-29 (0.038875ms)
+✔ invalid calendar date is rejected: 2026-04-31 (0.03275ms)
+✔ invalid calendar date is rejected: 2026-13-01 (0.0325ms)
+✔ invalid calendar date is rejected: 2026-00-01 (0.038041ms)
+✔ invalid calendar date is rejected: 2026-01-00 (0.031792ms)
+✔ invalid calendar date is rejected: 0000-01-01 (0.040917ms)
+✔ invalid calendar date is rejected: 26-01-01 (2.183083ms)
+✔ invalid calendar date is rejected: 2026-1-01 (0.051959ms)
+✔ invalid calendar date is rejected: 2026-10-25T00:00:00Z (0.034667ms)
+✔ local dates outside the supported Gregorian range are rejected (0.474ms)
+✔ missing input, required fields, records and arrays are rejected (20.080666ms)
+✔ invalid monetary input is rejected in every monetary field: undefined (1.3515ms)
+✔ invalid monetary input is rejected in every monetary field: null (2.129625ms)
+✔ invalid monetary input is rejected in every monetary field: NaN (0.298709ms)
+✔ invalid monetary input is rejected in every monetary field: Infinity (0.2595ms)
+✔ invalid monetary input is rejected in every monetary field: -Infinity (0.2615ms)
+✔ invalid monetary input is rejected in every monetary field: 0.5 (0.248167ms)
+✔ invalid monetary input is rejected in every monetary field: 100 (0.239209ms)
+✔ invalid monetary input is rejected in every monetary field: true (0.256416ms)
+✔ invalid monetary input is rejected in every monetary field: 9007199254740992 (0.254542ms)
+✔ negative opening balances are supported, negative reserves and nonpositive debits are not (0.707625ms)
+✔ ambiguous or invalid instant is rejected: 2026-10-25T12:00:00 (0.105416ms)
+✔ ambiguous or invalid instant is rejected: 2026-10-25 (0.566333ms)
+✔ ambiguous or invalid instant is rejected: 2026-10-25T24:00:00Z (2.283083ms)
+✔ ambiguous or invalid instant is rejected: 2026-10-25T12:60:00Z (0.254666ms)
+✔ ambiguous or invalid instant is rejected: 2026-10-25T12:00:60Z (0.340375ms)
+✔ ambiguous or invalid instant is rejected: 2026-10-25T12:00:00.0001Z (0.253292ms)
+✔ ambiguous or invalid instant is rejected: 2026-10-25T12:00:00-00:00 (0.378167ms)
+✔ ambiguous or invalid instant is rejected: 2026-10-25T12:00:00+24:00 (0.115417ms)
+✔ invalid timestamp dates are rejected rather than normalized by Date.parse (0.118708ms)
+✔ invalid time zones and unsupported currencies are rejected (0.1865ms)
+✔ future snapshots and future actual transactions are rejected (0.19175ms)
+✔ duplicate transaction IDs and duplicate bill definitions are rejected (0.201708ms)
+✔ the same bill cannot be settled twice even using different transaction IDs (0.123875ms)
+✔ unknown bills, missing bill IDs and mislabeled bill transactions are rejected (0.311375ms)
+✔ empty and untrimmed identifiers are rejected (0.502459ms)
+✔ aggregate expense overflow is detected before returning imprecise money (0.146083ms)
+✔ reserve overflow and negative balance overflow are rejected (0.1965ms)
+ℹ tests 82
+ℹ suites 0
+ℹ pass 82
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 146.607375
+ℹ start of coverage report
+ℹ ------------------------------------------------------------------------------------------------
+ℹ file                                            | line % | branch % | funcs % | uncovered lines
+ℹ ------------------------------------------------------------------------------------------------
+ℹ ..                                              |        |          |         | 
+ℹ  ..                                             |        |          |         | 
+ℹ   ..                                            |        |          |         | 
+ℹ    ..                                           |        |          |         | 
+ℹ     private                                     |        |          |         | 
+ℹ      var                                        |        |          |         | 
+ℹ       folders                                   |        |          |         | 
+ℹ        2z                                       |        |          |         | 
+ℹ         msn8nczn0dbff_v5y45q58xc0000gn          |        |          |         | 
+ℹ          T                                      |        |          |         | 
+ℹ           gunluk-butcem-budget-tests-3K6igN     |        |          |         | 
+ℹ            src                                  |        |          |         | 
+ℹ             domain                              |        |          |         | 
+ℹ              budget                             |        |          |         | 
+ℹ               calculate-budget.js               | 100.00 |   100.00 |  100.00 | 
+ℹ               calendar.js                       |  97.53 |    95.35 |  100.00 | 43-44
+ℹ               currencies.js                     | 100.00 |   100.00 |  100.00 | 
+ℹ               errors.js                         | 100.00 |   100.00 |  100.00 | 
+ℹ               index.js                          | 100.00 |   100.00 |   83.33 | 
+ℹ               money.js                          | 100.00 |   100.00 |  100.00 | 
+ℹ               validation.js                     | 100.00 |   100.00 |  100.00 | 
+ℹ ------------------------------------------------------------------------------------------------
+ℹ all files                                       |  99.45 |    98.55 |   96.55 | 
+ℹ ------------------------------------------------------------------------------------------------
+ℹ end of coverage report

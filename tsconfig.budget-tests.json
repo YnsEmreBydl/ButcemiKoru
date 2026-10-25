@@ -1,0 +1,17 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "module": "Node16",
+    "moduleResolution": "Node16",
+    "target": "ES2022",
+    "types": ["node"],
+    "allowJs": false,
+    "noEmit": false,
+    "noEmitOnError": true,
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false
+  },
+  "include": ["src/domain/budget/**/*.ts", "src/features/budget-setup/*.ts", "src/features/expenses/*.ts", "src/data/budget/*.ts", "tests/**/*.ts"],
+  "exclude": ["node_modules", "src/data/budget/platform.native.ts"]
+}

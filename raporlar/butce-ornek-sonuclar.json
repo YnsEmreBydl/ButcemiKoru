@@ -1,0 +1,434 @@
+{
+  "scenarios": [
+    {
+      "name": "normal",
+      "input": {
+        "currency": "TRY",
+        "asOf": "2026-10-25T12:00:00+03:00",
+        "timeZone": "Europe/Istanbul",
+        "balanceSnapshot": {
+          "amountMinor": 1000000,
+          "capturedAt": "2026-10-20T09:00:00+03:00"
+        },
+        "nextPayday": "2026-11-04",
+        "payments": [
+          {
+            "id": "rent",
+            "amountMinor": 200000,
+            "dueOn": "2026-10-28"
+          }
+        ],
+        "savingsTargetMinor": 100000,
+        "transactions": [
+          {
+            "id": "yesterday",
+            "kind": "expense",
+            "amountMinor": 100000,
+            "occurredAt": "2026-10-24T10:00:00+03:00"
+          },
+          {
+            "id": "today",
+            "kind": "expense",
+            "amountMinor": 50000,
+            "occurredAt": "2026-10-25T10:00:00+03:00"
+          }
+        ]
+      },
+      "result": {
+        "currency": "TRY",
+        "minorUnitDigits": 2,
+        "timeZone": "Europe/Istanbul",
+        "today": "2026-10-25",
+        "nextPayday": "2026-11-04",
+        "daysUntilPayday": 10,
+        "spentSinceSnapshotMinor": 150000,
+        "todayOutflowMinor": 50000,
+        "todayBudgetImpactMinor": 50000,
+        "remainingBalanceMinor": 850000,
+        "reservedPaymentsMinor": 200000,
+        "reservedPaymentIds": [
+          "rent"
+        ],
+        "savingsReservedMinor": 100000,
+        "spendableAtDayStartMinor": 600000,
+        "spendableMinor": 550000,
+        "budgetDeficitMinor": 0,
+        "periodStatus": "active",
+        "requiresNewPeriod": false,
+        "daily": {
+          "recommendedDailyMinor": 55000,
+          "todayStartTargetMinor": 60000,
+          "todayRemainingMinor": 10000,
+          "forwardDailyAverageMinor": 60000,
+          "daysAfterToday": 9,
+          "uniformRemainderMinor": 0,
+          "forwardRemainderMinor": 0
+        }
+      }
+    },
+    {
+      "name": "bill-settled",
+      "input": {
+        "currency": "TRY",
+        "asOf": "2026-10-25T12:00:00+03:00",
+        "timeZone": "Europe/Istanbul",
+        "balanceSnapshot": {
+          "amountMinor": 1000000,
+          "capturedAt": "2026-10-20T09:00:00+03:00"
+        },
+        "nextPayday": "2026-11-04",
+        "payments": [
+          {
+            "id": "rent",
+            "amountMinor": 200000,
+            "dueOn": "2026-10-28"
+          }
+        ],
+        "savingsTargetMinor": 100000,
+        "transactions": [
+          {
+            "id": "yesterday",
+            "kind": "expense",
+            "amountMinor": 100000,
+            "occurredAt": "2026-10-24T10:00:00+03:00"
+          },
+          {
+            "id": "today",
+            "kind": "expense",
+            "amountMinor": 50000,
+            "occurredAt": "2026-10-25T10:00:00+03:00"
+          },
+          {
+            "id": "paid",
+            "kind": "bill-payment",
+            "paymentId": "rent",
+            "amountMinor": 200000,
+            "occurredAt": "2026-10-25T11:00:00+03:00"
+          }
+        ]
+      },
+      "result": {
+        "currency": "TRY",
+        "minorUnitDigits": 2,
+        "timeZone": "Europe/Istanbul",
+        "today": "2026-10-25",
+        "nextPayday": "2026-11-04",
+        "daysUntilPayday": 10,
+        "spentSinceSnapshotMinor": 350000,
+        "todayOutflowMinor": 250000,
+        "todayBudgetImpactMinor": 50000,
+        "remainingBalanceMinor": 650000,
+        "reservedPaymentsMinor": 0,
+        "reservedPaymentIds": [],
+        "savingsReservedMinor": 100000,
+        "spendableAtDayStartMinor": 600000,
+        "spendableMinor": 550000,
+        "budgetDeficitMinor": 0,
+        "periodStatus": "active",
+        "requiresNewPeriod": false,
+        "daily": {
+          "recommendedDailyMinor": 55000,
+          "todayStartTargetMinor": 60000,
+          "todayRemainingMinor": 10000,
+          "forwardDailyAverageMinor": 60000,
+          "daysAfterToday": 9,
+          "uniformRemainderMinor": 0,
+          "forwardRemainderMinor": 0
+        }
+      }
+    },
+    {
+      "name": "no-expenses",
+      "input": {
+        "currency": "TRY",
+        "asOf": "2026-10-25T12:00:00+03:00",
+        "timeZone": "Europe/Istanbul",
+        "balanceSnapshot": {
+          "amountMinor": 1000000,
+          "capturedAt": "2026-10-20T09:00:00+03:00"
+        },
+        "nextPayday": "2026-11-04",
+        "payments": [],
+        "savingsTargetMinor": 0,
+        "transactions": []
+      },
+      "result": {
+        "currency": "TRY",
+        "minorUnitDigits": 2,
+        "timeZone": "Europe/Istanbul",
+        "today": "2026-10-25",
+        "nextPayday": "2026-11-04",
+        "daysUntilPayday": 10,
+        "spentSinceSnapshotMinor": 0,
+        "todayOutflowMinor": 0,
+        "todayBudgetImpactMinor": 0,
+        "remainingBalanceMinor": 1000000,
+        "reservedPaymentsMinor": 0,
+        "reservedPaymentIds": [],
+        "savingsReservedMinor": 0,
+        "spendableAtDayStartMinor": 1000000,
+        "spendableMinor": 1000000,
+        "budgetDeficitMinor": 0,
+        "periodStatus": "active",
+        "requiresNewPeriod": false,
+        "daily": {
+          "recommendedDailyMinor": 100000,
+          "todayStartTargetMinor": 100000,
+          "todayRemainingMinor": 100000,
+          "forwardDailyAverageMinor": 100000,
+          "daysAfterToday": 9,
+          "uniformRemainderMinor": 0,
+          "forwardRemainderMinor": 0
+        }
+      }
+    },
+    {
+      "name": "overspent",
+      "input": {
+        "currency": "TRY",
+        "asOf": "2026-10-25T12:00:00+03:00",
+        "timeZone": "Europe/Istanbul",
+        "balanceSnapshot": {
+          "amountMinor": 100000,
+          "capturedAt": "2026-10-20T09:00:00+03:00"
+        },
+        "nextPayday": "2026-11-04",
+        "payments": [],
+        "savingsTargetMinor": 0,
+        "transactions": [
+          {
+            "id": "overspend",
+            "kind": "expense",
+            "amountMinor": 150000,
+            "occurredAt": "2026-10-25T12:00:00+03:00"
+          }
+        ]
+      },
+      "result": {
+        "currency": "TRY",
+        "minorUnitDigits": 2,
+        "timeZone": "Europe/Istanbul",
+        "today": "2026-10-25",
+        "nextPayday": "2026-11-04",
+        "daysUntilPayday": 10,
+        "spentSinceSnapshotMinor": 150000,
+        "todayOutflowMinor": 150000,
+        "todayBudgetImpactMinor": 150000,
+        "remainingBalanceMinor": -50000,
+        "reservedPaymentsMinor": 0,
+        "reservedPaymentIds": [],
+        "savingsReservedMinor": 0,
+        "spendableAtDayStartMinor": 100000,
+        "spendableMinor": -50000,
+        "budgetDeficitMinor": 50000,
+        "periodStatus": "active",
+        "requiresNewPeriod": false,
+        "daily": {
+          "recommendedDailyMinor": 0,
+          "todayStartTargetMinor": 10000,
+          "todayRemainingMinor": -140000,
+          "forwardDailyAverageMinor": 0,
+          "daysAfterToday": 9,
+          "uniformRemainderMinor": 0,
+          "forwardRemainderMinor": 0
+        }
+      }
+    },
+    {
+      "name": "rounding",
+      "input": {
+        "currency": "TRY",
+        "asOf": "2026-10-25T12:00:00+03:00",
+        "timeZone": "Europe/Istanbul",
+        "balanceSnapshot": {
+          "amountMinor": 10000,
+          "capturedAt": "2026-10-20T09:00:00+03:00"
+        },
+        "nextPayday": "2026-10-28",
+        "payments": [],
+        "savingsTargetMinor": 0,
+        "transactions": []
+      },
+      "result": {
+        "currency": "TRY",
+        "minorUnitDigits": 2,
+        "timeZone": "Europe/Istanbul",
+        "today": "2026-10-25",
+        "nextPayday": "2026-10-28",
+        "daysUntilPayday": 3,
+        "spentSinceSnapshotMinor": 0,
+        "todayOutflowMinor": 0,
+        "todayBudgetImpactMinor": 0,
+        "remainingBalanceMinor": 10000,
+        "reservedPaymentsMinor": 0,
+        "reservedPaymentIds": [],
+        "savingsReservedMinor": 0,
+        "spendableAtDayStartMinor": 10000,
+        "spendableMinor": 10000,
+        "budgetDeficitMinor": 0,
+        "periodStatus": "active",
+        "requiresNewPeriod": false,
+        "daily": {
+          "recommendedDailyMinor": 3333,
+          "todayStartTargetMinor": 3333,
+          "todayRemainingMinor": 3333,
+          "forwardDailyAverageMinor": 3333,
+          "daysAfterToday": 2,
+          "uniformRemainderMinor": 1,
+          "forwardRemainderMinor": 1
+        }
+      }
+    },
+    {
+      "name": "payday-today",
+      "input": {
+        "currency": "TRY",
+        "asOf": "2026-10-25T12:00:00+03:00",
+        "timeZone": "Europe/Istanbul",
+        "balanceSnapshot": {
+          "amountMinor": 1000000,
+          "capturedAt": "2026-10-20T09:00:00+03:00"
+        },
+        "nextPayday": "2026-10-25",
+        "payments": [
+          {
+            "id": "rent",
+            "amountMinor": 200000,
+            "dueOn": "2026-10-28"
+          }
+        ],
+        "savingsTargetMinor": 100000,
+        "transactions": []
+      },
+      "result": {
+        "currency": "TRY",
+        "minorUnitDigits": 2,
+        "timeZone": "Europe/Istanbul",
+        "today": "2026-10-25",
+        "nextPayday": "2026-10-25",
+        "daysUntilPayday": 0,
+        "spentSinceSnapshotMinor": 0,
+        "todayOutflowMinor": 0,
+        "todayBudgetImpactMinor": 0,
+        "remainingBalanceMinor": 1000000,
+        "reservedPaymentsMinor": 0,
+        "reservedPaymentIds": [],
+        "savingsReservedMinor": 100000,
+        "spendableAtDayStartMinor": 900000,
+        "spendableMinor": 900000,
+        "budgetDeficitMinor": 0,
+        "periodStatus": "payday-today",
+        "requiresNewPeriod": true,
+        "daily": null
+      }
+    },
+    {
+      "name": "payday-passed",
+      "input": {
+        "currency": "TRY",
+        "asOf": "2026-10-25T12:00:00+03:00",
+        "timeZone": "Europe/Istanbul",
+        "balanceSnapshot": {
+          "amountMinor": 1000000,
+          "capturedAt": "2026-10-20T09:00:00+03:00"
+        },
+        "nextPayday": "2026-10-24",
+        "payments": [
+          {
+            "id": "rent",
+            "amountMinor": 200000,
+            "dueOn": "2026-10-28"
+          }
+        ],
+        "savingsTargetMinor": 100000,
+        "transactions": []
+      },
+      "result": {
+        "currency": "TRY",
+        "minorUnitDigits": 2,
+        "timeZone": "Europe/Istanbul",
+        "today": "2026-10-25",
+        "nextPayday": "2026-10-24",
+        "daysUntilPayday": -1,
+        "spentSinceSnapshotMinor": 0,
+        "todayOutflowMinor": 0,
+        "todayBudgetImpactMinor": 0,
+        "remainingBalanceMinor": 1000000,
+        "reservedPaymentsMinor": 0,
+        "reservedPaymentIds": [],
+        "savingsReservedMinor": 100000,
+        "spendableAtDayStartMinor": 900000,
+        "spendableMinor": 900000,
+        "budgetDeficitMinor": 0,
+        "periodStatus": "payday-passed",
+        "requiresNewPeriod": true,
+        "daily": null
+      }
+    }
+  ],
+  "simulation": {
+    "expenseMinor": 80000,
+    "current": {
+      "currency": "TRY",
+      "minorUnitDigits": 2,
+      "timeZone": "Europe/Istanbul",
+      "today": "2026-10-25",
+      "nextPayday": "2026-11-04",
+      "daysUntilPayday": 10,
+      "spentSinceSnapshotMinor": 150000,
+      "todayOutflowMinor": 50000,
+      "todayBudgetImpactMinor": 50000,
+      "remainingBalanceMinor": 850000,
+      "reservedPaymentsMinor": 200000,
+      "reservedPaymentIds": [
+        "rent"
+      ],
+      "savingsReservedMinor": 100000,
+      "spendableAtDayStartMinor": 600000,
+      "spendableMinor": 550000,
+      "budgetDeficitMinor": 0,
+      "periodStatus": "active",
+      "requiresNewPeriod": false,
+      "daily": {
+        "recommendedDailyMinor": 55000,
+        "todayStartTargetMinor": 60000,
+        "todayRemainingMinor": 10000,
+        "forwardDailyAverageMinor": 60000,
+        "daysAfterToday": 9,
+        "uniformRemainderMinor": 0,
+        "forwardRemainderMinor": 0
+      }
+    },
+    "simulated": {
+      "currency": "TRY",
+      "minorUnitDigits": 2,
+      "timeZone": "Europe/Istanbul",
+      "today": "2026-10-25",
+      "nextPayday": "2026-11-04",
+      "daysUntilPayday": 10,
+      "spentSinceSnapshotMinor": 230000,
+      "todayOutflowMinor": 130000,
+      "todayBudgetImpactMinor": 130000,
+      "remainingBalanceMinor": 770000,
+      "reservedPaymentsMinor": 200000,
+      "reservedPaymentIds": [
+        "rent"
+      ],
+      "savingsReservedMinor": 100000,
+      "spendableAtDayStartMinor": 600000,
+      "spendableMinor": 470000,
+      "budgetDeficitMinor": 0,
+      "periodStatus": "active",
+      "requiresNewPeriod": false,
+      "daily": {
+        "recommendedDailyMinor": 47000,
+        "todayStartTargetMinor": 60000,
+        "todayRemainingMinor": -70000,
+        "forwardDailyAverageMinor": 52222,
+        "daysAfterToday": 9,
+        "uniformRemainderMinor": 0,
+        "forwardRemainderMinor": 2
+      }
+    }
+  }
+}
