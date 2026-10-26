@@ -1,0 +1,81 @@
+{
+  "stage": "7D-1",
+  "date": "2026-10-26",
+  "mainApplicationSchema": 2,
+  "productionV3Enabled": false,
+  "baselineFiles": 134,
+  "changedExistingFiles": [
+    "src/app/dev-periods/new.tsx",
+    "src/features/periods/form-controller.ts"
+  ],
+  "existingTestFilesChanged": [],
+  "packageFilesChanged": [],
+  "checks": {
+    "npmTest": {
+      "passed": 426,
+      "failed": 0,
+      "skipped": 0
+    },
+    "typescript": "passed",
+    "eslint": "passed",
+    "expoDoctor": {
+      "passed": 20,
+      "total": 20
+    },
+    "exports": {
+      "ios": "passed",
+      "android": "passed",
+      "web": "passed"
+    },
+    "sharedNodeSQLite": {
+      "passed": 19,
+      "failed": 0,
+      "includedInNpmTest": true
+    }
+  },
+  "nativeIos": {
+    "status": "physical-iphone-hermes-passed",
+    "executed": true,
+    "sqliteVersion": "3.53.3",
+    "passed": 19,
+    "failed": 0,
+    "evidence": "7d1-ios-native.json",
+    "sameRuntimeReopenPassed": true,
+    "afterUserReportedAppRelaunch": {
+      "passed": true,
+      "freshJavaScriptRuntime": true,
+      "nativeProcessIdMeasured": false,
+      "evidence": "7d1-ios-resume.json"
+    },
+    "secondFullRunOnExistingFiles": {
+      "passed": 1,
+      "rejected": 18,
+      "error": "LAB_FILE_ALREADY_EXISTS",
+      "migrationStarted": false,
+      "evidence": "7d1-ios-reused-files-rejected.json"
+    }
+  },
+  "nativeAndroid": {
+    "status": "no-device",
+    "executed": false
+  },
+  "manualUi": {
+    "labScreenOpenedByUser": true,
+    "expoGoClosedAndLabReopenedReportedByUser": true,
+    "productPeriodScreensTested": false
+  },
+  "audit": {
+    "high": 5,
+    "critical": 0,
+    "productionAuditHigh": 5,
+    "dependenciesChanged": false
+  },
+  "readyForUserDatabase": false,
+  "remaining": [
+    "Android native tests",
+    "Dedicated development build with native process tracking and interruption during transaction",
+    "Physical I/O failure and device-wide storage exhaustion not safely simulated",
+    "Product period form/archive manual native UI tests",
+    "Production v2 backup/upgrade/recovery activation flow remains out of scope"
+  ]
+}

@@ -1,0 +1,98 @@
+Using src/app as the root directory for Expo Router.
+React Compiler enabled
+Starting Metro Bundler
+
+| (node:68328) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+| (Use `node --trace-warnings ...` to show where the warning was created)
+iOS Bundled 5253ms node_modules/expo-router/entry.js (1621 modules)
+Android Bundled 9220ms node_modules/expo-router/entry.js (1722 modules)
+Server rendering is enabled. Learn more: https://docs.expo.dev/router/web/server-rendering/
+λ Bundled 401ms node_modules/expo/node_modules/@expo/cli/node_modules/@expo/router-server/node/render.js (728 modules)
+Web Bundled 715ms node_modules/expo-router/entry.js (1254 modules)
+λ Bundled 13ms node_modules/expo/node_modules/@expo/cli/node_modules/@expo/router-server/node/render.js (1 module)
+
+› Assets (65):
+assets/images/expo-badge-white.02efb8472f161bcf8afc8c8489a28fca.png (4.1KB)
+assets/images/expo-badge-white.png (4.1KB)
+assets/images/expo-badge.6b0da8ec880685d1bd053c0f5ea9d09d.png (4.1KB)
+assets/images/expo-badge.png (4.1KB)
+assets/images/react-logo.d883906de993aa65bf0ef0d1bc2ff6ad.png (3 variations | 14KB)
+assets/images/react-logo.png (3 variations | 14KB)
+assets/images/tutorial-web.c62d22797f3002396754d8cc55b0ae1a.png (59KB)
+assets/images/tutorial-web.png (59KB)
+node_modules/@expo-google-fonts/material-symbols/400Regular/MaterialSymbols_400Regular.6b4f0c2d698edccb36b0f132059c0205.ttf (972KB)
+node_modules/@expo-google-fonts/material-symbols/400Regular/MaterialSymbols_400Regular.ttf (972KB)
+node_modules/expo-router/assets/arrow_down.017bc6ba3fc25503e5eb5e53826d48a8.png (9.5KB)
+node_modules/expo-router/assets/arrow_down.png (9.5KB)
+node_modules/expo-router/assets/arrow_right.xml (307B)
+node_modules/expo-router/assets/checkmark.xml (312B)
+node_modules/expo-router/assets/error.d1ea1496f9057eb392d5bbf3732a61b7.png (469B)
+node_modules/expo-router/assets/error.png (469B)
+node_modules/expo-router/assets/file.19eeb73b9593a38f8e9f418337fc7d10.png (138B)
+node_modules/expo-router/assets/file.png (138B)
+node_modules/expo-router/assets/forward.d8b800c443b8972542883e0b9de2bdc6.png (188B)
+node_modules/expo-router/assets/forward.png (188B)
+node_modules/expo-router/assets/pkg.ab19f4cbc543357183a20571f68380a3.png (364B)
+node_modules/expo-router/assets/pkg.png (364B)
+node_modules/expo-router/assets/react-navigation/elements/back-icon-mask.0a328cd9c1afd0afe8e3b1ec5165b1b4.png (653B)
+node_modules/expo-router/assets/react-navigation/elements/back-icon-mask.png (653B)
+node_modules/expo-router/assets/react-navigation/elements/back-icon.35ba0eaec5a4f5ed12ca16fabeae451d.png (207B)
+node_modules/expo-router/assets/react-navigation/elements/back-icon.png (8 variations | 359B)
+node_modules/expo-router/assets/react-navigation/elements/clear-icon.c94f6478e7ae0cdd9f15de1fcb9e5e55.png (4 variations | 425B)
+node_modules/expo-router/assets/react-navigation/elements/clear-icon.png (4 variations | 425B)
+node_modules/expo-router/assets/react-navigation/elements/close-icon.808e1b1b9b53114ec2838071a7e6daa7.png (4 variations | 235B)
+node_modules/expo-router/assets/react-navigation/elements/close-icon.png (4 variations | 235B)
+node_modules/expo-router/assets/react-navigation/elements/search-icon.286d67d3f74808a60a78d3ebf1a5fb57.png (928B)
+node_modules/expo-router/assets/react-navigation/elements/search-icon.png (7 variations | 592B)
+node_modules/expo-router/assets/sitemap.412dd9275b6b48ad28f5e3d81bb1f626.png (465B)
+node_modules/expo-router/assets/sitemap.png (465B)
+node_modules/expo-router/assets/unmatched.20e71bdf79e3a97bf55fd9e164041578.png (4.8KB)
+node_modules/expo-router/assets/unmatched.png (4.8KB)
+
+› ios bundles (2):
+_expo/static/js/ios/entry-8889cac655f891f1a3508caed8b41b05.hbc (3.3MB)
+_expo/static/js/ios/entry-8889cac655f891f1a3508caed8b41b05.hbc.map (8MB)
+
+› android bundles (2):
+_expo/static/js/android/entry-9eeff111ba440b87009805a7e702988e.hbc (3.5MB)
+_expo/static/js/android/entry-9eeff111ba440b87009805a7e702988e.hbc.map (8.3MB)
+
+› web bundles (31):
+_expo/server/render.js (2.4MB)
+_expo/server/render.js.map (3MB)
+_expo/static/css/global-87fd0564cfa78f37afcb8d7603e15d75.css (397B)
+_expo/static/js/web/__common-9fe104138eb1370f8101ee522c6dcd34.js (188KB)
+_expo/static/js/web/__common-9fe104138eb1370f8101ee522c6dcd34.js.map (504KB)
+_expo/static/js/web/__expo-metro-runtime-8c088df87a31e4e6accd81c554ec290d.js (3.9KB)
+_expo/static/js/web/__expo-metro-runtime-8c088df87a31e4e6accd81c554ec290d.js.map (47KB)
+_expo/static/js/web/_layout-53e78c69adec776de77b957ef907a4ec.js (1.7KB)
+_expo/static/js/web/_layout-53e78c69adec776de77b957ef907a4ec.js.map (3.3KB)
+_expo/static/js/web/_layout-586043b11e584fb4b7f91b1496a242b0.js (744B)
+_expo/static/js/web/_layout-586043b11e584fb4b7f91b1496a242b0.js.map (1.7KB)
+_expo/static/js/web/[periodId]-918ba16169e77fbc08fecc6e30a8a059.js (7.1KB)
+_expo/static/js/web/[periodId]-918ba16169e77fbc08fecc6e30a8a059.js.map (15KB)
+_expo/static/js/web/budget-setup-9e7f994424c201904ac9c5e3e0322622.js (28KB)
+_expo/static/js/web/budget-setup-9e7f994424c201904ac9c5e3e0322622.js.map (68KB)
+_expo/static/js/web/demo-4c48ac470b49c32119ddfbf54ea77dc4.js (21KB)
+_expo/static/js/web/demo-4c48ac470b49c32119ddfbf54ea77dc4.js.map (52KB)
+_expo/static/js/web/entry-0938367e7e98b7fadd4c66b90261ad26.js (1.1MB)
+_expo/static/js/web/entry-0938367e7e98b7fadd4c66b90261ad26.js.map (5MB)
+_expo/static/js/web/expense-add-1bd7a5fbe2cd154537a33c7e29ace711.js (8.7KB)
+_expo/static/js/web/expense-add-1bd7a5fbe2cd154537a33c7e29ace711.js.map (22KB)
+_expo/static/js/web/explore-c215d3ee50b2ac5a8c8596f220f163cc.js (785KB)
+_expo/static/js/web/explore-c215d3ee50b2ac5a8c8596f220f163cc.js.map (1.9MB)
+_expo/static/js/web/history-f4e8acec4f4af41be2d0b46c944f2558.js (3.3KB)
+_expo/static/js/web/history-f4e8acec4f4af41be2d0b46c944f2558.js.map (7.3KB)
+_expo/static/js/web/index-95736d5dafc557beaf341c64d025807a.js (19KB)
+_expo/static/js/web/index-95736d5dafc557beaf341c64d025807a.js.map (41KB)
+_expo/static/js/web/index-c97f8dac28420d5871e50a8838a78dd3.js (3.4KB)
+_expo/static/js/web/index-c97f8dac28420d5871e50a8838a78dd3.js.map (6.9KB)
+_expo/static/js/web/new-f66205315c8c1ff6c045a5ce09488671.js (12KB)
+_expo/static/js/web/new-f66205315c8c1ff6c045a5ce09488671.js.map (25KB)
+
+› Files (3):
+_expo/routes.json (5KB)
+favicon.ico (15KB)
+metadata.json (4.1KB)
+
+Exported: /private/tmp/gunluk-butcem-7d1-export

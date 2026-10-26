@@ -1,0 +1,82 @@
+{
+  "stage": "7D-2",
+  "date": "2026-10-26",
+  "decision": {
+    "isolatedRehearsal": "GO",
+    "realUserActivation": "NO-GO"
+  },
+  "production": {
+    "schema": 2,
+    "userDatabaseOpened": false,
+    "userDatabaseMigrated": false,
+    "dataDeleted": false,
+    "packageUpgrades": false
+  },
+  "automated": {
+    "passed": 442,
+    "failed": 0,
+    "skipped": 0,
+    "previous426Preserved": true,
+    "nodeSQLite": {
+      "first": 33,
+      "second": 33,
+      "previousRunPreserved": true
+    },
+    "typescript": "passed",
+    "eslint": "passed",
+    "expoDoctor": "20/20",
+    "exports": [
+      "ios",
+      "android",
+      "web"
+    ]
+  },
+  "nativeIos": [
+    {
+      "file": "7d2-ios-native-a1ca5c99375bcf9ac472bb1fc6a38884.json",
+      "runId": "a1ca5c99375bcf9ac472bb1fc6a38884",
+      "passed": 33,
+      "failed": 0,
+      "sqlite": "3.53.3"
+    },
+    {
+      "file": "7d2-ios-native-f27de463f2720631e16580ec48768d33.json",
+      "runId": "f27de463f2720631e16580ec48768d33",
+      "passed": 33,
+      "failed": 0,
+      "sqlite": "3.53.3"
+    }
+  ],
+  "relaunch": {
+    "file": "7d2-ios-resume-3fe740c011dccd272f600bb331fbf027.json",
+    "runScenarios": 31,
+    "journalCheckpointFound": true,
+    "freshJavaScriptRuntime": true,
+    "nativeProcessRestartVerified": false,
+    "passed": true
+  },
+  "android": {
+    "tested": false,
+    "reason": "No connected device/adb"
+  },
+  "manualUi": {
+    "labOpened": true,
+    "productPeriodScreensTapped": false,
+    "controllerWorkspaceIntegrationOnNative": true
+  },
+  "audit": {
+    "high": 5,
+    "critical": 0,
+    "omitDevHigh": 5,
+    "fixApplied": false
+  },
+  "remaining": [
+    "Android native coverage",
+    "Signed build and product UI end-to-end tests",
+    "Native interruption during transaction and process identity tracking",
+    "Production writer pause and durable atomic activation journal/catalog",
+    "Explicit authorization to access/backup/activate real user database",
+    "Audit remediation or documented release risk acceptance",
+    "Larger history resource measurements"
+  ]
+}

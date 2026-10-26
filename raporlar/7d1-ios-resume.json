@@ -1,0 +1,125 @@
+{
+  "error": null,
+  "identity": {
+    "development": true,
+    "hermes": true,
+    "independentApp": true,
+    "physicalDevice": true,
+    "platform": "ios"
+  },
+  "report": {
+    "failed": 18,
+    "notRun": [
+      "Physical whole-device disk exhaustion",
+      "OS process termination/power loss in shared Expo Go sandbox",
+      "Native cold application restart (separate from SQLite close/reopen)"
+    ],
+    "passed": 1,
+    "results": [
+      {
+        "detail": "LAB_FILE_ALREADY_EXISTS",
+        "id": "empty-to-v3-repeat-and-reopen",
+        "status": "failed"
+      },
+      {
+        "detail": "LAB_FILE_ALREADY_EXISTS",
+        "id": "v1-to-v3-all-identities-and-receipts",
+        "status": "failed"
+      },
+      {
+        "detail": "LAB_FILE_ALREADY_EXISTS",
+        "id": "v2-to-v3-all-identities-and-receipts",
+        "status": "failed"
+      },
+      {
+        "detail": "LAB_FILE_ALREADY_EXISTS",
+        "id": "v1-migration-rollback-copy",
+        "status": "failed"
+      },
+      {
+        "detail": "LAB_FILE_ALREADY_EXISTS",
+        "id": "v1-migration-rollback-replace",
+        "status": "failed"
+      },
+      {
+        "detail": "LAB_FILE_ALREADY_EXISTS",
+        "id": "v1-migration-rollback-guards",
+        "status": "failed"
+      },
+      {
+        "detail": "LAB_FILE_ALREADY_EXISTS",
+        "id": "v1-migration-rollback-version",
+        "status": "failed"
+      },
+      {
+        "detail": "LAB_FILE_ALREADY_EXISTS",
+        "id": "v2-migration-rollback-copy",
+        "status": "failed"
+      },
+      {
+        "detail": "LAB_FILE_ALREADY_EXISTS",
+        "id": "v2-migration-rollback-replace",
+        "status": "failed"
+      },
+      {
+        "detail": "LAB_FILE_ALREADY_EXISTS",
+        "id": "v2-migration-rollback-guards",
+        "status": "failed"
+      },
+      {
+        "detail": "LAB_FILE_ALREADY_EXISTS",
+        "id": "v2-migration-rollback-version",
+        "status": "failed"
+      },
+      {
+        "detail": "LAB_FILE_ALREADY_EXISTS",
+        "id": "a-b-c-replay-isolation-and-selected-bills",
+        "status": "failed"
+      },
+      {
+        "detail": "LAB_FILE_ALREADY_EXISTS",
+        "id": "revision-conflict-and-transaction-failure",
+        "status": "failed"
+      },
+      {
+        "detail": "LAB_FILE_ALREADY_EXISTS",
+        "id": "two-independent-connections-start-race",
+        "status": "failed"
+      },
+      {
+        "detail": "LAB_FILE_ALREADY_EXISTS",
+        "id": "readonly-write-error-rollback-and-retry",
+        "status": "failed"
+      },
+      {
+        "detail": "LAB_FILE_ALREADY_EXISTS",
+        "id": "bounded-sqlite-full-rolls-back-financial-write",
+        "status": "failed"
+      },
+      {
+        "detail": "LAB_FILE_ALREADY_EXISTS",
+        "id": "close-with-uncommitted-transaction-and-reopen",
+        "status": "failed"
+      },
+      {
+        "detail": "LAB_FILE_ALREADY_EXISTS",
+        "id": "wal-online-backup-restore-and-reopen",
+        "status": "failed"
+      },
+      {
+        "id": "owned-connections-closed",
+        "status": "passed"
+      }
+    ],
+    "runId": "58dd44b0ddcbbdb95870c6f298f5100c",
+    "scope": "independent-synthetic-files",
+    "sqliteVersion": null
+  },
+  "resume": {
+    "freshJavaScriptRuntime": true,
+    "nativeProcessRestartVerified": false,
+    "passed": true
+  },
+  "stage": "resume-owned-checkpoints",
+  "status": "complete"
+}

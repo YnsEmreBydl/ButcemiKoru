@@ -166,7 +166,9 @@ test('Expense SQLite: actual occurrence and entry time are distinct and late ent
 test('Expense SQLite: expired periods reject new entries but allow correcting historical mistakes', async (t) => {
   const { repo } = await fixture(t); await repo.addExpense(add());
   const late = '2026-11-05T09:00:00Z';
-  await assert.rejects(repo.addExpense(add({ operationId: 'late', expectedRevision: 2, asOf: late })), { code: 'NEW_PERIOD_REQUIRED' });
+  for (const asOf of ['2026-11-04T09:00:00Z', late]) {
+    await assert.rejects(repo.addExpense(add({ operationId: 'late', expectedRevision: 2, asOf })), { code: 'NEW_PERIOD_REQUIRED' });
+  }
   const corrected = await repo.cancelExpense(cancel({ asOf: late, cancelledAt: late }));
   assert.equal(corrected.result.periodStatus, 'payday-passed');
   assert.equal(corrected.result.remainingBalanceMinor, 1000000);
@@ -218,6 +220,19 @@ test('Expense SQLite: metadata winning the race prevents a stale expense and all
   assert.equal(outcomes[0].status, 'fulfilled'); assert.equal(outcomes[1].status, 'rejected');
   assert.equal((await repo.load(now))?.expenses.length, 0);
   assert.equal((await repo.addExpense(add({ expectedRevision: 2 }))).expenses.length, 1);
+});
+
+test('Expense SQLite: retry after a concurrent balance snapshot keeps the actual occurrence cutoff', async (t) => {
+  const { repo } = await fixture(t);
+  const pendingExpense = add();
+  await repo.save(command({ operationId: 'new-opening', expectedRevision: 1, input: {
+    ...command().input, asOf: now, balanceSnapshot: { amountMinor: 900000, capturedAt: now },
+  } }));
+  await assert.rejects(repo.addExpense(pendingExpense), { code: 'CONFLICT' });
+  const retried = await repo.addExpense({ ...pendingExpense, expectedRevision: 2 });
+  assert.equal(retried.result.remainingBalanceMinor, 900000);
+  assert.equal(retried.result.spentSinceSnapshotMinor, 0);
+  assert.equal(retried.expenses[0].occurredAt, '2026-10-25T08:00:00.000Z');
 });
 
 test('Expense SQLite: opening changes remain locked after cancellation and SQL cannot bypass the lock', async (t) => {
@@ -293,6 +308,13 @@ test('Expense SQLite: corrupted cancelled data is validated even though it is ex
   const { repo, db } = await fixture(t); await repo.addExpense(add()); await repo.cancelExpense(cancel());
   db.db.exec("DROP TRIGGER expense_immutable; PRAGMA ignore_check_constraints=ON; UPDATE budget_expenses SET category='forged'");
   await assert.rejects(repo.load(now), { code: 'INVALID_DATA' });
+});
+
+test('Expense SQLite: an operation receipt cannot confirm a different persisted expense', async (t) => {
+  const { repo, db } = await fixture(t); await repo.addExpense(add());
+  db.db.exec('DROP TRIGGER expense_immutable; UPDATE budget_expenses SET amount_minor=1');
+  await assert.rejects(repo.addExpense(add()), { code: 'INVALID_DATA' });
+  assert.equal(db.db.prepare('SELECT count(*) AS n FROM budget_expenses').get()?.n, 1);
 });
 
 for (const [label, patch] of [

@@ -1,0 +1,55 @@
+{
+  "fiberRootsAvailable": true,
+  "hookAvailable": true,
+  "renderStack": [
+    {
+      "methodName": "RNSlotHOC",
+      "file": "node_modules/expo-router/build/ui/Slot.js",
+      "lineNumber": 93,
+      "column": 50
+    },
+    {
+      "methodName": "BaseExpoRouterLink",
+      "file": "node_modules/expo-router/build/link/BaseExpoRouterLink.js",
+      "lineNumber": 84,
+      "column": 0
+    },
+    {
+      "methodName": "ExpoLinkImpl",
+      "file": "node_modules/expo-router/build/link/ExpoLink.js",
+      "lineNumber": 83,
+      "column": 59
+    },
+    {
+      "methodName": "ZoomTransitionSourceContextProvider",
+      "file": "node_modules/expo-router/build/link/zoom/zoom-transition-context-providers.ios.js",
+      "lineNumber": 43,
+      "column": 0
+    },
+    {
+      "methodName": "View",
+      "file": "node_modules/react-native/Libraries/Components/View/View.js",
+      "lineNumber": 31,
+      "column": 0
+    },
+    {
+      "methodName": "BudgetSummary",
+      "file": "src/features/saved-budget/budget-summary.tsx",
+      "lineNumber": 8,
+      "column": 7
+    },
+    {
+      "methodName": "View",
+      "file": "node_modules/react-native/Libraries/Components/View/View.js",
+      "lineNumber": 31,
+      "column": 0
+    },
+    {
+      "methodName": "View",
+      "file": "node_modules/react-native/Libraries/Components/View/View.js",
+      "lineNumber": 31,
+      "column": 0
+    }
+  ],
+  "rendererCount": 1
+}

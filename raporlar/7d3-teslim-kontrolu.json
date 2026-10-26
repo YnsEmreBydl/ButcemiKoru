@@ -1,0 +1,11 @@
+{
+  "reportPresent": true,
+  "reportLinks": 15,
+  "brokenReportLinks": [],
+  "priorTestsUnchanged": true,
+  "domainUnchanged": true,
+  "priorMigrationsAndV3RepositoryUnchanged": true,
+  "packagesUnchanged": true,
+  "productionHostStillV2": true,
+  "realFilesOpened": false
+}

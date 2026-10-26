@@ -1,0 +1,17 @@
+{
+  "isHermes": true,
+  "platform": "ios",
+  "slots": [
+    {
+      "childStyleIsArray": false,
+      "childStyleType": "object",
+      "inBudgetSummary": true
+    },
+    {
+      "childStyleIsArray": false,
+      "childStyleType": "object",
+      "inBudgetSummary": true
+    }
+  ],
+  "summaryFound": true
+}

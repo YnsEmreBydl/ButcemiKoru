@@ -1,0 +1,194 @@
+{
+  "inputs": [
+    {
+      "placeholder": "GG.AA.YYYY",
+      "value": "25.10.2026"
+    },
+    {
+      "placeholder": "GG.AA.YYYY",
+      "value": "25.10.2026"
+    },
+    {
+      "placeholder": "GG.AA.YYYY",
+      "value": "25.10.2026"
+    },
+    {
+      "placeholder": "GG.AA.YYYY",
+      "value": "25.10.2026"
+    },
+    {
+      "placeholder": "Bakiyenizi siz yazın",
+      "value": "3.000,25"
+    },
+    {
+      "placeholder": "GG.AA.YYYY",
+      "value": "26.11.2026"
+    },
+    {
+      "placeholder": "Örn. 1.000,00",
+      "value": "500,00"
+    },
+    {
+      "placeholder": "Örn. 1.000,00",
+      "value": "500,00"
+    },
+    {
+      "placeholder": "Örn. 1.000,00",
+      "value": "500,00"
+    },
+    {
+      "placeholder": "Örn. 1.000,00",
+      "value": "500,00"
+    },
+    {
+      "placeholder": "GG.AA.YYYY",
+      "value": "26.11.2026"
+    },
+    {
+      "placeholder": "GG.AA.YYYY",
+      "value": "26.11.2026"
+    },
+    {
+      "placeholder": "GG.AA.YYYY",
+      "value": "26.11.2026"
+    },
+    {
+      "placeholder": "Bakiyenizi siz yazın",
+      "value": "3.000,25"
+    },
+    {
+      "placeholder": "Bakiyenizi siz yazın",
+      "value": "3.000,25"
+    },
+    {
+      "placeholder": "Bakiyenizi siz yazın",
+      "value": "3.000,25"
+    }
+  ],
+  "texts": [
+    "Yerel dönem kayıtları · Banka bağlantısı veya bulut senkronizasyonu yoktur.",
+    "Hesaplamak kayıt yapmaz. İşlem bitmeden başarı gösterilmez. Ekranlar arasında gezinmek işlemi yeniden başlatmaz.",
+    "Yeni dönemi kaydet",
+    "Eski dönemin arşivleneceğini ve finansal kayıtlarının değiştirilemeyeceğini anladım.",
+    "Yazdığım bakiyenin güncel ve kullanılabilir olduğunu onaylıyorum.",
+    "Devam etmeden önce",
+    "₺500,25",
+    "Toplam harcanabilir",
+    "₺500,00",
+    "Birikim hedefi",
+    "₺2.000,00",
+    "Faturalar için ayrılan",
+    "₺3.000,25",
+    "Kullanılabilir bakiye",
+    "31",
+    " takvim günü · Maaş geliri eklenmedi",
+    "₺16,13",
+    "Günlük harcama önerisi",
+    "YENİ DÖNEMİN ÖN İZLEMESİ",
+    "Ön izlemeyi hesapla",
+    "Yeni maaş tarihinden önce olmalı. Ödenmemiş eski vade tarihini de koruyabilirsiniz.",
+    "Synthetic bill için yeni dönem vadesi",
+    "Synthetic bill · ₺2.000,00",
+    "✓",
+    "Synthetic electric · ₺100,00",
+    "Her faturayı siz seçin. İsim ve tutar kaynak kayıttan kopyalanır; bu aşamada vadesini düzenleyebilirsiniz. Eski fatura yerinde kalır.",
+    "Taşımak istediğiniz faturalar",
+    "Boş bırakırsanız birikim için tutar ayrılmaz.",
+    "Birikim hedefi (TL) · İsteğe bağlı",
+    "Bütçenizin yerel takviminde bugünden sonraki maaş tarihini yazın.",
+    "Sonraki maaş tarihi",
+    "Şu an gerçekten kullanılabilir tutar. Sıfır veya negatif bakiye yazabilirsiniz. Maaş tutarı değildir.",
+    "Güncel kullanılabilir bakiye (TL)",
+    "Yeni başlangıcınız",
+    "Kaynak dönem: ",
+    "19.10.2026 — 26.10.2026",
+    ". Önceki bakiye ve harcamalar yeni başlangıca eklenmez.",
+    "Güncel bakiyenizi belirleyin. Geçmişinizi arşivde koruyarak devam edin.",
+    "Yeni döneminizi oluşturun",
+    "GÜNLÜK BÜTÇEM",
+    "DÖNEMLER",
+    "‹ Geri",
+    "Yerel dönem kayıtları · Banka bağlantısı veya bulut senkronizasyonu yoktur.",
+    "Dönem geçmişini görüntüle",
+    "Yeni dönem oluştur",
+    "Bu tutar yeni dönemin bakiye alanına otomatik aktarılmaz. Maaşın yattığı varsayılmaz.",
+    "₺9.998,99",
+    "Dönemde kalan bakiye",
+    "Maaş günü geldi. Yeni dönem için güncel bakiyenizi siz belirleyin; geçmiş kayıtlar arşivde kalsın.",
+    "19.10.2026 — 26.10.2026",
+    "BU CİHAZDA",
+    "DÖNEM SONA ERDİ",
+    "Yeni döneminizi oluşturun veya kayıtlı dönemlerinizi inceleyin.",
+    "Yeni bir döneme, temiz bir başlangıç.",
+    "GÜNLÜK BÜTÇEM",
+    "DÖNEMLER",
+    "‹ Geri",
+    "Ayrı DEMO ekranını aç · örnek veriler",
+    "Bu bir planlama önerisidir; kesin harcama güvenliği anlamına gelmez.",
+    "Yerel veritabanı varsayılan olarak şifreli değildir. Uygulama bulut yedeği veya cihazlar arası eşitleme yapmaz. Cihazınızın kendi yedekleme ayarları ayrıca geçerlidir.",
+    "Hatalı kaydı iptal et",
+    "Başlangıç bakiyesine dahil; tekrar düşülmedi. İptal bakiyeyi artırmaz.",
+    "18 Eki 2026 11:00",
+    "Synthetic test",
+    "-₺1,01",
+    "Market",
+    "Hatalı kaydı iptal et",
+    "Başlangıç bakiyesine dahil; tekrar düşülmedi. İptal bakiyeyi artırmaz.",
+    "19 Eki 2026 09:00",
+    "Synthetic test",
+    "-₺1,01",
+    "Market",
+    "İptal edildi",
+    " · 25 Eki 2026 11:30",
+    "24 Eki 2026 11:00",
+    "Synthetic test",
+    "-₺1,01",
+    "Market",
+    "Hatalı kaydı iptal et",
+    "25 Eki 2026 11:00",
+    "Synthetic test",
+    "-₺1,01",
+    "Market",
+    "Harcama geçmişi",
+    "Bütçeyi yeniden hesapla",
+    "₺2.000,00",
+    " · ",
+    "25.10.2026",
+    "Synthetic bill",
+    "₺100,00",
+    " · ",
+    "25.10.2026",
+    "Synthetic electric",
+    "Bekleyen faturalar",
+    "Harcama geçmişi olan dönemde başlangıç bakiyesi ve maaş tarihi değiştirilemez. Banka bakiyesi otomatik güncellenmez.",
+    "Bütçe bilgilerimi düzenle",
+    "Dönem geçmişi ve arşiv",
+    "Yeni bütçe dönemi oluştur",
+    "Harcama ekle",
+    "Birikim hedefi: ",
+    "₺1.000,00",
+    "Bekleyen faturalar: ",
+    "₺2.100,00",
+    "Harcamalar sonrası hesap bakiyesi: ",
+    "₺9.998,99",
+    "₺6.898,99",
+    "Toplam harcanabilir tutar",
+    " (girilen dönem)",
+    "Bu dönem sona erdi. Yeni dönemde güncel kullanılabilir bakiyenizi açıkça girin; maaş geliri otomatik eklenmez.",
+    "Maaşa kalan: ",
+    "0",
+    " gün · ",
+    "26.10.2026",
+    "Yeni bütçe dönemi gerekiyor",
+    "GÜNLÜK ÖNERİLEN HARCAMA",
+    "Bütçenin saat dilimi: ",
+    "Europe/Istanbul",
+    "BU CİHAZDA KAYITLI · ",
+    "26.10.2026",
+    "Günlük Bütçem",
+    "Testler",
+    "Dönemler",
+    "Ana ekran",
+    "7D-3 · BAĞIMSIZ TEST · YALNIZ SENTETİK KAYITLAR"
+  ]
+}

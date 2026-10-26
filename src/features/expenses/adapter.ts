@@ -1,7 +1,7 @@
 import { calculateBudget } from '../../domain/budget';
 import type { AddExpenseCommand, ExpenseCategory, SavedBudget } from '../../data/budget/contracts';
 import { storageErrorMessage } from '../../data/budget/errors';
-import { assertCalculation, isExpenseCategory, validateExpenseData } from '../../data/budget/expense-validation';
+import { assertCalculation, isExpenseCategory, sameExpenseData, validateExpenseData } from '../../data/budget/expense-validation';
 import { parseTurkishMoney } from '../budget-setup/input';
 
 export const categoryLabels: Record<ExpenseCategory, string> = {
@@ -42,10 +42,7 @@ export function prepareExpense(draft: ExpenseDraft, saved: SavedBudget, context:
 export function reconcileExpenseAttempt(command: AddExpenseCommand, saved: SavedBudget | null): 'saved' | 'missing' | 'conflict' {
   const row = saved?.expenses.find((expense) => expense.id === command.expense.id);
   if (!row) return 'missing';
-  const expected = command.expense;
-  return row.periodId === command.periodId && row.amountMinor === expected.amountMinor &&
-    row.category === expected.category && row.description === expected.description &&
-    row.occurredAt === expected.occurredAt && row.createdAt === expected.createdAt ? 'saved' : 'conflict';
+  return row.periodId === command.periodId && sameExpenseData(row, command.expense) ? 'saved' : 'conflict';
 }
 
 export function formatExpenseTime(instant: string, timeZone: string): string {

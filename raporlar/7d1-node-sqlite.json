@@ -1,0 +1,93 @@
+{
+  "runtime": "node:sqlite",
+  "report": {
+    "scope": "independent-synthetic-files",
+    "runId": "9c01701d50a8a5033c1d7988ba29a265",
+    "results": [
+      {
+        "id": "empty-to-v3-repeat-and-reopen",
+        "status": "passed"
+      },
+      {
+        "id": "v1-to-v3-all-identities-and-receipts",
+        "status": "passed"
+      },
+      {
+        "id": "v2-to-v3-all-identities-and-receipts",
+        "status": "passed"
+      },
+      {
+        "id": "v1-migration-rollback-copy",
+        "status": "passed"
+      },
+      {
+        "id": "v1-migration-rollback-replace",
+        "status": "passed"
+      },
+      {
+        "id": "v1-migration-rollback-guards",
+        "status": "passed"
+      },
+      {
+        "id": "v1-migration-rollback-version",
+        "status": "passed"
+      },
+      {
+        "id": "v2-migration-rollback-copy",
+        "status": "passed"
+      },
+      {
+        "id": "v2-migration-rollback-replace",
+        "status": "passed"
+      },
+      {
+        "id": "v2-migration-rollback-guards",
+        "status": "passed"
+      },
+      {
+        "id": "v2-migration-rollback-version",
+        "status": "passed"
+      },
+      {
+        "id": "a-b-c-replay-isolation-and-selected-bills",
+        "status": "passed"
+      },
+      {
+        "id": "revision-conflict-and-transaction-failure",
+        "status": "passed"
+      },
+      {
+        "id": "two-independent-connections-start-race",
+        "status": "passed"
+      },
+      {
+        "id": "readonly-write-error-rollback-and-retry",
+        "status": "passed"
+      },
+      {
+        "id": "bounded-sqlite-full-rolls-back-financial-write",
+        "status": "passed"
+      },
+      {
+        "id": "close-with-uncommitted-transaction-and-reopen",
+        "status": "passed"
+      },
+      {
+        "id": "wal-online-backup-restore-and-reopen",
+        "status": "passed"
+      },
+      {
+        "id": "owned-connections-closed",
+        "status": "passed"
+      }
+    ],
+    "passed": 19,
+    "failed": 0,
+    "sqliteVersion": "3.50.2",
+    "notRun": [
+      "Physical whole-device disk exhaustion",
+      "OS process termination/power loss in shared Expo Go sandbox",
+      "Native cold application restart (separate from SQLite close/reopen)"
+    ]
+  }
+}

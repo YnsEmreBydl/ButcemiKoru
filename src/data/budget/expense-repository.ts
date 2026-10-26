@@ -2,7 +2,7 @@ import { calendarDateAt, calendarDaysBetween } from '../../domain/budget';
 
 import type { AddExpenseCommand, AtomicDatabase, BudgetRepository, CancelExpenseCommand, SavedBudget, SqlSession } from './contracts';
 import { BudgetStorageError } from './errors';
-import { assertCalculation, identifier, normalizeInstant, validateExpenseData, validateMutation } from './expense-validation';
+import { assertCalculation, identifier, normalizeInstant, sameExpenseData, validateExpenseData, validateMutation } from './expense-validation';
 import { integer, invalidData } from './guards';
 import { advanceRevision, requireBudget } from './records';
 
@@ -33,7 +33,8 @@ export function createExpenseOperations(database: AtomicDatabase, serial: Serial
         return database.transaction(async (tx) => {
           const current = await requireBudget(tx, command.asOf);
           if (await isReplay(tx, command.operationId, payload, current)) {
-            if (!current.expenses.some((row) => row.id === expense.id)) invalidData();
+            const stored = current.expenses.find((row) => row.id === expense.id);
+            if (!stored || !sameExpenseData(stored, expense)) invalidData();
             return current;
           }
           if (current.result.requiresNewPeriod) throw new BudgetStorageError('NEW_PERIOD_REQUIRED', 'Bu bütçe dönemi sona erdi. Yeni harcama kaydedilemez; geçmişteki hatalı kayıtları iptal edebilirsiniz.');
@@ -60,7 +61,7 @@ export function createExpenseOperations(database: AtomicDatabase, serial: Serial
           const expense = current.expenses.find((row) => row.id === command.expenseId);
           if (!expense) throw new BudgetStorageError('NOT_FOUND', 'Harcama kaydı bulunamadı.');
           if (await isReplay(tx, command.operationId, payload, current)) {
-            if (expense.status !== 'cancelled') invalidData();
+            if (expense.status !== 'cancelled' || expense.cancelledAt !== cancelledAt) invalidData();
             return current;
           }
           if (expense.status === 'cancelled') throw new BudgetStorageError('ALREADY_CANCELLED', 'Bu harcama zaten iptal edilmiş.');

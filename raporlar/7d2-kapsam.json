@@ -1,0 +1,18 @@
+{
+  "date": "2026-10-26",
+  "baselineFiles": 146,
+  "changedExisting": [
+    "src/devtools/native-v3/driver.native.ts",
+    "src/devtools/native-v3/lab-app.tsx",
+    "src/devtools/native-v3/runtime.native.ts",
+    "src/features/saved-budget/home-screen.tsx",
+    "src/features/saved-budget/use-saved-budget.ts",
+    "scripts/run-native-v3-lab.mjs"
+  ],
+  "existingTestFilesChanged": [],
+  "packageFilesChanged": [],
+  "productionOpenerChanged": false,
+  "schemaVersion": 2,
+  "realUserDatabaseOpened": false,
+  "productionV3Enabled": false
+}

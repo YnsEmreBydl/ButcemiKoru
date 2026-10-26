@@ -1,0 +1,84 @@
+{
+  "stage": "7D-3",
+  "date": "2026-10-26",
+  "decision": {
+    "isolatedIOSIntegration": "GO",
+    "realUserV3Activation": "NO-GO"
+  },
+  "automation": {
+    "node": "v24.4.0",
+    "tests": 459,
+    "passed": 459,
+    "failed": 0,
+    "skipped": 0,
+    "baselineTests": 442,
+    "baselineTestsRemoved": 0,
+    "typeScriptExit": 0,
+    "eslintExit": 0,
+    "expoDoctorChecks": 20,
+    "expoDoctorPassed": 20
+  },
+  "native": {
+    "ios": {
+      "physical": true,
+      "hermes": true,
+      "expoGo": true,
+      "sqliteVersion": "3.53.3",
+      "scenarios": 10,
+      "passed": 10,
+      "failed": 0,
+      "evidence": "raporlar/7d3-ios-native-http-1793043858303-0058d2.json",
+      "coldAppRestartWithNewPeriodAndCancelledExpense": true,
+      "sourceSchema": 2,
+      "activeSchema": 3,
+      "activatedTransitions": 1
+    },
+    "android": {
+      "performed": false,
+      "reason": "No Android device/adb"
+    },
+    "signedStandaloneBuild": {
+      "performed": false
+    }
+  },
+  "ui": {
+    "method": "Real iPhone RN fiber inspection and existing event handlers; not physical coordinate automation",
+    "newPeriodPreview": true,
+    "archive": true,
+    "expense": true,
+    "cancellation": true,
+    "nativeCancellationConfirmation": "User physically pressed confirmation",
+    "appColdRestart": "User closed and reopened Expo Go",
+    "manualFullNavigationCheck": "User confirmed physical taps open Ana ekran, Dönemler and Testler; scope limited to these three header buttons",
+    "physicalKeyboardAndVoiceOverPerformed": false
+  },
+  "bundling": {
+    "main": [
+      "ios Hermes bytecode",
+      "android Hermes bytecode",
+      "web"
+    ],
+    "independentPortableProject": [
+      "ios Hermes bytecode",
+      "android Hermes bytecode"
+    ],
+    "exportOnly": true
+  },
+  "security": {
+    "fullAuditHigh": 5,
+    "omitDevHigh": 5,
+    "critical": 0,
+    "dependencyChanges": false,
+    "auditFixRun": false
+  },
+  "limits": {
+    "realUserDatabaseOpened": false,
+    "productionV3Enabled": false,
+    "realUserFilesDeletedOrRenamed": false,
+    "physicalDiskFullOrPowerCutSimulated": false,
+    "governedWritersOnly": true
+  },
+  "evidenceHashes": {
+    "nativeHttp": "eded2a90fd9116e2c9fd72e5fcd2dc4b089216f0097db77c730cb6e23c965683"
+  }
+}

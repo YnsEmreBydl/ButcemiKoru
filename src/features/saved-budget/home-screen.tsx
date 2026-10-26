@@ -5,20 +5,22 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { BudgetIcon } from '@/components/budget/budget-icon';
 import { BudgetColors } from '@/constants/budget-theme';
-import type { CancelExpenseCommand } from '@/data/budget/contracts';
+import type { ScopedCancel } from '@/data/budget/application-contracts';
 import { BudgetStorageError, storageErrorMessage } from '@/data/budget/errors';
-import { getBudgetRepository } from '@/data/budget/platform';
+import { useApplicationRepository } from '@/features/application/provider';
 import { ExpenseHistoryRow } from '@/features/expenses/history-row';
 
 import { BudgetSummary } from './budget-summary';
 import { useSavedBudget } from './use-saved-budget';
+import { shouldOpenSetup } from './load-state';
 
 export default function SavedBudgetHomeScreen() {
+  const repository = useApplicationRepository();
   const { state, refresh, acceptSaved } = useSavedBudget();
   const [busyId, setBusyId] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const busy = useRef(false);
-  const attempts = useRef(new Map<string, CancelExpenseCommand>());
+  const attempts = useRef(new Map<string, ScopedCancel>());
   const mounted = useRef(true);
   useEffect(() => { mounted.current = true; return () => { mounted.current = false; }; }, []);
   const saved = state.status === 'ready' ? state.saved : null;
@@ -27,12 +29,12 @@ export default function SavedBudgetHomeScreen() {
     if (busy.current || !saved) return;
     busy.current = true; setBusyId(expenseId); setError(null);
     try {
-      const repository = await getBudgetRepository();
       let command = attempts.current.get(expenseId);
       if (!command) {
         const operationId = await repository.newOperationId();
         const cancelledAt = new Date().toISOString();
-        command = { operationId, periodId: 1, expectedRevision: saved.revision, expenseId, cancelledAt, asOf: cancelledAt };
+        command = { operationId, periodId: saved.access.period?.id ?? 1, access: saved.access, expensePublicId: saved.expensePublicIds[expenseId],
+          expectedRevision: saved.revision, expenseId, cancelledAt, asOf: cancelledAt };
         attempts.current.set(expenseId, command);
       }
       const next = await repository.cancelExpense({ ...command, asOf: new Date().toISOString() });
@@ -55,7 +57,7 @@ export default function SavedBudgetHomeScreen() {
     ]);
   }
 
-  if (state.status === 'ready' && !state.saved) return <Redirect href="/budget-setup" />;
+  if (shouldOpenSetup(state)) return <Redirect href="/budget-setup" />;
   return <SafeAreaView style={styles.screen}>
     <FlatList
       data={saved?.expenses ?? []}

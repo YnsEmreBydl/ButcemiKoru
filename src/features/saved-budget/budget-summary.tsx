@@ -2,10 +2,10 @@ import { Link } from 'expo-router';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 
 import { BudgetColors } from '@/constants/budget-theme';
-import type { SavedBudget } from '@/data/budget/contracts';
+import type { ApplicationBudget } from '@/data/budget/application-contracts';
 import { formatCalendarDate, formatMinorTRY } from '@/features/budget-setup/format';
 
-export function BudgetSummary({ saved, busy, onRefresh }: { saved: SavedBudget; busy: boolean; onRefresh: () => void }) {
+export function BudgetSummary({ saved, busy, onRefresh }: { saved: ApplicationBudget; busy: boolean; onRefresh: () => void }) {
   const { result } = saved;
   return <View style={styles.content}>
     <Text style={styles.note}>BU CİHAZDA KAYITLI · {formatCalendarDate(result.today)}</Text>
@@ -17,7 +17,7 @@ export function BudgetSummary({ saved, busy, onRefresh }: { saved: SavedBudget; 
         : <Text style={styles.heading}>Yeni bütçe dönemi gerekiyor</Text>}
       <Text style={styles.note}>Maaşa kalan: {result.daysUntilPayday} gün · {formatCalendarDate(result.nextPayday)}</Text>
     </View>
-    {result.requiresNewPeriod && <Text style={styles.warning}>{saved.expenses.length
+    {result.requiresNewPeriod && <Text style={styles.warning}>{saved.access.schema === 3 ? 'Bu dönem sona erdi. Yeni dönemde güncel kullanılabilir bakiyenizi açıkça girin; maaş geliri otomatik eklenmez.' : saved.expenses.length
       ? 'Bu dönem sona erdi; yeni harcama eklenmez. Hatalı kayıtları iptal edebilirsiniz. Harcama geçmişi korunduğu için başlangıç ve maaş tarihi kilitlidir; yeni dönem açılışı bu sürümde sunulmaz.'
       : 'Maaş tarihi bugün veya geçmişte. Maaş geliri otomatik eklenmedi. Güncel kullanılabilir bakiyeyi ve sonraki maaş tarihini düzenleyin.'}</Text>}
     <View style={styles.card}>
@@ -36,7 +36,17 @@ export function BudgetSummary({ saved, busy, onRefresh }: { saved: SavedBudget; 
       <Text style={styles.note}>Bu hedef, yukarıdaki güncel eşit dağıtım önerisinden ayrıdır; tutarlar birbirine eklenmez.</Text>
     </View>}
     {result.budgetDeficitMinor > 0 && <Text accessibilityLiveRegion="polite" style={styles.warning}>Bütçe açığı: {formatMinorTRY(result.budgetDeficitMinor)}. Eksi tutar gizlenmedi; açık yeni harcama bütçesi değildir.</Text>}
-    <Link href="/expense-add" asChild><Pressable accessibilityRole="button" disabled={busy || result.requiresNewPeriod} accessibilityState={{ disabled: busy || result.requiresNewPeriod }} style={[styles.button, (busy || result.requiresNewPeriod) && styles.disabled]}><Text style={styles.buttonText}>Harcama ekle</Text></Pressable></Link>
+    <Link href="/expense-add" asChild>
+      <Pressable accessibilityRole="button" disabled={busy || result.requiresNewPeriod}
+        accessibilityState={{ disabled: busy || result.requiresNewPeriod }}
+        style={StyleSheet.flatten([styles.button, (busy || result.requiresNewPeriod) && styles.disabled])}>
+        <Text style={styles.buttonText}>Harcama ekle</Text>
+      </Pressable>
+    </Link>
+    {saved.access.schema === 3 && <>
+      <Link href="/periods" style={styles.link}>{result.requiresNewPeriod ? 'Yeni bütçe dönemi oluştur' : 'Dönem bilgilerini aç'}</Link>
+      <Link href="/periods/history" style={styles.link}>Dönem geçmişi ve arşiv</Link>
+    </>}
     <Link href="/budget-setup" asChild><Pressable accessibilityRole="button" disabled={busy} style={styles.secondary}><Text style={styles.link}>Bütçe bilgilerimi düzenle</Text></Pressable></Link>
     {saved.expenses.length > 0 && <Text style={styles.note}>Harcama geçmişi olan dönemde başlangıç bakiyesi ve maaş tarihi değiştirilemez. Banka bakiyesi otomatik güncellenmez.</Text>}
     <View style={styles.card}>

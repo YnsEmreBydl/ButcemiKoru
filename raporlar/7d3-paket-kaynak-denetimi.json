@@ -1,0 +1,141 @@
+{
+  "method": "Recursive final production source maps; nearest node_modules attribution; compilation evidence only, no signed build",
+  "graph": {
+    "ios": {
+      "maps": [
+        {
+          "file": "_expo/static/js/ios/entry-e627ed67a8dd8dba02dca1913301c94b.hbc.map",
+          "sha256": "dbbf90847e2067c0a475b56760fe512ab96f67bbaa9f4d736dcad8181eaa3030"
+        }
+      ],
+      "sources": 1619,
+      "auditPackageSources": [
+        {
+          "package": "@expo/cli",
+          "source": "/node_modules/expo/node_modules/@expo/cli/build/metro-require/require.js"
+        }
+      ],
+      "expoRuntimePresent": true,
+      "labPresent": false,
+      "upgradePreparationPresent": true,
+      "v3MigratorPresent": true,
+      "productionOpenerPresent": true
+    },
+    "android": {
+      "maps": [
+        {
+          "file": "_expo/static/js/android/entry-2f8660c576bcc2f3eeb7b788b441f86b.hbc.map",
+          "sha256": "e7a3b293ac5f4897c2603fcbfc66f6ebbb3b618efffdc87550b2a5ecf0c19153"
+        }
+      ],
+      "sources": 1715,
+      "auditPackageSources": [
+        {
+          "package": "@expo/cli",
+          "source": "/node_modules/expo/node_modules/@expo/cli/build/metro-require/require.js"
+        }
+      ],
+      "expoRuntimePresent": true,
+      "labPresent": false,
+      "upgradePreparationPresent": true,
+      "v3MigratorPresent": true,
+      "productionOpenerPresent": true
+    },
+    "webClient": {
+      "maps": [
+        {
+          "file": "client/_expo/static/js/web/[periodId]-7675698e7ab48fcc0c3490466221c60b.js.map",
+          "sha256": "85fd483ab965569fb68aa7f99ba9c1be734d4e380873b337560a8ff766cfe7b5"
+        },
+        {
+          "file": "client/_expo/static/js/web/__common-b05074bcefee3532bc7c5e940450a8a1.js.map",
+          "sha256": "3d200347f3db4d3041f26d822a94bf2cbd02821977fffd63b566b7c233f106d8"
+        },
+        {
+          "file": "client/_expo/static/js/web/__expo-metro-runtime-8c088df87a31e4e6accd81c554ec290d.js.map",
+          "sha256": "1f2bcee3e7f52ae71eb44544a6a9511b45cf46cf5c836dac13a92badec336824"
+        },
+        {
+          "file": "client/_expo/static/js/web/_layout-0075b78a336289c37c8833e6d532252a.js.map",
+          "sha256": "4face174bb0d15cbb76f0464f3cda984e266bc6506f41a73de3d79d8ee230260"
+        },
+        {
+          "file": "client/_expo/static/js/web/_layout-2360acf39b8e8ae96f1f2388ea0f0e81.js.map",
+          "sha256": "7f339ab260001ab8ab4962cbe58fe0381be780ddba47c705f09497de7ce136f3"
+        },
+        {
+          "file": "client/_expo/static/js/web/_layout-48aae4f1e4b4765ab5c95aec2eef7b4b.js.map",
+          "sha256": "f539bd452a01551c39022f536e8ce23fcca2865e07fa9f50661736dd1f482ae8"
+        },
+        {
+          "file": "client/_expo/static/js/web/budget-setup-a73998d0ef27e5de5f6cdbaa86c5f9d2.js.map",
+          "sha256": "a1fada7b539d2e1060ad3af7c27b3b867c041d64307824522e7e4741ad87abe6"
+        },
+        {
+          "file": "client/_expo/static/js/web/demo-8d378897ea684d919787935703017f3b.js.map",
+          "sha256": "a02c1a81d459ffc1524220b5bfa194ae18c88fb31707ecb587f811ca1faf4f0c"
+        },
+        {
+          "file": "client/_expo/static/js/web/entry-a27574451a121920bc9d40bacf495860.js.map",
+          "sha256": "2e09b3d5a2eb01bcaf94b72a205ff3162bf1cb8112aa0c9f6e381c774b2afaaa"
+        },
+        {
+          "file": "client/_expo/static/js/web/expense-add-2e0a6adb338e7b75d5bf27af18a55528.js.map",
+          "sha256": "01fac68390b7c7ea28c9e97704d5466de85e281eaa7a70883b8c0493f7583ee1"
+        },
+        {
+          "file": "client/_expo/static/js/web/explore-900a688c6499199dd0f76471aa185686.js.map",
+          "sha256": "92f349f8f65c7eb30871143aca2f54267636f0bf46a24665f4c907656cb93ddd"
+        },
+        {
+          "file": "client/_expo/static/js/web/history-324a5c0d1e4d25c2521115b1844efa94.js.map",
+          "sha256": "e5de6b2828a5b761e4e47a6b1565b62f7ba765b390c5845f4a71fc1ce78a94ee"
+        },
+        {
+          "file": "client/_expo/static/js/web/index-98a59ba798e07df3dbda6468622b0734.js.map",
+          "sha256": "c8f6c5015f3455df9ad4092b036912bc7db89e6aab61c0774ad9e10a1430e0c8"
+        },
+        {
+          "file": "client/_expo/static/js/web/index-d00ce0ffd6179587a02265ff4f864e2e.js.map",
+          "sha256": "9b173f5a75f2440fcbe9662823f12f37d508e8b3e60f34c991d6e28aab6b14a5"
+        },
+        {
+          "file": "client/_expo/static/js/web/new-7a379666e96235ba9304ada07a24aa4c.js.map",
+          "sha256": "31a3d5bbb8eb8dbcc672c4b1ea7ba7773a43cf8dd8f4eb037554e6897a0ba9ab"
+        }
+      ],
+      "sources": 1287,
+      "auditPackageSources": [
+        {
+          "package": "@expo/cli",
+          "source": "/node_modules/expo/node_modules/@expo/cli/build/metro-require/require.js"
+        }
+      ],
+      "expoRuntimePresent": true,
+      "labPresent": false,
+      "upgradePreparationPresent": true,
+      "v3MigratorPresent": true,
+      "productionOpenerPresent": false
+    },
+    "webServer": {
+      "maps": [
+        {
+          "file": "server/_expo/server/render.js.map",
+          "sha256": "beca1e2590e2f9b55fb069f9ca214586e8430ce899c6286eb01fae356d06c1ef"
+        }
+      ],
+      "sources": 1320,
+      "auditPackageSources": [
+        {
+          "package": "@expo/cli",
+          "source": "node_modules/expo/node_modules/@expo/cli/build/metro-require/require.js"
+        }
+      ],
+      "expoRuntimePresent": true,
+      "labPresent": false,
+      "upgradePreparationPresent": true,
+      "v3MigratorPresent": true,
+      "productionOpenerPresent": false
+    }
+  }
+}

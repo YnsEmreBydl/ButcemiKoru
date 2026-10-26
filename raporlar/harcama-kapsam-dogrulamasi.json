@@ -1,0 +1,66 @@
+{
+  "changed": [
+    "src/app/_layout.tsx",
+    "src/components/app-tabs.tsx",
+    "src/data/budget/contracts.ts",
+    "src/data/budget/errors.ts",
+    "src/data/budget/migrations.ts",
+    "src/data/budget/repository.ts",
+    "src/data/budget/validation.ts",
+    "src/features/budget-setup/persistence.ts",
+    "src/features/budget-setup/setup-field.tsx",
+    "src/features/budget-setup/setup-screen.tsx",
+    "src/features/saved-budget/home-screen.tsx",
+    "src/features/saved-budget/use-saved-budget.ts",
+    "tests/storage/sqlite.integration.test.ts",
+    "tsconfig.budget-tests.json"
+  ],
+  "added": [
+    "src/app/expense-add.tsx",
+    "src/data/budget/expense-repository.ts",
+    "src/data/budget/expense-validation.ts",
+    "src/data/budget/guards.ts",
+    "src/data/budget/records.ts",
+    "src/features/expenses/adapter.ts",
+    "src/features/expenses/expense-screen.tsx",
+    "src/features/expenses/history-row.tsx",
+    "src/features/saved-budget/budget-summary.tsx",
+    "tests/expenses/adapter.test.ts",
+    "tests/expenses/fixtures.ts",
+    "tests/expenses/migration.test.ts",
+    "tests/expenses/native-probe.js.txt",
+    "tests/expenses/repository.test.ts",
+    "tests/expenses/v1-schema.sql"
+  ],
+  "existingTests": 192,
+  "missingExistingTests": [],
+  "domainUnchanged": true,
+  "dependenciesUnchanged": true,
+  "nativeChecks": 13,
+  "nativePassed": true,
+  "scope": "src, tests and root configuration; documentation files are listed in HARCAMA_RAPORU.md",
+  "externalChangesPreserved": [
+    "src/components/app-tabs.tsx"
+  ],
+  "taskChangedExisting": [
+    "src/app/_layout.tsx",
+    "src/data/budget/contracts.ts",
+    "src/data/budget/errors.ts",
+    "src/data/budget/migrations.ts",
+    "src/data/budget/repository.ts",
+    "src/data/budget/validation.ts",
+    "src/features/budget-setup/persistence.ts",
+    "src/features/budget-setup/setup-field.tsx",
+    "src/features/budget-setup/setup-screen.tsx",
+    "src/features/saved-budget/home-screen.tsx",
+    "src/features/saved-budget/use-saved-budget.ts",
+    "tests/storage/sqlite.integration.test.ts",
+    "tsconfig.budget-tests.json"
+  ],
+  "testSummary": {
+    "tests": 256,
+    "passed": 256,
+    "failed": 0,
+    "skipped": 0
+  }
+}

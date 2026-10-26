@@ -35,6 +35,11 @@ export function validateExpenseData(value: ExpenseData, asOf: string): ExpenseDa
   return { id, amountMinor, category: value.category, description: value.description, occurredAt, createdAt };
 }
 
+export function sameExpenseData(left: ExpenseData, right: ExpenseData): boolean {
+  return left.id === right.id && left.amountMinor === right.amountMinor && left.category === right.category &&
+    left.description === right.description && left.occurredAt === right.occurredAt && left.createdAt === right.createdAt;
+}
+
 export function decodeExpense(row: SqlRow, asOf: string): SavedExpense {
   if (integer(row.period_id) !== 1 || !isExpenseCategory(row.category) || typeof row.description !== 'string') invalidData();
   const expense = validateExpenseData({

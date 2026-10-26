@@ -1,0 +1,65 @@
+{
+  "transport": "device HTTP report to local lab receiver; not CDP",
+  "recordedAt": "2026-10-26T19:43:05.577Z",
+  "identity": {
+    "independentApp": true,
+    "development": true,
+    "hermes": true,
+    "physicalDevice": true,
+    "platform": "ios"
+  },
+  "executionId": "mvpnysz0-58i86q5pgoh",
+  "bootProof": {
+    "sourceSchema": 2,
+    "activeSchema": 3,
+    "catalogEpoch": 2,
+    "transitionCount": 1,
+    "sqliteVersion": "3.53.3"
+  },
+  "report": {
+    "passed": 10,
+    "failed": 0,
+    "results": [
+      {
+        "id": "app-startup-persistence",
+        "status": "passed"
+      },
+      {
+        "id": "app-fence-concurrent-handles",
+        "status": "passed"
+      },
+      {
+        "id": "app-inflight-drained",
+        "status": "passed"
+      },
+      {
+        "id": "app-bad-backup",
+        "status": "passed"
+      },
+      {
+        "id": "app-migration",
+        "status": "passed"
+      },
+      {
+        "id": "app-before-activation",
+        "status": "passed"
+      },
+      {
+        "id": "app-lost-commit-ack",
+        "status": "passed"
+      },
+      {
+        "id": "app-forms-expenses-archive",
+        "status": "passed"
+      },
+      {
+        "id": "app-policy-closed",
+        "status": "passed"
+      },
+      {
+        "id": "app-unknown-schema",
+        "status": "passed"
+      }
+    ]
+  }
+}

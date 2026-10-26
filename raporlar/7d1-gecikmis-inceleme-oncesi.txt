@@ -1,0 +1,573 @@
+
+> gunluk-butcem@1.0.0 test
+> node ./scripts/test-budget.mjs
+
+✔ Hermes regression: preview amounts render when Intl.NumberFormat rejects BigInt (18.95875ms)
+✔ Hermes regression: exact kuruş survives grouping boundaries and safe integer extremes (4.112541ms)
+✔ Turkish amount "0" becomes exactly 0 kuruş (3.697833ms)
+✔ Turkish amount "0,01" becomes exactly 1 kuruş (0.342417ms)
+✔ Turkish amount "12" becomes exactly 1200 kuruş (0.110167ms)
+✔ Turkish amount "12,5" becomes exactly 1250 kuruş (0.086708ms)
+✔ Turkish amount "12,50" becomes exactly 1250 kuruş (0.078667ms)
+✔ Turkish amount "1234,56" becomes exactly 123456 kuruş (0.09775ms)
+✔ Turkish amount "1.234,56" becomes exactly 123456 kuruş (0.074542ms)
+✔ Turkish amount "1.234" becomes exactly 123400 kuruş (0.081375ms)
+✔ Turkish amount "1.000.000,99" becomes exactly 100000099 kuruş (0.192833ms)
+✔ Turkish amount "-123,45" becomes exactly -12345 kuruş (0.174291ms)
+✔ Turkish amount "-0,01" becomes exactly -1 kuruş (0.084459ms)
+✔ Turkish amount "  1.234,50  " becomes exactly 123450 kuruş (0.072458ms)
+✔ Turkish amount "00012,50" becomes exactly 1250 kuruş (0.063208ms)
+✔ Turkish amount "-0" becomes exactly 0 kuruş (0.062083ms)
+✔ Turkish amount "90071992547409,91" becomes exactly 9007199254740991 kuruş (0.0755ms)
+✔ Turkish amount "-90.071.992.547.409,91" becomes exactly -9007199254740991 kuruş (0.095541ms)
+✔ invalid or unsafe money is rejected: "" (0.20625ms)
+✔ invalid or unsafe money is rejected: " " (0.056416ms)
+✔ invalid or unsafe money is rejected: "NaN" (0.059042ms)
+✔ invalid or unsafe money is rejected: "Infinity" (0.06825ms)
+✔ invalid or unsafe money is rejected: "-Infinity" (0.050625ms)
+✔ invalid or unsafe money is rejected: "1e3" (0.051417ms)
+✔ invalid or unsafe money is rejected: "1,001" (0.047959ms)
+✔ invalid or unsafe money is rejected: "1.234,567" (0.048542ms)
+✔ invalid or unsafe money is rejected: "1," (0.050917ms)
+✔ invalid or unsafe money is rejected: ",50" (0.058458ms)
+✔ invalid or unsafe money is rejected: "1234.50" (0.060041ms)
+✔ invalid or unsafe money is rejected: "1.23" (0.046959ms)
+✔ invalid or unsafe money is rejected: "12.34,50" (0.050209ms)
+✔ invalid or unsafe money is rejected: "0.001" (0.0615ms)
+✔ invalid or unsafe money is rejected: "01.234" (0.051875ms)
+✔ invalid or unsafe money is rejected: "1 234,50" (0.066167ms)
+✔ invalid or unsafe money is rejected: "₺100" (0.184209ms)
+✔ invalid or unsafe money is rejected: "100 TL" (0.053ms)
+✔ invalid or unsafe money is rejected: "+100" (0.058958ms)
+✔ invalid or unsafe money is rejected: "--1" (0.050042ms)
+✔ invalid or unsafe money is rejected: "1,2,3" (0.051667ms)
+✔ invalid or unsafe money is rejected: "１２３" (0.052ms)
+✔ invalid or unsafe money is rejected: "90071992547409,92" (0.083792ms)
+✔ invalid or unsafe money is rejected: "-90071992547409,92" (0.05975ms)
+✔ invalid or unsafe money is rejected: "999999999999999999" (0.057458ms)
+✔ invalid or unsafe money is rejected: "99999999999999999999999999999999999999999999999999999999999999999" (0.063ms)
+✔ excess decimal precision is rejected, never rounded (0.09875ms)
+✔ calendar input 06.11.2026 preserves its calendar date (0.407959ms)
+✔ calendar input 6.11.2026 preserves its calendar date (0.119208ms)
+✔ calendar input 29.02.2024 preserves its calendar date (0.056708ms)
+✔ calendar input 2026-11-06 preserves its calendar date (0.055917ms)
+✔ calendar input  31.12.2026  preserves its calendar date (0.063459ms)
+✔ invalid calendar input is rejected: "" (0.066625ms)
+✔ invalid calendar input is rejected: "29.02.2025" (0.131959ms)
+✔ invalid calendar input is rejected: "31.04.2026" (0.069042ms)
+✔ invalid calendar input is rejected: "00.01.2026" (0.065875ms)
+✔ invalid calendar input is rejected: "01.13.2026" (0.074584ms)
+✔ invalid calendar input is rejected: "01.01.0000" (0.066875ms)
+✔ invalid calendar input is rejected: "2026-02-30" (0.077125ms)
+✔ invalid calendar input is rejected: "06/11/2026" (0.070666ms)
+✔ invalid calendar input is rejected: "2026-11-06T00:00:00Z" (0.063667ms)
+✔ minor-unit display retains every kuruş up to the safe integer boundary (0.756542ms)
+✔ form strings become the existing domain contract without mixing in salary or DEMO expenses (16.46875ms)
+✔ optional blank savings and an empty bill list are valid (0.695833ms)
+✔ required blank fields are not silently converted to zero (0.117541ms)
+✔ zero balance is accepted and negative balance is preserved with a deficit (0.236208ms)
+✔ negative savings and nonpositive bill amounts are rejected in their fields (0.115209ms)
+✔ a partially filled added bill must be completed or removed (0.064542ms)
+✔ bill names are required and limited to 80 characters (0.079875ms)
+✔ same-day or later bill dates cannot be silently excluded in an active period (0.218416ms)
+✔ overdue but unpaid bills are reserved (0.1555ms)
+✔ a valid zero savings target is retained (0.115833ms)
+✔ payday today and past payday return a new-period preview without rolling dates (0.220959ms)
+✔ local-day and DST behavior comes from the existing domain engine (0.145084ms)
+✔ combined reserves above the balance are shown as a deficit rather than rejected (0.114708ms)
+✔ invalid date and excess precision create field errors (0.197541ms)
+✔ aggregate monetary overflow is translated to a form error (0.247709ms)
+✔ duplicate or invalid bill row IDs are rejected before calculation (0.104792ms)
+✔ clock and time-zone errors are visible, never replaced with an implicit UTC fallback (0.186ms)
+✔ the adapter leaves frozen drafts and contexts unchanged (0.374042ms)
+✔ normal budget: prior spending, today spending, bills and savings (23.382666ms)
+✔ no expenses, bills or savings reserves (0.786458ms)
+✔ overspending preserves negative balances and a separate deficit (0.171208ms)
+✔ unfunded reserves report a deficit even when the account is positive (0.135417ms)
+✔ zero opening balance produces zero daily allocations (0.123667ms)
+✔ payday-today: no invented future period and no division by zero (0.130458ms)
+✔ payday-passed: no invented future period and no division by zero (0.101375ms)
+✔ the day before payday has no fictional tomorrow allocation (0.120875ms)
+✔ multiple expenses do not reset or repeatedly divide the start-of-day target (0.328541ms)
+✔ an exact bill settlement debits cash and releases its reserve only once (0.277042ms)
+✔ bill amount 250000: only its difference from the reserve impacts today's target (0.146708ms)
+✔ bill amount 150000: only its difference from the reserve impacts today's target (0.123625ms)
+✔ a discount on an underfunded bill cannot create more today money than exists (0.131125ms)
+✔ overdue bills are reserved but payday and later bills are excluded (0.134417ms)
+✔ paying a bill not reserved for this period impacts spendable funds in full (0.117333ms)
+✔ a bill settled before the snapshot is neither reserved nor debited again (0.117583ms)
+✔ a bill settled yesterday does not consume today target again (0.276125ms)
+✔ opening snapshot includes all earlier, back-entered and exact-cutoff expenses (0.171625ms)
+✔ a midday initial snapshot does not subtract earlier purchases on that day (0.127667ms)
+✔ simulation is pure, repeatable and does not change frozen inputs or current results (0.453167ms)
+✔ simulation works at the exact snapshot instant without inventing a future transaction (0.108375ms)
+✔ simulation can show a deficit without an affordability promise (0.104625ms)
+✔ input order does not change the financial result (0.189541ms)
+✔ integer kuruş allocation leaves the remainder undistributed (0.099583ms)
+✔ one kuruş over three days never allocates three kuruş (0.098334ms)
+✔ maximum safe minor units preserve exact integer division (0.123167ms)
+✔ allocation conservation holds across deficits, cents, spending and large amounts (2.032625ms)
+✔ calendar days: 2025-01-31 → 2025-02-01 = 1 (0.704916ms)
+✔ calendar days: 2025-01-31 → 2025-03-01 = 29 (0.062917ms)
+✔ calendar days: 2025-04-30 → 2025-05-01 = 1 (0.048041ms)
+✔ calendar days: 2024-02-28 → 2024-03-01 = 2 (0.039792ms)
+✔ calendar days: 2025-02-28 → 2025-03-01 = 1 (0.043292ms)
+✔ calendar days: 2000-02-28 → 2000-03-01 = 2 (0.043916ms)
+✔ calendar days: 1900-02-28 → 1900-03-01 = 1 (0.049833ms)
+✔ calendar days: 2026-12-31 → 2027-01-01 = 1 (0.03525ms)
+✔ calendar days: 2026-10-25 → 2026-10-25 = 0 (0.04775ms)
+✔ calendar days: 2026-10-25 → 2026-10-24 = -1 (0.035458ms)
+✔ calendar days: 0001-01-01 → 0002-01-01 = 365 (0.034292ms)
+✔ local calendar date uses the explicit zone rather than the UTC date (20.690708ms)
+✔ DST: spring 23-hour day still leaves exactly one local calendar day (0.574042ms)
+✔ DST: autumn 25-hour day still leaves exactly one local calendar day (0.129209ms)
+✔ both occurrences of the repeated DST hour are counted on the same local day (0.190458ms)
+✔ expenses around local midnight are allocated to different budget days (0.147167ms)
+✔ invalid calendar date is rejected: 2025-02-29 (0.265542ms)
+✔ invalid calendar date is rejected: 1900-02-29 (0.038542ms)
+✔ invalid calendar date is rejected: 2026-04-31 (0.032334ms)
+✔ invalid calendar date is rejected: 2026-13-01 (0.032875ms)
+✔ invalid calendar date is rejected: 2026-00-01 (0.040333ms)
+✔ invalid calendar date is rejected: 2026-01-00 (0.031625ms)
+✔ invalid calendar date is rejected: 0000-01-01 (0.040333ms)
+✔ invalid calendar date is rejected: 26-01-01 (0.03ms)
+✔ invalid calendar date is rejected: 2026-1-01 (0.036667ms)
+✔ invalid calendar date is rejected: 2026-10-25T00:00:00Z (0.032375ms)
+✔ local dates outside the supported Gregorian range are rejected (0.397542ms)
+✔ missing input, required fields, records and arrays are rejected (20.916083ms)
+✔ invalid monetary input is rejected in every monetary field: undefined (2.858292ms)
+✔ invalid monetary input is rejected in every monetary field: null (0.885375ms)
+✔ invalid monetary input is rejected in every monetary field: NaN (0.774875ms)
+✔ invalid monetary input is rejected in every monetary field: Infinity (13.944125ms)
+✔ invalid monetary input is rejected in every monetary field: -Infinity (0.505125ms)
+✔ invalid monetary input is rejected in every monetary field: 0.5 (0.297125ms)
+✔ invalid monetary input is rejected in every monetary field: 100 (0.304084ms)
+✔ invalid monetary input is rejected in every monetary field: true (0.295459ms)
+✔ invalid monetary input is rejected in every monetary field: 9007199254740992 (0.267917ms)
+✔ negative opening balances are supported, negative reserves and nonpositive debits are not (1.050709ms)
+✔ ambiguous or invalid instant is rejected: 2026-10-25T12:00:00 (0.168625ms)
+✔ ambiguous or invalid instant is rejected: 2026-10-25 (0.111958ms)
+✔ ambiguous or invalid instant is rejected: 2026-10-25T24:00:00Z (0.091875ms)
+✔ ambiguous or invalid instant is rejected: 2026-10-25T12:60:00Z (0.124542ms)
+✔ ambiguous or invalid instant is rejected: 2026-10-25T12:00:60Z (0.223834ms)
+✔ ambiguous or invalid instant is rejected: 2026-10-25T12:00:00.0001Z (0.885333ms)
+✔ ambiguous or invalid instant is rejected: 2026-10-25T12:00:00-00:00 (0.341833ms)
+✔ ambiguous or invalid instant is rejected: 2026-10-25T12:00:00+24:00 (0.432958ms)
+✔ invalid timestamp dates are rejected rather than normalized by Date.parse (0.668917ms)
+✔ invalid time zones and unsupported currencies are rejected (0.456916ms)
+✔ future snapshots and future actual transactions are rejected (0.286833ms)
+✔ duplicate transaction IDs and duplicate bill definitions are rejected (1.209083ms)
+✔ the same bill cannot be settled twice even using different transaction IDs (0.228875ms)
+✔ unknown bills, missing bill IDs and mislabeled bill transactions are rejected (1.820417ms)
+✔ empty and untrimmed identifiers are rejected (0.67025ms)
+✔ aggregate expense overflow is detected before returning imprecise money (0.18575ms)
+✔ reserve overflow and negative balance overflow are rejected (0.308667ms)
+(node:68077) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ Expense adapter: Turkish amount, category and trimmed description become a safe immutable command (18.936791ms)
+✔ Expense adapter: invalid amount "0" is not saved (2.949625ms)
+✔ Expense adapter: invalid amount "-1" is not saved (2.616042ms)
+✔ Expense adapter: invalid amount "0,001" is not saved (2.632708ms)
+✔ Expense adapter: invalid amount "NaN" is not saved (2.492208ms)
+✔ Expense adapter: invalid amount "Infinity" is not saved (2.54975ms)
+✔ Expense adapter: invalid amount "" is not saved (2.46125ms)
+✔ Expense adapter: invalid amount "1e3" is not saved (2.531791ms)
+✔ Expense adapter: invalid amount "12.34,56" is not saved (2.579916ms)
+✔ Expense adapter: invalid amount "90071992547409,92" is not saved (2.54925ms)
+✔ Expense adapter: empty optional description is allowed and overlong description is rejected (2.826334ms)
+✔ Expense adapter: negative budget is allowed but arithmetic overflow and expired periods are not (7.316ms)
+✔ Expense adapter: unknown category and invalid clock are visible errors (2.467042ms)
+✔ Expense adapter: uncertain acknowledgement distinguishes missing, committed and conflicting records (5.08525ms)
+✔ Expense adapter: replay validation never modifies the original command or history (3.760375ms)
+(node:68078) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ Expense migration: frozen v1 schema and all existing budget data survive v2 (28.775208ms)
+✔ Expense migration: failed v2 keeps v1 version, budget and invoices intact (2.73325ms)
+✔ Expense migration: reopening v2 preserves expense rows and operation receipts (4.908625ms)
+(node:68079) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ Expense SQLite: normal expense updates balance, daily average and today target independently (21.006625ms)
+✔ Expense SQLite: multiple expenses keep today opening target stable (5.686167ms)
+✔ Expense SQLite: simultaneous duplicate taps and durable retry create one expense (5.836708ms)
+✔ Expense SQLite: duplicate identity, conflicting payload and shared operation namespace are rejected (9.673ms)
+✔ Expense SQLite: failure after expense insertion rolls back expense, receipt and revision (4.558291ms)
+✔ Expense SQLite: cancellation reverses the expense without deleting history (5.049375ms)
+✔ Expense SQLite: cancellation retry is idempotent and another cancellation cannot refund twice (9.97075ms)
+✔ Expense SQLite: cancellation SQL failure keeps the original active expense and totals (4.678ms)
+✔ Expense SQLite: cancelled history survives closing and reopening the database (11.016375ms)
+✔ Expense SQLite: a lost cancellation acknowledgement does not restore money twice (4.925167ms)
+✔ Expense SQLite: queued input is captured before the caller can mutate it (3.675375ms)
+✔ Expense SQLite: acknowledged loss recovers the same durable expense rather than duplicating (5.410125ms)
+✔ Expense SQLite: insufficient funds are recorded and negative spendable funds remain visible (4.145208ms)
+✔ Expense SQLite: zero initial funds still allow a real one-kuruş expense (5.666292ms)
+✔ Expense SQLite: aggregate overflow rejects the write atomically (3.270625ms)
+✔ Expense SQLite: pre-snapshot and exact-cutoff history are not deducted again, including cancellation (7.944459ms)
+✔ Expense SQLite: actual occurrence and entry time are distinct and late entry does not count as today spending (5.150666ms)
+✔ Expense SQLite: expired periods reject new entries but allow correcting historical mistakes (8.363209ms)
+✔ Expense SQLite: no budget or missing expense never creates a phantom record (4.646708ms)
+✔ Expense SQLite: canonical instants sort by actual time across different offsets (4.74325ms)
+✔ Expense SQLite: spring DST uses local calendar days and separate real instants (10.136834ms)
+✔ Expense SQLite: autumn DST uses local calendar days and separate real instants (4.424959ms)
+✔ Expense SQLite: expense and metadata save races reject stale revisions without losing data (7.00575ms)
+✔ Expense SQLite: metadata winning the race prevents a stale expense and allows an explicit retry (8.225583ms)
+✔ Expense SQLite: retry after a concurrent balance snapshot keeps the actual occurrence cutoff (6.077125ms)
+✔ Expense SQLite: opening changes remain locked after cancellation and SQL cannot bypass the lock (8.910833ms)
+✔ Expense SQLite: metadata preview and save both retain real transactions (5.957291ms)
+✔ Expense SQLite: expense identifiers and descriptions are bound SQL parameters (5.621291ms)
+✔ Expense SQLite: v2 SQL types, categories, identities and parent links are enforced (4.993ms)
+✔ Expense SQLite: invalid category, period, revision and cancellation clock are rejected (6.834792ms)
+✔ Expense SQLite: a forged canonical-looking date is rejected without erasing records (5.899875ms)
+✔ Expense SQLite: corrupted cancelled data is validated even though it is excluded from calculation (4.565375ms)
+✔ Expense SQLite: an operation receipt cannot confirm a different persisted expense (7.950959ms)
+✔ Expense SQLite: invalid zero is rejected without changing the budget (3.9205ms)
+✔ Expense SQLite: invalid negative is rejected without changing the budget (3.688792ms)
+✔ Expense SQLite: invalid fractional kuruş is rejected without changing the budget (2.564333ms)
+✔ Expense SQLite: invalid NaN is rejected without changing the budget (2.547292ms)
+✔ Expense SQLite: invalid infinity is rejected without changing the budget (3.437167ms)
+✔ Expense SQLite: invalid overflow is rejected without changing the budget (3.224125ms)
+✔ Expense SQLite: invalid empty id is rejected without changing the budget (2.517125ms)
+✔ Expense SQLite: invalid long description is rejected without changing the budget (2.639709ms)
+✔ Expense SQLite: invalid implicit timezone is rejected without changing the budget (2.600708ms)
+✔ Expense SQLite: invalid invalid date is rejected without changing the budget (4.448417ms)
+✔ Expense SQLite: invalid future occurrence is rejected without changing the budget (5.01675ms)
+✔ Expense SQLite: invalid future creation is rejected without changing the budget (3.068833ms)
+✔ Expense SQLite: invalid creation before occurrence is rejected without changing the budget (2.75975ms)
+(node:68080) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ v3 constraints FK=0: active singleton, predecessor and book ownership (48.018375ms)
+✔ v3 constraints FK=0: closed financial rows and receipts are immutable (15.495875ms)
+✔ v3 constraints FK=0: invoice carry provenance and receipt scope (20.257375ms)
+✔ v3 constraints FK=1: active singleton, predecessor and book ownership (19.760125ms)
+✔ v3 constraints FK=1: closed financial rows and receipts are immutable (18.137ms)
+✔ v3 constraints FK=1: invoice carry provenance and receipt scope (14.903584ms)
+✔ v3 constraints: replacement conflict algorithms cannot overwrite archived records with recursive_triggers OFF (17.499375ms)
+✔ v3 constraints: active expense cancellation is one-way and never deletes history (13.207708ms)
+✔ v3 constraints: new expenses at or before the opening are rejected; migrated historical rows stay intact (17.998833ms)
+✔ v3 constraints: safe INTEGER money, public identities and revisions (13.234125ms)
+✔ v3 constraints: closing requires an integer snapshot and cannot rewrite financial inputs (14.237166ms)
+✔ v3 constraints: two connections cannot commit two successors of one source (20.641583ms)
+✔ v3 constraints: REPLACE cannot resolve active/root/successor or invoice provenance uniqueness by deleting rows (19.585375ms)
+(node:68081) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ v3: v1 and v2 SQL fixtures stay frozen (1.045417ms)
+✔ v3: real file 0 -> 3, foreign_keys=0, preserves every legacy column (9.163375ms)
+✔ v3: real file 1 -> 3, foreign_keys=0, preserves every legacy column (31.01375ms)
+✔ v3: real file 2 -> 3, foreign_keys=0, preserves every legacy column (13.717958ms)
+✔ v3: real file 0 -> 3, foreign_keys=1, preserves every legacy column (7.739375ms)
+✔ v3: real file 1 -> 3, foreign_keys=1, preserves every legacy column (10.747917ms)
+✔ v3: real file 2 -> 3, foreign_keys=1, preserves every legacy column (14.10975ms)
+✔ v3: repeated migration and file reopen preserve all public identities and rows (16.550541ms)
+✔ v3: rollback source=0 after v3:create restores schema, data and version (14.5735ms)
+✔ v3: rollback source=0 after v3:books restores schema, data and version (12.702792ms)
+✔ v3: rollback source=0 after v3:copy restores schema, data and version (10.910583ms)
+✔ v3: rollback source=0 after v3:replace restores schema, data and version (16.121541ms)
+✔ v3: rollback source=0 after v3:guards restores schema, data and version (18.495083ms)
+✔ v3: rollback source=0 after PRAGMA user_version = 3 restores schema, data and version (16.337584ms)
+✔ v3: rollback source=1 after v3:create restores schema, data and version (16.163542ms)
+✔ v3: rollback source=1 after v3:books restores schema, data and version (13.489875ms)
+✔ v3: rollback source=1 after v3:copy restores schema, data and version (18.5045ms)
+✔ v3: rollback source=1 after v3:replace restores schema, data and version (16.525042ms)
+✔ v3: rollback source=1 after v3:guards restores schema, data and version (18.746ms)
+✔ v3: rollback source=1 after PRAGMA user_version = 3 restores schema, data and version (13.726417ms)
+✔ v3: rollback source=2 after v3:create restores schema, data and version (14.008167ms)
+✔ v3: rollback source=2 after v3:books restores schema, data and version (13.753833ms)
+✔ v3: rollback source=2 after v3:copy restores schema, data and version (18.650417ms)
+✔ v3: rollback source=2 after v3:replace restores schema, data and version (20.860875ms)
+✔ v3: rollback source=2 after v3:guards restores schema, data and version (22.252125ms)
+✔ v3: rollback source=2 after PRAGMA user_version = 3 restores schema, data and version (19.767375ms)
+✔ v3: equal row counts with a changed copied amount are detected before tables are replaced (12.476208ms)
+✔ v3: failure during final integrity validation also rolls back the rebuilt schema (14.504792ms)
+✔ v3: invalid legacy calendar input fails without silently repairing or deleting rows (6.925959ms)
+✔ v3: orphan legacy rows are detected even with foreign_keys OFF (5.869833ms)
+✔ v3: future schema versions and legacy rename mode are refused without reset (7.761417ms)
+✔ v3: missing guard in an already v3 database is rejected rather than repaired/reset (11.677833ms)
+✔ v3: stage 7A leaves the application migration entry on v2 (11.62775ms)
+✔ v3: cancelled and inclusive snapshot history have identical domain results before and after migration (16.3795ms)
+✔ v3: partial SQL batch v3:copy from v1 rolls back all previous statements (7.128583ms)
+✔ v3: partial SQL batch v3:replace from v1 rolls back all previous statements (5.826916ms)
+✔ v3: partial SQL batch v3:copy from v2 rolls back all previous statements (7.364125ms)
+✔ v3: partial SQL batch v3:replace from v2 rolls back all previous statements (9.936583ms)
+✔ v3: pre-commit failure is propagated and no schema version is exposed as successful (16.331291ms)
+✔ v3: domain-valid legacy offset 2026-10-20T09:00:00+23:59 is preserved and normalized only in new metadata (11.164ms)
+✔ v3: domain-valid legacy offset 2026-10-20T09:00:00.123+05:45 is preserved and normalized only in new metadata (15.370792ms)
+(node:68082) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ 7D-1 Node process crash: SIGKILL before COMMIT recovers the independent WAL file unchanged (125.188583ms)
+(node:68083) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ 7D-1 Node SQLite: native-lab shared scenarios execute on real temporary files (413.056958ms)
+✔ 7D-1 file guard: production names, paths, foreign run IDs and reused allocation are rejected (1.845042ms)
+✔ 7C controller mock: load, render subscription and preview never allocate IDs or write (29.085459ms)
+✔ 7C controller mock: two confirmations are required before ID allocation and submission (1.116958ms)
+✔ 7C controller mock: double taps share one Promise, loading precedes IDs and success awaits commit resolution (1.991ms)
+✔ 7C controller mock: IO failure preserves fields, preview, confirmations and immutable attempt identity (1.867042ms)
+✔ 7C controller mock: lost post-commit acknowledgement retries the same ID and creates only one target (2.280167ms)
+✔ 7C controller mock: failure during ID allocation retains an already allocated operation ID (4.869584ms)
+✔ 7C controller mock: CONFLICT does not silently replace source or draft; explicit review resets choices and confirmations (6.163125ms)
+✔ 7C controller mock: invalidated period on load never silently binds a stale route to the new active period (3.523458ms)
+✔ 7C controller mock: delayed original command keeps its source identity after a period change (1.855625ms)
+✔ 7C controller mock: failed async source load can be retried without creating a command (0.500416ms)
+✔ 7C controller mock: an old focus read arriving after commit cannot downgrade successful UI state (0.9275ms)
+✔ 7C form mock: opening balance is always empty, invoices unselected and confirmations false (22.450958ms)
+✔ 7C form mock: exact TRY conversion 0 (2.176083ms)
+✔ 7C form mock: exact TRY conversion -100,25 (1.940875ms)
+✔ 7C form mock: exact TRY conversion 1,01 (1.453083ms)
+✔ 7C form mock: exact TRY conversion 1.234,56 (1.204166ms)
+✔ 7C form mock: exact TRY conversion 90.071.992.547.409,91 (1.297417ms)
+✔ 7C form mock: invalid or overflowing balance '' (1.17325ms)
+✔ 7C form mock: invalid or overflowing balance ' ' (0.865708ms)
+✔ 7C form mock: invalid or overflowing balance 'NaN' (0.466875ms)
+✔ 7C form mock: invalid or overflowing balance 'Infinity' (0.834541ms)
+✔ 7C form mock: invalid or overflowing balance '1,001' (0.438625ms)
+✔ 7C form mock: invalid or overflowing balance '1.23' (1.534458ms)
+✔ 7C form mock: invalid or overflowing balance '1.23,45' (1.341375ms)
+✔ 7C form mock: invalid or overflowing balance '90.071.992.547.409,92' (1.197458ms)
+✔ 7C form mock: only selected invoices reserve money; edited date and unchanged source amount are preserved (2.621ms)
+✔ 7C form mock: invalid or expired payday '' (1.207667ms)
+✔ 7C form mock: invalid or expired payday '31.11.2026' (1.20275ms)
+✔ 7C form mock: invalid or expired payday '04.11.2026' (1.109875ms)
+✔ 7C form mock: invalid or expired payday '03.11.2026' (1.355875ms)
+✔ 7C form mock: selected invoice needs a valid date before payday and savings cannot be negative (1.742458ms)
+✔ 7C form mock: repeated or unknown invoice identities and aggregate deficit overflow are rejected (1.225ms)
+✔ 7C navigation mock: route identity is strict and development gate is closed in production (2.365584ms)
+✔ 7C navigation mock: back/remount returns the same pending form and never creates a second command (28.843083ms)
+✔ 7C navigation mock: a focus refresh flags period changes without moving old fields into a new form (1.532833ms)
+✔ 7C navigation mock: late read response cannot overwrite a more recent refresh (0.117792ms)
+✔ 7C navigation mock: failed read keeps the previous data and empty archive is a ready state (0.129167ms)
+✔ 7C navigation mock: archive resources are period-scoped, clock-free and read-only (7.183916ms)
+(node:68088) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ 7C real SQLite: new history read returns empty safely and never migrates or invents periods (9.93175ms)
+✔ 7C real SQLite: history lists newest first, stays book-scoped and uses frozen closing results (87.594875ms)
+✔ 7C real SQLite: screen controller sends exact TRY values and selected invoice identities to startPeriod (23.14675ms)
+✔ 7C real SQLite: delayed old form cannot write to the new active period, even after explicit review (34.928667ms)
+✔ 7C real SQLite: controller preserves one operation through SQL rollback and a later successful retry (39.368125ms)
+✔ 7C real SQLite: corrupt archive is surfaced as error rather than skipped, repaired or recalculated as today (28.633958ms)
+✔ 7D-1 retry mock: transient CONFLICT has an explicit same-attempt retry with unchanged ID and payload (31.551916ms)
+✔ 7D-1 retry mock: explicit changed form/reconfirmation creates a new ID and never reuses one ID for two payloads (4.636083ms)
+✖ 7D-1 retry mock: a delayed conflict review cannot overwrite a committed retry (5.237042ms)
+(node:68090) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ v3 repository real rollback: failure after UPDATE budget_periods SET status='closed' (68.839959ms)
+✔ v3 repository real rollback: failure after INSERT INTO budget_periods (53.797584ms)
+✔ v3 repository real rollback: failure after INSERT INTO budget_payments (35.761667ms)
+✔ v3 repository real rollback: failure after UPDATE budget_books (33.689125ms)
+✔ v3 repository real rollback: failure after INSERT INTO budget_save_operations (39.133167ms)
+✔ v3 repository real rollback: final integrity failure restores source, child rows, receipt and book revision (24.210125ms)
+✔ v3 repository real rollback: pre-commit failure is propagated rather than returning success (26.511291ms)
+✔ v3 repository real transaction: result remains pending and other connection sees A until commit (21.61975ms)
+✔ v3 repository: lost post-commit acknowledgement is recovered from durable receipt (29.092958ms)
+✔ v3 repository: distinct queued start commands have exactly one winner and queue survives conflict (23.724875ms)
+✔ v3 repository: separate SQLite connections contend, busy maps to CONFLICT and later retry observes winner (25.462958ms)
+✔ v3 repository: expense and edit rollback do not leave revisions, partial invoices or receipts behind (23.336625ms)
+✔ v3 repository: expense/edit and expense/start commands cannot both use the same period revision (27.878292ms)
+✔ v3 repository: revision overflow and public ID collision are explicit conflicts with no writes (17.981542ms)
+✔ v3 repository: FK-disabled exclusive-style connections still preserve complete transitions (18.257ms)
+(node:68091) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ v3 repository: initial save is distinct from a transition and is idempotent (45.294542ms)
+✔ v3 repository: no implicit migration or app opener is invoked on a v2 database (3.684292ms)
+✔ v3 repository: active/closed reads validate exact local/public/book scopes (31.62875ms)
+✔ v3 repository: two books use actual auto IDs and never mix their invoices or expenses (32.356167ms)
+✔ v3 repository: expense, one-time cancellation and receipts are scoped to B and preserve A (49.705083ms)
+✔ v3 repository: delayed old forms and wrong expense scopes are rejected without rerouting (40.193917ms)
+✔ v3 repository: saving an active carried invoice preserves its public ID and provenance (28.351417ms)
+✔ v3 repository: active invoice updates add/remove only scoped rows and remain parameterized (27.58125ms)
+✔ v3 repository: save cannot revive an expired period by changing its payday (10.071ms)
+✔ v3 repository: opening edits stay locked with cancelled history and cannot import caller transactions (31.868542ms)
+✔ v3 repository: pre-snapshot, zero/fractional and expired-period expenses never debit a new period (25.361791ms)
+✔ v3 repository: legacy receipt collision is a conflict, never an inferred successful v3 command (15.689333ms)
+✔ v3 repository: corrupted cancelled rows are validated, not excluded from data validation (14.918583ms)
+✔ v3 repository: full snapshot contract and calculation version are checked without rewriting archive (22.436584ms)
+✔ v3 repository: Turkish local payday boundary differs from UTC date and is respected (21.01925ms)
+✔ v3 repository: DST transition uses local calendar days, never 24-hour elapsed division (10.253083ms)
+✔ v3 repository: old expense/cancel/save acknowledgements return their recorded closed B, never active C (32.541375ms)
+✔ v3 repository: valid long legacy invoice identity can be carried without altering its source (17.439875ms)
+(node:68092) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:68092) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:68092) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ v3 repository real worker race: distinct commands have one CAS winner (124.952ms)
+(node:68092) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:68092) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ v3 repository real worker race: identical commands replay (105.331333ms)
+(node:68092) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:68092) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ v3 repository real DEFERRED race: two readers of A produce one commit and one SQLITE_BUSY_SNAPSHOT conflict (81.977458ms)
+(node:68093) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ v3 repository: start closes A and creates B with only the explicit balance and selected invoice (61.788167ms)
+✔ v3 repository: three periods, frozen A/B archive and old A->B replay never touch C (59.021583ms)
+✔ v3 repository: duplicate taps and reordered selections replay one immutable receipt (30.771125ms)
+✔ v3 repository: same operation ID with changed content conflicts without changing rows (27.933875ms)
+✔ v3 repository: old original clock can replay an active target after later expenses without rewriting it (29.956291ms)
+✔ v3 repository: invalid start source revision preserves full database (24.299417ms)
+✔ v3 repository: invalid start activation revision preserves full database (13.237667ms)
+✔ v3 repository: invalid start missing source preserves full database (16.3675ms)
+✔ v3 repository: invalid start wrong source public ID preserves full database (17.713709ms)
+✔ v3 repository: invalid start zero source preserves full database (17.0195ms)
+✔ v3 repository: invalid start fractional source preserves full database (13.811708ms)
+✔ v3 repository: invalid start unconfirmed balance preserves full database (13.4105ms)
+✔ v3 repository: invalid start missing selection list preserves full database (14.581292ms)
+✔ v3 repository: invalid start fractional money preserves full database (13.153375ms)
+✔ v3 repository: invalid start unsafe money preserves full database (14.290625ms)
+✔ v3 repository: invalid start NaN money preserves full database (12.98725ms)
+✔ v3 repository: invalid start infinite money preserves full database (11.970292ms)
+✔ v3 repository: invalid start negative savings preserves full database (12.544ms)
+✔ v3 repository: invalid start invalid calendar date preserves full database (13.514875ms)
+✔ v3 repository: invalid start implicit offset preserves full database (14.109417ms)
+✔ v3 repository: invalid start future snapshot preserves full database (11.743208ms)
+✔ v3 repository: invalid start premature transition preserves full database (13.035375ms)
+✔ v3 repository: invalid start expired new payday preserves full database (13.878375ms)
+✔ v3 repository: missing, duplicate, reused and mismatching carry invoice identities are rejected (18.256792ms)
+✔ v3 repository: no selected invoices means no automatic transfer of reserves or history (15.611292ms)
+✔ v3 repository: exact large and negative balances are accepted, aggregate overflow rolls back (17.103458ms)
+✔ v3 repository: negative spendable money is visible and not treated as a failed transition (16.086209ms)
+✔ v3 repository: reopen preserves closed snapshot, stable public IDs and replay receipts (18.29225ms)
+✔ v3 repository: captured request cannot be changed by its caller while queued (16.347375ms)
+✔ v3 repository: equivalent explicit offset encodings replay a single transition (16.32275ms)
+(node:68094) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ Persistence mapping: metadata edits preserve the old balance anchor and zone (32.393958ms)
+✔ Persistence mapping: changing balance establishes an explicit new snapshot, without fake expenses (4.806083ms)
+✔ Mock native API: every query uses the transaction callback connection (2.170375ms)
+✔ Mock native API: callback completion does not resolve before commit completion (0.16825ms)
+✔ Mock native API: commit rejection never reports a saved result (0.984334ms)
+✔ Web capability: unsupported storage rejects instead of returning an in-memory fake (0.39075ms)
+(node:68096) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ SQLite integration: migration v1 is atomic, versioned and idempotent (21.405458ms)
+✔ SQLite integration: a failed migration rolls back DDL and keeps version zero (3.366625ms)
+✔ SQLite integration: unknown future schema is rejected without downgrade (2.506958ms)
+✔ SQLite integration: save, close and reopen retain exact budget and names (3.872042ms)
+✔ SQLite integration: reopen recomputes with the actual clock but preserves opening instant (3.515958ms)
+✔ SQLite integration: updates replace invoices atomically and increment revision (3.712583ms)
+✔ SQLite integration: identical retry is durable and does not insert duplicates (4.846875ms)
+✔ SQLite integration: operation identifiers are generated without creating budget rows (4.188791ms)
+✔ SQLite integration: acknowledgement retry after payday does not create or rewrite an expired period (2.851666ms)
+✔ SQLite integration: queued save captures its own request before caller mutation (2.436458ms)
+✔ SQLite integration: duplicate initial operation and concurrent taps create only one budget (2.941ms)
+✔ SQLite integration: operation key cannot be reused for different content (3.6715ms)
+✔ SQLite integration: optimistic revision rejects stale edits and old operation replay (4.418ms)
+✔ SQLite integration: initial budget and invoice inserts roll back together on SQL failure (3.795333ms)
+✔ SQLite integration: failed update restores the old budget, revision and all invoices (3.095083ms)
+✔ SQLite integration: commit succeeded but acknowledgement failed; same operation recovers safely (3.204125ms)
+✔ SQLite integration: parameterized invoice text cannot execute SQL (2.680458ms)
+✔ SQLite integration: STRICT and CHECK constraints reject REAL money, duplicates and unsafe amounts (2.880459ms)
+✔ SQLite integration: relations also hold when a transaction connection has FK disabled (2.533041ms)
+✔ SQLite integration: stored invalid calendar data is rejected, not trusted or erased (2.981042ms)
+✔ SQLite integration: corrupt currency is rejected even after bypassing SQL checks (3.217958ms)
+✔ SQLite integration: a non-SQLite file is rejected without replacement (0.649333ms)
+✔ SQLite integration: orphan rows never masquerade as a fresh empty installation (3.424291ms)
+✔ SQLite integration: version one with missing schema is not silently recreated (1.423334ms)
+✔ SQLite integration: no fake transactions or new expired periods can be saved (2.909042ms)
+✔ SQLite integration: negative available money survives disk roundtrip (2.783708ms)
+ℹ tests 426
+ℹ suites 0
+ℹ pass 425
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1209.662708
+ℹ start of coverage report
+ℹ ------------------------------------------------------------------------------------------------
+ℹ file                                            | line % | branch % | funcs % | uncovered lines
+ℹ ------------------------------------------------------------------------------------------------
+ℹ ..                                              |        |          |         | 
+ℹ  ..                                             |        |          |         | 
+ℹ   ..                                            |        |          |         | 
+ℹ    ..                                           |        |          |         | 
+ℹ     private                                     |        |          |         | 
+ℹ      var                                        |        |          |         | 
+ℹ       folders                                   |        |          |         | 
+ℹ        2z                                       |        |          |         | 
+ℹ         msn8nczn0dbff_v5y45q58xc0000gn          |        |          |         | 
+ℹ          T                                      |        |          |         | 
+ℹ           gunluk-butcem-budget-tests-VA3FxB     |        |          |         | 
+ℹ            src                                  |        |          |         | 
+ℹ             data                                |        |          |         | 
+ℹ              budget                             |        |          |         | 
+ℹ               contracts.js                      | 100.00 |   100.00 |  100.00 | 
+ℹ               errors.js                         | 100.00 |   100.00 |  100.00 | 
+ℹ               exclusive-adapter.js              | 100.00 |    90.00 |  100.00 | 
+ℹ               expense-repository.js             | 100.00 |    93.75 |  100.00 | 
+ℹ               expense-validation.js             | 100.00 |    90.91 |  100.00 | 
+ℹ               guards.js                         | 100.00 |   100.00 |  100.00 | 
+ℹ               integrity-v3.js                   | 100.00 |    85.00 |  100.00 | 
+ℹ               migrations-v3.js                  | 100.00 |   100.00 |  100.00 | 
+ℹ               migrations.js                     |  98.36 |    82.35 |  100.00 | 115-116
+ℹ               platform.js                       | 100.00 |   100.00 |  100.00 | 
+ℹ               records.js                        |  95.00 |    76.47 |  100.00 | 30-31
+ℹ               repository-v3.js                  | 100.00 |    93.33 |  100.00 | 
+ℹ               repository.js                     | 100.00 |    94.83 |  100.00 | 
+ℹ               schema-v3.js                      | 100.00 |   100.00 |  100.00 | 
+ℹ               v3-expenses.js                    |  98.10 |    75.56 |  100.00 | 48-49
+ℹ               v3-history.js                     | 100.00 |    85.71 |  100.00 | 
+ℹ               v3-operations.js                  | 100.00 |    89.47 |  100.00 | 
+ℹ               v3-records.js                     | 100.00 |    84.16 |  100.00 | 
+ℹ               v3-save.js                        | 100.00 |    90.74 |  100.00 | 
+ℹ               v3-start-period.js                | 100.00 |    86.79 |  100.00 | 
+ℹ               v3-validation.js                  |  98.73 |    93.15 |  100.00 | 105-106
+ℹ               validation.js                     | 100.00 |    76.92 |   93.75 | 
+ℹ             devtools                            |        |          |         | 
+ℹ              native-v3                          |        |          |         | 
+ℹ               fixtures.js                       | 100.00 |   100.00 |  100.00 | 
+ℹ               suite.js                          |  98.47 |    93.65 |  100.00 | 14 34-35 200
+ℹ               types.js                          |  69.23 |   100.00 |   66.67 | 18-25
+ℹ             domain                              |        |          |         | 
+ℹ              budget                             |        |          |         | 
+ℹ               calculate-budget.js               | 100.00 |   100.00 |  100.00 | 
+ℹ               calendar.js                       |  97.53 |    95.35 |  100.00 | 43-44
+ℹ               currencies.js                     | 100.00 |   100.00 |  100.00 | 
+ℹ               errors.js                         | 100.00 |   100.00 |  100.00 | 
+ℹ               index.js                          | 100.00 |   100.00 |   83.33 | 
+ℹ               money.js                          | 100.00 |   100.00 |  100.00 | 
+ℹ               validation.js                     | 100.00 |   100.00 |  100.00 | 
+ℹ             features                            |        |          |         | 
+ℹ              budget-setup                       |        |          |         | 
+ℹ               format.js                         | 100.00 |   100.00 |  100.00 | 
+ℹ               input.js                          | 100.00 |   100.00 |  100.00 | 
+ℹ               persistence.js                    |  95.83 |    64.71 |  100.00 | 38-39
+ℹ               preview.js                        | 100.00 |   100.00 |  100.00 | 
+ℹ               types.js                          | 100.00 |   100.00 |  100.00 | 
+ℹ              expenses                           |        |          |         | 
+ℹ               adapter.js                        | 100.00 |   100.00 |  100.00 | 
+ℹ              periods                            |        |          |         | 
+ℹ               contracts.js                      | 100.00 |   100.00 |  100.00 | 
+ℹ               fixture-port.js                   | 100.00 |    81.25 |   85.71 | 
+ℹ               form-controller.js                |  97.13 |    83.33 |  100.00 | 101-103 157-158
+ℹ               form.js                           |  90.91 |    76.00 |  100.00 | 30-31 41-42
+ℹ               presentation.js                   | 100.00 |    66.67 |  100.00 | 
+ℹ               resource.js                       | 100.00 |   100.00 |   66.67 | 
+ℹ               workspace.js                      | 100.00 |   100.00 |  100.00 | 
+ℹ ------------------------------------------------------------------------------------------------
+ℹ all files                                       |  98.99 |    89.85 |   97.60 | 
+ℹ ------------------------------------------------------------------------------------------------
+ℹ end of coverage report
+
+✖ failing tests:
+
+test at ../../../../private/var/folders/2z/msn8nczn0dbff_v5y45q58xc0000gn/T/gunluk-butcem-budget-tests-VA3FxB/tests/period-ui/retry-conflict.mock.test.js:71:22
+✖ 7D-1 retry mock: a delayed conflict review cannot overwrite a committed retry (5.237042ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'review'
+  - 'success'
+  
+      at TestContext.<anonymous> (/private/var/folders/2z/msn8nczn0dbff_v5y45q58xc0000gn/T/gunluk-butcem-budget-tests-VA3FxB/tests/period-ui/retry-conflict.mock.test.js:91:22)
+      at async Test.run (node:internal/test_runner/test:1069:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:752:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'review',
+    expected: 'success',
+    operator: 'strictEqual'
+  }

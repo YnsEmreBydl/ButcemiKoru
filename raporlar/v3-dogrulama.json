@@ -1,0 +1,539 @@
+{
+  "stage": "7A",
+  "date": "2026-10-26",
+  "node": "v24.4.0",
+  "sqlite": "3.50.2",
+  "scope": "Independent temporary SQLite files only; no device access; application still migrates to v2",
+  "commands": [
+    {
+      "command": "npm test",
+      "exitCode": 0,
+      "total": 310,
+      "passed": 310,
+      "failed": 0,
+      "skipped": 0,
+      "previous": 256,
+      "added": 54
+    },
+    {
+      "command": "npx tsc --noEmit",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "command": "npx expo lint",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "command": "npx expo-doctor",
+      "exitCode": 0,
+      "output": "Running 20 checks on your project...\n20/20 checks passed. No issues detected!\n",
+      "initialAttempt": "sandbox registry DNS ENOTFOUND; retried with network access"
+    }
+  ],
+  "newTests": {
+    "realFileScenarios": 53,
+    "frozenFixtureCheck": 1,
+    "sqlMocks": 0
+  },
+  "limitations": [
+    "No native iOS/Android v3 execution",
+    "No physical disk-full or OS-kill test",
+    "Fault injection is not a native commit failure test",
+    "No startPeriod business logic"
+  ],
+  "existingFileCount": 91,
+  "existingFiles": [
+    {
+      "file": "src/app/_layout.tsx",
+      "sha256": "1e0feec64a3c13c61eddd5a04e021152a07314d5c69cb76b4635437316426470",
+      "unchanged": true
+    },
+    {
+      "file": "src/app/budget-setup.tsx",
+      "sha256": "c21103aa4add9754bc38fd64f7df9fecbe41206dcf37a8b578c1b99904a23f37",
+      "unchanged": true
+    },
+    {
+      "file": "src/app/demo.tsx",
+      "sha256": "a01941a15bbb11be7237ac0833077206eea993dd9573f44c9e882d60ff48ff8c",
+      "unchanged": true
+    },
+    {
+      "file": "src/app/expense-add.tsx",
+      "sha256": "d7bc32885a120fd8d57c354ef2f912348e9e3b2a5802d161fe5ed4f185e845aa",
+      "unchanged": true
+    },
+    {
+      "file": "src/app/explore.tsx",
+      "sha256": "7b6d6e452bf6356ac29d10de9532c4be05324f65fce6b0233fdfefc70dfc7bba",
+      "unchanged": true
+    },
+    {
+      "file": "src/app/index.tsx",
+      "sha256": "9057b6f048600485608881d80b723d652647d76787538f568909034a825a57e7",
+      "unchanged": true
+    },
+    {
+      "file": "src/components/animated-icon.module.css",
+      "sha256": "a70d5b1b0561336e53541e4fcca0431fa9e3671fc29dd232a44d546ff488423c",
+      "unchanged": true
+    },
+    {
+      "file": "src/components/animated-icon.tsx",
+      "sha256": "53772b1cfee876e9e79be0456fc6a4500b76a88e12990c63b3cc96d9ba9842b5",
+      "unchanged": true
+    },
+    {
+      "file": "src/components/animated-icon.web.tsx",
+      "sha256": "d99b902d487bb7a0c6357b201cc5c5fda1fd1a482e6edea3d896324e949712d2",
+      "unchanged": true
+    },
+    {
+      "file": "src/components/app-tabs.tsx",
+      "sha256": "bfc3e1a5ac34e3c3f0600cc8db471405e4543bca31b34b14350232c7a1c922b5",
+      "unchanged": true
+    },
+    {
+      "file": "src/components/app-tabs.web.tsx",
+      "sha256": "004eb57cafbc1ac1fb5422dd030a16a4f1fbbae37b5dd9e5d2d0c8d5ec43ac1d",
+      "unchanged": true
+    },
+    {
+      "file": "src/components/budget/budget-icon.tsx",
+      "sha256": "dafc7726f3b9844e5acf546b1bfb77b6531626c3850382c38d6e58672cc41850",
+      "unchanged": true
+    },
+    {
+      "file": "src/components/budget/budget-overview.tsx",
+      "sha256": "456ee8ffccccf5855460a7f9bb64ff1d28de964593420448820d26844b13e137",
+      "unchanged": true
+    },
+    {
+      "file": "src/components/budget/demo-notice.tsx",
+      "sha256": "43ffb5d754869cf0bc9274df6cdb0e584cce33bbd1781d593568a4841fc866e8",
+      "unchanged": true
+    },
+    {
+      "file": "src/components/budget/expense-list.tsx",
+      "sha256": "68b43b26b7d2110c208ab0caa881f50a3b7734844f6cf85e7055575f1a087c9f",
+      "unchanged": true
+    },
+    {
+      "file": "src/components/budget/quick-action.tsx",
+      "sha256": "5a2db951eb7fa98bcdd934417d27f902099547f291fe7f5bafda5e61045400d6",
+      "unchanged": true
+    },
+    {
+      "file": "src/components/external-link.tsx",
+      "sha256": "2838582e2dc21877652b710d4aee5f4ba5a795b17fcf63bd7ac9c25a749c8c26",
+      "unchanged": true
+    },
+    {
+      "file": "src/components/hint-row.tsx",
+      "sha256": "2b5b1bbd4da6d9946e9a267587d7d6279059b0fab01dfeca144cd8cc3653a099",
+      "unchanged": true
+    },
+    {
+      "file": "src/components/themed-text.tsx",
+      "sha256": "ae907d2b52a6a231963db7882acb5f853e6a08b94c34efc88d89fb1cd5f83264",
+      "unchanged": true
+    },
+    {
+      "file": "src/components/themed-view.tsx",
+      "sha256": "e13930b2f4dfd4dab093d1a86c1586825a97d56e895ba8cb9c89233e654138c9",
+      "unchanged": true
+    },
+    {
+      "file": "src/components/ui/collapsible.tsx",
+      "sha256": "73613fbb9c2d64215f7c365683ec790dbf6f04160bea48bc7273cc0a36d4a95b",
+      "unchanged": true
+    },
+    {
+      "file": "src/components/web-badge.tsx",
+      "sha256": "0af7715337e070c7c476202c8dd77f2fd6a3514255ace1ead9f832ccc8351a7f",
+      "unchanged": true
+    },
+    {
+      "file": "src/constants/budget-theme.ts",
+      "sha256": "4a976dad7891274b98c73c6606be362b6c9fa1405739fb3fa4561a038153e70d",
+      "unchanged": true
+    },
+    {
+      "file": "src/constants/theme.ts",
+      "sha256": "5c524dc8b8c75b01e6f5d10ec0d2efa094f3e4591cb8b2866508573806311a69",
+      "unchanged": true
+    },
+    {
+      "file": "src/data/budget/contracts.ts",
+      "sha256": "6c72b4a3bc8f9c8c14adfda195771da9bd813c37325c47074e01eeb90beb4b9a",
+      "unchanged": true
+    },
+    {
+      "file": "src/data/budget/errors.ts",
+      "sha256": "b0e1761aeca8cc7c76bb9df3daf1e9012f6409f290aa6085f139836bf65e5f09",
+      "unchanged": true
+    },
+    {
+      "file": "src/data/budget/exclusive-adapter.ts",
+      "sha256": "ad458e9b6076b0de5d29f116f5b0294c34d680b18a7dc2ccbf7599abfa43ab59",
+      "unchanged": true
+    },
+    {
+      "file": "src/data/budget/expense-repository.ts",
+      "sha256": "fbbdae730b02a8389df725bca5506f8ecc24036e6ea3a26cfd4dabd9dbbfbc8c",
+      "unchanged": true
+    },
+    {
+      "file": "src/data/budget/expense-validation.ts",
+      "sha256": "1a60c48b9ff1762df6a6e0dbe24d2cdfbd167215cedcf3fe7d22ff8e69de71e6",
+      "unchanged": true
+    },
+    {
+      "file": "src/data/budget/guards.ts",
+      "sha256": "45ec292d6fd7f25a0bc67a9f122c444bf8326733786ff2c6fc00006d6fbfabe5",
+      "unchanged": true
+    },
+    {
+      "file": "src/data/budget/migrations.ts",
+      "sha256": "9bdb2b47749cd92b3ef1b6dccd23ad6d0aaca30e95cd6a6fccb54d1b998741a7",
+      "unchanged": true
+    },
+    {
+      "file": "src/data/budget/platform.native.ts",
+      "sha256": "6f1e70d1abaac7025673629a44e6690505c22ccb955e461d4cb496e6c433521a",
+      "unchanged": true
+    },
+    {
+      "file": "src/data/budget/platform.ts",
+      "sha256": "a2ecd17268ddd35371bc6cf09222a0f147449a6e62419c5a6748a40adabc4a58",
+      "unchanged": true
+    },
+    {
+      "file": "src/data/budget/records.ts",
+      "sha256": "8c8f3ad82bf6bdc3a6704399110cc389d0ca85c8ddabe7c9351b192392bf3a1f",
+      "unchanged": true
+    },
+    {
+      "file": "src/data/budget/repository.ts",
+      "sha256": "7962192fb8a55e043e020b53c4e2693797fd23257be4f9412bb67f8d86b4cc85",
+      "unchanged": true
+    },
+    {
+      "file": "src/data/budget/validation.ts",
+      "sha256": "0ca3f662bd22f6fa453ab2dc498247b6a5cb979d89a34a10535196c38a100631",
+      "unchanged": true
+    },
+    {
+      "file": "src/data/demo-budget.ts",
+      "sha256": "f3f8bb947d7b239bfd23b9e5d480b26c0c9aa934e55ea2f97d300671814924aa",
+      "unchanged": true
+    },
+    {
+      "file": "src/domain/budget/README.md",
+      "sha256": "c4c6896e7ff971a3f3ee012db0261127506ff5596638f242f5a3003294c26a01",
+      "unchanged": true
+    },
+    {
+      "file": "src/domain/budget/calculate-budget.ts",
+      "sha256": "7de61e0e6b9e8a9c99380fd2d73e18f13e1d1522f1dd7d804ef3612c02f21cef",
+      "unchanged": true
+    },
+    {
+      "file": "src/domain/budget/calendar.ts",
+      "sha256": "be3a901fc0daf62649fcf4388823d81af6120cf9eb4e7ac77806e87d9c84c39a",
+      "unchanged": true
+    },
+    {
+      "file": "src/domain/budget/currencies.ts",
+      "sha256": "d5daf0020438edad4abc2cb5f17fafb58ca343f7ea398e7744e4345a928ba76f",
+      "unchanged": true
+    },
+    {
+      "file": "src/domain/budget/errors.ts",
+      "sha256": "37936fe727ead68504c3c0d322a178a5969b132dad974cefbf041cfe84bf570d",
+      "unchanged": true
+    },
+    {
+      "file": "src/domain/budget/index.ts",
+      "sha256": "1b8fc03b63398a922d77cb1678322a76ce80453d81950bbc966d7e86e2d127e3",
+      "unchanged": true
+    },
+    {
+      "file": "src/domain/budget/money.ts",
+      "sha256": "bfd85e14b202fe78b20fc31d3ccc0afd328821c6bb0b8be84f103cbe36fbad4d",
+      "unchanged": true
+    },
+    {
+      "file": "src/domain/budget/types.ts",
+      "sha256": "6ceeb4e9ded833b570c5a91de27b8a5535817bed15801c6a270b10220720b849",
+      "unchanged": true
+    },
+    {
+      "file": "src/domain/budget/validation.ts",
+      "sha256": "489d5bd628a60af1e9a766811d5aedd35bf4f7066cae09ba813f40896ad5f62d",
+      "unchanged": true
+    },
+    {
+      "file": "src/features/budget-setup/format.ts",
+      "sha256": "b4954f2edbc94824efe66e7ef8b8fa858eedd074dd2d8a04b698d1f50afc220b",
+      "unchanged": true
+    },
+    {
+      "file": "src/features/budget-setup/input.ts",
+      "sha256": "f1c5e89f9efce87556d1719547e5c999c42795c72a010bded9055bfa91433413",
+      "unchanged": true
+    },
+    {
+      "file": "src/features/budget-setup/payment-form.tsx",
+      "sha256": "5a8a97859feedda52a6a64769712d8f85ffc639c982caef20a7880bad86f77f2",
+      "unchanged": true
+    },
+    {
+      "file": "src/features/budget-setup/persistence.ts",
+      "sha256": "5a1f08dece291e763c008ec4687908eb7f8aeca242905500c34f36c7dcef748a",
+      "unchanged": true
+    },
+    {
+      "file": "src/features/budget-setup/preview-result.tsx",
+      "sha256": "6ec0dcc6d1a17d54a0744718109d378eb266d5b529d23356dd3a9d284fe6e588",
+      "unchanged": true
+    },
+    {
+      "file": "src/features/budget-setup/preview.ts",
+      "sha256": "e9af79942c971aa8e71e09e5b830ca6d5fbe9914cfe08ae38f374eb6a7a69c21",
+      "unchanged": true
+    },
+    {
+      "file": "src/features/budget-setup/setup-field.tsx",
+      "sha256": "739a01ea2c9a0d6971ab5fd7480096bf04d39cf00fb44afc414b7781e8fe2ca1",
+      "unchanged": true
+    },
+    {
+      "file": "src/features/budget-setup/setup-screen.tsx",
+      "sha256": "a47ca00cfddac09373aa79e5c69f340f8b91f82295ce2919d7606c22b3c38131",
+      "unchanged": true
+    },
+    {
+      "file": "src/features/budget-setup/types.ts",
+      "sha256": "f95e3fa8f1bf16b79e2e3e006d2b1dcbf2b20d0fd32b744b38e7e7a0abe21b28",
+      "unchanged": true
+    },
+    {
+      "file": "src/features/demo/demo-screen.tsx",
+      "sha256": "53dab016f8ed0f43ad8d3ad22d1d408e63a2a96964e318e28d4144c1d2e03726",
+      "unchanged": true
+    },
+    {
+      "file": "src/features/expenses/adapter.ts",
+      "sha256": "7389fceb6c3e4023576bccdbdf6b843a5cb3273794f37012c9b14667230e32f6",
+      "unchanged": true
+    },
+    {
+      "file": "src/features/expenses/expense-screen.tsx",
+      "sha256": "b426ced074a24c92387ce52372161f41e6c28c9bc2349479e03345ffeb40b49d",
+      "unchanged": true
+    },
+    {
+      "file": "src/features/expenses/history-row.tsx",
+      "sha256": "cd3542e8a2bf63249ee662bf12e9b931d8d3cac8d0a9f341ddeaf4df107f32ab",
+      "unchanged": true
+    },
+    {
+      "file": "src/features/saved-budget/budget-summary.tsx",
+      "sha256": "3730559ff90645d1e87a434917866d73db28ffe42b8a0f2fad2634bf394648ee",
+      "unchanged": true
+    },
+    {
+      "file": "src/features/saved-budget/home-screen.tsx",
+      "sha256": "bc52bfad69c82472b89c41fbe9415aff4a19ca91b1efe536e2f6bffb46860b53",
+      "unchanged": true
+    },
+    {
+      "file": "src/features/saved-budget/use-saved-budget.ts",
+      "sha256": "e560b1a77a847ff939650d99fe2e61877034fd05df34d56d803828fe07794074",
+      "unchanged": true
+    },
+    {
+      "file": "src/global.css",
+      "sha256": "3d65b4b82fe8112cd874d5058bb78b94743d2679958a421191802f4239cedf56",
+      "unchanged": true
+    },
+    {
+      "file": "src/hooks/use-color-scheme.ts",
+      "sha256": "33beb965500ae5fdfe5c8699805a6be94c8c126a751fbe2ed7bcae87df394882",
+      "unchanged": true
+    },
+    {
+      "file": "src/hooks/use-color-scheme.web.ts",
+      "sha256": "e9652b2b4f8df900ffd5eeee61c47ca0de367043b007f91fc2c3fe44e36df06c",
+      "unchanged": true
+    },
+    {
+      "file": "src/hooks/use-theme.ts",
+      "sha256": "267508aef2ef836c3267d3ffb52bbd499282a4ea1dab2c36e061e008945d77b8",
+      "unchanged": true
+    },
+    {
+      "file": "src/utils/currency.ts",
+      "sha256": "374c7dcce8755cda798cf64194adedbc21df8cbe3bf5f5113e3c25ce3874123c",
+      "unchanged": true
+    },
+    {
+      "file": "tests/budget/calculate-budget.test.ts",
+      "sha256": "8b7a5d19fad88ab8c8883a7054a698c5180443e8d988110c5126535c1dd85b7c",
+      "unchanged": true
+    },
+    {
+      "file": "tests/budget/calendar.test.ts",
+      "sha256": "2fa7262883055fc6b0369447b3bdacd66a7d3956b61b290194dca71caa8d96ff",
+      "unchanged": true
+    },
+    {
+      "file": "tests/budget/fixtures.ts",
+      "sha256": "6038cda2b394543e051e0d246519fcbd37162f43d2a2d878263a32c0c82c6813",
+      "unchanged": true
+    },
+    {
+      "file": "tests/budget/node-env.d.ts",
+      "sha256": "9b89d0f9e9a05e9d99527eb0a59ea6521408b7a95c64baea52d9b7fa0d13f7cd",
+      "unchanged": true
+    },
+    {
+      "file": "tests/budget/validation.test.ts",
+      "sha256": "01e968b8a6b6d49427bc7d140c53c9d0058cfbca0f273ac41f66c268cd11fdd8",
+      "unchanged": true
+    },
+    {
+      "file": "tests/budget-setup/format-hermes.test.ts",
+      "sha256": "fc06f3156ef6bc59b39e42627b9fdd20dd55ffb16e04bc24b0cfbbdb403fd82e",
+      "unchanged": true
+    },
+    {
+      "file": "tests/budget-setup/input.test.ts",
+      "sha256": "04602e8a799f82f35e30b6e504161b98b06416b305750006aa4d7d3bc62aaa17",
+      "unchanged": true
+    },
+    {
+      "file": "tests/budget-setup/preview.test.ts",
+      "sha256": "aaf176fa23eb874ddadd590b9994ef9ddc46858adffb6ceee2c1524ea43fb969",
+      "unchanged": true
+    },
+    {
+      "file": "tests/expenses/adapter.test.ts",
+      "sha256": "bd6fa0c802c5fe6835f13aa9027c2bc664ac1368454494d3788320189ff9bcc1",
+      "unchanged": true
+    },
+    {
+      "file": "tests/expenses/fixtures.ts",
+      "sha256": "5b23f93084f8d8e90ec4196dc741c502eb6e244df7e9644aa3798f9ed10bdc3e",
+      "unchanged": true
+    },
+    {
+      "file": "tests/expenses/migration.test.ts",
+      "sha256": "af93b38749e77421827423467656d088afc96011acae3190be78a7b702d58d3f",
+      "unchanged": true
+    },
+    {
+      "file": "tests/expenses/native-probe.js.txt",
+      "sha256": "cb0fc0ee9f1da4488c683b28108c756061c9064b2cec5bdbf00cbbbb94829a27",
+      "unchanged": true
+    },
+    {
+      "file": "tests/expenses/repository.test.ts",
+      "sha256": "30bfc2257e4632fb7c479297736c6b1c89fcbece348528f05421b6cc1bd1b4d7",
+      "unchanged": true
+    },
+    {
+      "file": "tests/expenses/v1-schema.sql",
+      "sha256": "c74504e196950586f59ea738e09ff9c25f64fdf7b45627c29f82daf6599b46d5",
+      "unchanged": true
+    },
+    {
+      "file": "tests/storage/editing.test.ts",
+      "sha256": "7ee102b31e29682fd6ba8bbba773a682aed3864b85b32f9aacaa4818268b0275",
+      "unchanged": true
+    },
+    {
+      "file": "tests/storage/exclusive.mock.test.ts",
+      "sha256": "65f99b85c196ba95db800b15b8da405448c07c705992acf58f0e3c1e1b6189a7",
+      "unchanged": true
+    },
+    {
+      "file": "tests/storage/sqlite-helper.ts",
+      "sha256": "07c084b952183981e8846f7bc4080733d5278e29607f67d743a4ecd12054ce7c",
+      "unchanged": true
+    },
+    {
+      "file": "tests/storage/sqlite.integration.test.ts",
+      "sha256": "b9769113f93b1d8a631f4fc53aba729727dca336f9aeacdbf7b2ebc3d67834e0",
+      "unchanged": true
+    },
+    {
+      "file": "package.json",
+      "sha256": "e6c5549fe78f3aa1775ff0918037cbdb8f1907c18b0cec3bf5b93ee7dec478fa",
+      "unchanged": true
+    },
+    {
+      "file": "package-lock.json",
+      "sha256": "222a09abf2f17f0b08946c06a20362b7c854e11df444e070c656b04b9dad55ea",
+      "unchanged": true
+    },
+    {
+      "file": "app.json",
+      "sha256": "fb34cac2dc94dc5269c4e92f6daf4735a66291131f8aaac00ec983c459733f8f",
+      "unchanged": true
+    },
+    {
+      "file": "tsconfig.json",
+      "sha256": "2c427a7bc50569dc5167d39425793d8bba22eeffcb213fff05f6274980784508",
+      "unchanged": true
+    },
+    {
+      "file": "tsconfig.budget-tests.json",
+      "sha256": "2e47dac913c7b5dc8c29fffb2fcf92db246b6a7404543229bf491a2a715517b6",
+      "unchanged": true
+    },
+    {
+      "file": "eslint.config.js",
+      "sha256": "3b0c823fd936f964905db962e66e92e24773b7085c0c82750a4d4f0b1808c41c",
+      "unchanged": true
+    }
+  ],
+  "newFiles": [
+    {
+      "file": "src/data/budget/schema-v3.ts",
+      "sha256": "7ca3c73f58f4959b5530a284f6adc11c572359b22beca4dbc6a1abdbfead6b20"
+    },
+    {
+      "file": "src/data/budget/integrity-v3.ts",
+      "sha256": "7879d87401e0a9b3a542d40f91b910d96b0476f16eb4a4d144befc2a8a9dbcab"
+    },
+    {
+      "file": "src/data/budget/migrations-v3.ts",
+      "sha256": "d2f34acd8d985ee1476354685605edcd45f4f5a6bd1428b3649bd46ab6efbf34"
+    },
+    {
+      "file": "tests/migrations-v3/fixtures/v2-schema.sql",
+      "sha256": "4f2a3d600a33a52e7b4118fc03b6332cb15f9b0fa0a864b94b157ebf86bd9f44"
+    },
+    {
+      "file": "tests/migrations-v3/fixtures.ts",
+      "sha256": "7ec8d4a6c514ea378472e3be88837c3303e87560628b38f56dcd362bd0267881"
+    },
+    {
+      "file": "tests/migrations-v3/migration.test.ts",
+      "sha256": "dc30bd08bc2df6c78a855369bf192ba7ee028a1371c8376e29362cc8efcc626f"
+    },
+    {
+      "file": "tests/migrations-v3/constraints.test.ts",
+      "sha256": "d6a4a10036e3207c65d1179cd621092249c200166714c1f18c876a4f3a467bd5"
+    },
+    {
+      "file": "MIGRATION_V3_RAPORU.md",
+      "sha256": "397b9b77ad8494f82519160b44682bde620b687bf305eba9a25645b322f1358d"
+    }
+  ],
+  "testLogSha256": "c2a1426d06803b8b7d9e1bcc9baf3f5ea2cbb200cbbf92f4d8aa5618f99c398c"
+}

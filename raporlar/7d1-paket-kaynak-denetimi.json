@@ -1,0 +1,135 @@
+{
+  "method": "recursive source maps, nearest node_modules package attribution; not an exploit or native binary audit",
+  "results": {
+    "ios": [
+      {
+        "map": "_expo/static/js/ios/entry-8889cac655f891f1a3508caed8b41b05.hbc.map",
+        "sourceCount": 1595,
+        "matches": [
+          {
+            "package": "@expo/cli",
+            "source": "/node_modules/expo/node_modules/@expo/cli/build/metro-require/require.js"
+          }
+        ],
+        "labSourcePresent": false
+      }
+    ],
+    "android": [
+      {
+        "map": "_expo/static/js/android/entry-9eeff111ba440b87009805a7e702988e.hbc.map",
+        "sourceCount": 1691,
+        "matches": [
+          {
+            "package": "@expo/cli",
+            "source": "/node_modules/expo/node_modules/@expo/cli/build/metro-require/require.js"
+          }
+        ],
+        "labSourcePresent": false
+      }
+    ],
+    "webClient": [
+      {
+        "map": "client/_expo/static/js/web/[periodId]-918ba16169e77fbc08fecc6e30a8a059.js.map",
+        "sourceCount": 1,
+        "matches": [],
+        "labSourcePresent": false
+      },
+      {
+        "map": "client/_expo/static/js/web/__common-9fe104138eb1370f8101ee522c6dcd34.js.map",
+        "sourceCount": 92,
+        "matches": [],
+        "labSourcePresent": false
+      },
+      {
+        "map": "client/_expo/static/js/web/__expo-metro-runtime-8c088df87a31e4e6accd81c554ec290d.js.map",
+        "sourceCount": 5,
+        "matches": [
+          {
+            "package": "@expo/cli",
+            "source": "/node_modules/expo/node_modules/@expo/cli/build/metro-require/require.js"
+          }
+        ],
+        "labSourcePresent": false
+      },
+      {
+        "map": "client/_expo/static/js/web/_layout-53e78c69adec776de77b957ef907a4ec.js.map",
+        "sourceCount": 1,
+        "matches": [],
+        "labSourcePresent": false
+      },
+      {
+        "map": "client/_expo/static/js/web/_layout-586043b11e584fb4b7f91b1496a242b0.js.map",
+        "sourceCount": 1,
+        "matches": [],
+        "labSourcePresent": false
+      },
+      {
+        "map": "client/_expo/static/js/web/budget-setup-9e7f994424c201904ac9c5e3e0322622.js.map",
+        "sourceCount": 5,
+        "matches": [],
+        "labSourcePresent": false
+      },
+      {
+        "map": "client/_expo/static/js/web/demo-4c48ac470b49c32119ddfbf54ea77dc4.js.map",
+        "sourceCount": 8,
+        "matches": [],
+        "labSourcePresent": false
+      },
+      {
+        "map": "client/_expo/static/js/web/entry-0938367e7e98b7fadd4c66b90261ad26.js.map",
+        "sourceCount": 757,
+        "matches": [],
+        "labSourcePresent": false
+      },
+      {
+        "map": "client/_expo/static/js/web/expense-add-1bd7a5fbe2cd154537a33c7e29ace711.js.map",
+        "sourceCount": 2,
+        "matches": [],
+        "labSourcePresent": false
+      },
+      {
+        "map": "client/_expo/static/js/web/explore-c215d3ee50b2ac5a8c8596f220f163cc.js.map",
+        "sourceCount": 380,
+        "matches": [],
+        "labSourcePresent": false
+      },
+      {
+        "map": "client/_expo/static/js/web/history-f4e8acec4f4af41be2d0b46c944f2558.js.map",
+        "sourceCount": 1,
+        "matches": [],
+        "labSourcePresent": false
+      },
+      {
+        "map": "client/_expo/static/js/web/index-95736d5dafc557beaf341c64d025807a.js.map",
+        "sourceCount": 4,
+        "matches": [],
+        "labSourcePresent": false
+      },
+      {
+        "map": "client/_expo/static/js/web/index-c97f8dac28420d5871e50a8838a78dd3.js.map",
+        "sourceCount": 1,
+        "matches": [],
+        "labSourcePresent": false
+      },
+      {
+        "map": "client/_expo/static/js/web/new-f66205315c8c1ff6c045a5ce09488671.js.map",
+        "sourceCount": 1,
+        "matches": [],
+        "labSourcePresent": false
+      }
+    ],
+    "webServer": [
+      {
+        "map": "server/_expo/server/render.js.map",
+        "sourceCount": 1292,
+        "matches": [
+          {
+            "package": "@expo/cli",
+            "source": "node_modules/expo/node_modules/@expo/cli/build/metro-require/require.js"
+          }
+        ],
+        "labSourcePresent": false
+      }
+    ]
+  }
+}

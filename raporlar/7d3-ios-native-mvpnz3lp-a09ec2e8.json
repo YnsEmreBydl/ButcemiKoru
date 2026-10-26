@@ -1,0 +1,65 @@
+{
+  "app": {
+    "hasOpened": true,
+    "message": "",
+    "phase": "ready",
+    "schema": 3
+  },
+  "error": null,
+  "identity": {
+    "development": true,
+    "hermes": true,
+    "independentApp": true,
+    "physicalDevice": true,
+    "platform": "ios",
+    "testBuild": true
+  },
+  "report": {
+    "failed": 0,
+    "passed": 10,
+    "results": [
+      {
+        "id": "app-startup-persistence",
+        "status": "passed"
+      },
+      {
+        "id": "app-fence-concurrent-handles",
+        "status": "passed"
+      },
+      {
+        "id": "app-inflight-drained",
+        "status": "passed"
+      },
+      {
+        "id": "app-bad-backup",
+        "status": "passed"
+      },
+      {
+        "id": "app-migration",
+        "status": "passed"
+      },
+      {
+        "id": "app-before-activation",
+        "status": "passed"
+      },
+      {
+        "id": "app-lost-commit-ack",
+        "status": "passed"
+      },
+      {
+        "id": "app-forms-expenses-archive",
+        "status": "passed"
+      },
+      {
+        "id": "app-policy-closed",
+        "status": "passed"
+      },
+      {
+        "id": "app-unknown-schema",
+        "status": "passed"
+      }
+    ]
+  },
+  "running": false,
+  "stage": "app-unknown-schema"
+}

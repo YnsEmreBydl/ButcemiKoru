@@ -1,0 +1,21 @@
+import {randomBytes} from 'node:crypto';
+import {mkdtempSync,readFileSync,symlinkSync,writeFileSync} from 'node:fs';
+import {tmpdir,networkInterfaces} from 'node:os';
+import {dirname,join,resolve} from 'node:path';
+import {fileURLToPath} from 'node:url';
+
+const root=resolve(dirname(fileURLToPath(import.meta.url)),'..');
+const folder=mkdtempSync(join(tmpdir(),'gb-v3-native-lab-'));
+const project=JSON.parse(readFileSync(join(root,'package.json'),'utf8'));
+const runId=randomBytes(16).toString('hex');
+symlinkSync(join(root,'node_modules'),join(folder,'node_modules'),'dir');
+const names=['expo','react','react-native','expo-sqlite','expo-constants','expo-device'];
+writeFileSync(join(folder,'package.json'),JSON.stringify({name:'gb-v3-native-lab',version:'1.0.0',private:true,main:'index.js',dependencies:Object.fromEntries(names.map(name=>[name,project.dependencies[name]]))},null,2));
+writeFileSync(join(folder,'app.json'),JSON.stringify({expo:{name:'SQLite v3 Native Lab',slug:'gb-v3-native-lab',version:'1.0.0',scheme:'gb-v3-native-lab',ios:{bundleIdentifier:'dev.gunlukbutcem.sqlitev3lab'},android:{package:'dev.gunlukbutcem.sqlitev3lab'},extra:{labRunId:runId},plugins:['expo-sqlite']}},null,2));
+writeFileSync(join(folder,'lab-config.json'),JSON.stringify({runId,fixtures:{v1:readFileSync(join(root,'tests/expenses/v1-schema.sql'),'utf8'),v2:readFileSync(join(root,'tests/migrations-v3/fixtures/v2-schema.sql'),'utf8')}}));
+writeFileSync(join(folder,'index.js'),`import React from 'react';\nimport {registerRootComponent} from 'expo';\nimport App from ${JSON.stringify(join(root,'src/devtools/native-v3/lab-app.tsx'))};\nimport config from './lab-config.json';\nfunction Lab(){return React.createElement(App,{config});}\nregisterRootComponent(Lab);\n`);
+writeFileSync(join(folder,'metro.config.js'),`const {getDefaultConfig}=require('expo/metro-config');\nconst config=getDefaultConfig(__dirname);\nconfig.watchFolders=[${JSON.stringify(root)}];\nconfig.resolver.nodeModulesPaths=[${JSON.stringify(join(root,'node_modules'))}];\nmodule.exports=config;\n`);
+const addresses=Object.values(networkInterfaces()).flat().filter(value=>value?.family==='IPv4'&&!value.internal).map(value=>value.address);
+const information={folder,runId,port:8097,urls:[...new Set(addresses)].map(address=>`exp://${address}:8097`),scope:'standalone synthetic native test app; no production database opener'};
+writeFileSync('/private/tmp/gunluk-butcem-7d1-lab-info.json',JSON.stringify(information,null,2));
+process.stdout.write(JSON.stringify(information,null,2)+'\n');

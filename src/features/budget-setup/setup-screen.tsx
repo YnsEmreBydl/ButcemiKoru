@@ -16,9 +16,9 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { BudgetIcon } from '@/components/budget/budget-icon';
 import { BudgetColors, BudgetRadius } from '@/constants/budget-theme';
 import type { BudgetResult } from '@/domain/budget';
-import type { SavedBudget, SaveBudgetCommand } from '@/data/budget/contracts';
+import type { ApplicationBudget, BudgetAccess, ScopedSave } from '@/data/budget/application-contracts';
 import { BudgetStorageError, storageErrorMessage } from '@/data/budget/errors';
-import { getBudgetRepository } from '@/data/budget/platform';
+import { useApplicationRepository } from '@/features/application/provider';
 
 import { PaymentForm } from './payment-form';
 import { prepareBudgetSave, savedBudgetToDraft } from './persistence';
@@ -34,9 +34,10 @@ import {
 
 type MainField = 'balance' | 'payday' | 'savings';
 type PaymentField = 'name' | 'amount' | 'dueDate';
-type InitialState = { status: 'loading' } | { status: 'error'; message: string } | { status: 'ready'; saved: SavedBudget | null; supported: boolean };
+type InitialState = { status: 'loading' } | { status: 'error'; message: string } | { status: 'ready'; saved: ApplicationBudget | null; supported: boolean; access: BudgetAccess | null };
 
 export default function BudgetSetupScreen() {
+  const repository = useApplicationRepository();
   const [draft, setDraft] = useState<SetupDraft>(emptySetupDraft);
   const [errors, setErrors] = useState<SetupErrors>(emptySetupErrors);
   const [preview, setPreview] = useState<BudgetResult | null>(null);
@@ -45,7 +46,7 @@ export default function BudgetSetupScreen() {
   const [saving, setSaving] = useState(false);
   const [saveError, setSaveError] = useState<string | null>(null);
   const savingRef = useRef(false);
-  const saveCommand = useRef<SaveBudgetCommand | null>(null);
+  const saveCommand = useRef<ScopedSave | null>(null);
   const mounted = useRef(true);
   const nextPaymentId = useRef(1);
   const scroll = useRef<ComponentRef<typeof ScrollView>>(null);
@@ -55,22 +56,21 @@ export default function BudgetSetupScreen() {
     mounted.current = true;
     async function load() {
       try {
-        const repository = await getBudgetRepository();
-        const saved = await repository.load(new Date().toISOString());
+        const session = await repository.open(new Date().toISOString()), saved = session.saved;
         if (active) {
           if (saved) setDraft(savedBudgetToDraft(saved));
-          setInitial({ status: 'ready', saved, supported: true });
+          setInitial({ status: 'ready', saved, supported: true, access: session.access });
         }
       } catch (error) {
         if (active) {
-          if (error instanceof BudgetStorageError && error.code === 'UNSUPPORTED') setInitial({ status: 'ready', saved: null, supported: false });
+          if (error instanceof BudgetStorageError && error.code === 'UNSUPPORTED') setInitial({ status: 'ready', saved: null, supported: false, access: null });
           else setInitial({ status: 'error', message: storageErrorMessage(error) });
         }
       }
     }
     void load();
     return () => { active = false; mounted.current = false; };
-  }, [loadAttempt]);
+  }, [loadAttempt, repository]);
 
   function invalidateSave() { saveCommand.current = null; setSaveError(null); }
 
@@ -113,6 +113,9 @@ export default function BudgetSetupScreen() {
 
   function submitPreview() {
     Keyboard.dismiss();
+    if (initial.status === 'ready' && initial.access?.schema === 3 && initial.saved?.result.requiresNewPeriod) {
+      setErrors({ payments: [], general: 'Bu dönem sona erdi. Maaş tarihini eski dönemde değiştirmek yerine yeni dönem açın.' }); return;
+    }
     try {
       // Read the clock exactly once, on submit. The same instant anchors the initial balance.
       const asOf = new Date().toISOString();
@@ -139,7 +142,6 @@ export default function BudgetSetupScreen() {
     setSaving(true);
     setSaveError(null);
     try {
-      const repository = await getBudgetRepository();
       const asOf = new Date().toISOString();
       let command = saveCommand.current;
       if (!command) {
@@ -149,7 +151,8 @@ export default function BudgetSetupScreen() {
           if (mounted.current) { setErrors(outcome.errors); setSaveError('Bilgiler doğrulanamadı. Düzenleyip yeniden deneyin.'); }
           return;
         }
-        command = outcome.command;
+        if (!initial.access) throw new BudgetStorageError('MIGRATION', 'Form erişimi doğrulanamadı.');
+        command = { ...outcome.command, access: initial.access };
         saveCommand.current = command;
       }
       // Retry the same immutable operation, but revalidate against the actual current clock.
@@ -168,6 +171,7 @@ export default function BudgetSetupScreen() {
 
   const hasErrors = Boolean(errors.general || errors.balance || errors.payday || errors.savings || errors.payments.length);
   const openingLocked = initial.status === 'ready' && Boolean(initial.saved?.expenses.length);
+  const needsPeriod = initial.status === 'ready' && initial.access?.schema === 3 && Boolean(initial.saved?.result.requiresNewPeriod);
 
   return (
     <SafeAreaView style={styles.screen}>
@@ -221,6 +225,7 @@ export default function BudgetSetupScreen() {
                 <View style={styles.intro}>
                   <Text accessibilityRole="header" style={styles.heading}>{initial.saved ? 'Bütçe bilgilerinizi düzenleyin.' : 'Bugünkü paranla başlayalım.'}</Text>
                   <Text style={styles.description}>{initial.saved ? 'Kayıtlı bütçenizi düzenleyin. Kaydetmeden değişiklikler uygulanmaz.' : 'Bütçenizi oluşturun. Üyelik veya banka bağlantısı gerekmez.'}</Text>
+                  {needsPeriod && <Link href="/periods" style={styles.backText}>Bu dönem sona erdi · Yeni dönem oluştur</Link>}
                 </View>
                 <View style={styles.notice}>
                   <BudgetIcon name="info" size={18} color={BudgetColors.green} />

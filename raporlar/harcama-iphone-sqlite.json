@@ -1,0 +1,22 @@
+{
+  "checks": {
+    "closeAndReopenPersistence": true,
+    "duplicateCancellation": true,
+    "duplicateOperation": true,
+    "exactKurusAndDailyTargets": true,
+    "expiredPeriodCancellation": true,
+    "expiredPeriodNewEntryBlocked": true,
+    "isolatedDatabaseCleanedUp": true,
+    "maxSafeIntegerRoundtrip": true,
+    "negativeBudgetAllowed": true,
+    "schemaV2": true,
+    "softCancellation": true,
+    "transactionRollback": true,
+    "v1BudgetAndInvoicePreserved": true
+  },
+  "databaseScope": "isolated generated test database; not the user budget",
+  "isHermes": true,
+  "passed": true,
+  "platform": "ios",
+  "sqliteVersion": "3.53.3"
+}

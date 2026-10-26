@@ -4,25 +4,37 @@ import { AccessibilityInfo, Keyboard, KeyboardAvoidingView, Platform, Pressable,
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { BudgetColors } from '@/constants/budget-theme';
-import { expenseCategories, type AddExpenseCommand } from '@/data/budget/contracts';
+import { expenseCategories } from '@/data/budget/contracts';
+import type { ApplicationBudget, ScopedExpense } from '@/data/budget/application-contracts';
+import { sameBudgetPeriod } from '@/data/budget/application-view';
 import { BudgetStorageError, storageErrorMessage } from '@/data/budget/errors';
-import { getBudgetRepository } from '@/data/budget/platform';
+import { useApplicationRepository } from '@/features/application/provider';
 import { SetupField } from '@/features/budget-setup/setup-field';
 import { useSavedBudget } from '@/features/saved-budget/use-saved-budget';
 
 import { categoryLabels, prepareExpense, reconcileExpenseAttempt, type ExpenseDraft, type ExpenseErrors } from './adapter';
 
 export default function ExpenseScreen() {
-  const { state, refresh, acceptSaved } = useSavedBudget();
+  const resource = useSavedBudget();
+  const initialSaved = resource.state.status === 'ready' ? resource.state.saved : null;
+  return <ExpenseForm key={initialSaved ? 'bound' : 'loading'} resource={resource} initialSaved={initialSaved} />;
+}
+function ExpenseForm({ resource, initialSaved }: { resource: ReturnType<typeof useSavedBudget>; initialSaved: ApplicationBudget | null }) {
+  const repository = useApplicationRepository();
+  const { state, refresh, acceptSaved } = resource;
   const [draft, setDraft] = useState<ExpenseDraft>({ amount: '', category: 'market', description: '' });
   const [errors, setErrors] = useState<ExpenseErrors>({});
   const [working, setWorking] = useState(false);
   const [uncertain, setUncertain] = useState(false);
   const busy = useRef(false);
   const mounted = useRef(true);
-  const attempt = useRef<AddExpenseCommand | null>(null);
+  const attempt = useRef<ScopedExpense | null>(null);
+  const [boundBudget, setBoundBudget] = useState(initialSaved);
+  const occurrence = useRef<string | null>(null);
   useEffect(() => { mounted.current = true; return () => { mounted.current = false; }; }, []);
-  const saved = state.status === 'ready' ? state.saved : null;
+  const latestBudget = state.status === 'ready' ? state.saved : null;
+  const saved = boundBudget;
+  const periodChanged = Boolean(saved && latestBudget && !sameBudgetPeriod(saved.access, latestBudget.access));
   const locked = working || uncertain;
 
   function edit(next: ExpenseDraft) {
@@ -38,19 +50,19 @@ export default function ExpenseScreen() {
   }
 
   async function save() {
-    if (busy.current || !saved) return;
+    if (busy.current || !saved || periodChanged) return;
     busy.current = true; setWorking(true); setErrors({}); Keyboard.dismiss();
     // The occurrence is the tap, not the potentially later data-entry/commit attempt.
-    const occurredAt = new Date().toISOString();
+    const occurredAt = occurrence.current ?? new Date().toISOString();
     try {
-      const repository = await getBudgetRepository();
       let command = attempt.current;
       if (!command) {
         const operationId = await repository.newOperationId();
         const createdAt = new Date().toISOString();
         const result = prepareExpense(draft, saved, { operationId, occurredAt, createdAt, asOf: createdAt });
         if (result.status === 'invalid') { if (mounted.current) setErrors(result.errors); return; }
-        command = result.command; attempt.current = command;
+        command = { ...result.command, periodId: saved.access.period?.id ?? 1, access: saved.access };
+        attempt.current = command; occurrence.current = command.expense.occurredAt;
       }
       await repository.addExpense({ ...command, asOf: new Date().toISOString() });
       showSuccess();
@@ -69,17 +81,31 @@ export default function ExpenseScreen() {
     if (busy.current || !command) return;
     busy.current = true; setWorking(true);
     try {
-      const repository = await getBudgetRepository();
       const latest = await repository.load(new Date().toISOString());
+      if (latest && command.access && !sameBudgetPeriod(command.access, latest.access)) {
+        throw new BudgetStorageError('CONFLICT', 'Bu formun dönemi değişti. Komut yeni döneme taşınmadı. Ana ekrandan geçmişi inceleyin.');
+      }
       const outcome = reconcileExpenseAttempt(command, latest);
       if (outcome === 'saved') { showSuccess(); return; }
       if (mounted.current) {
         if (outcome === 'conflict') { setErrors({ general: 'İşlem kimliğiyle farklı bir kayıt bulundu. Ana ekrandan geçmişi kontrol edin.' }); return; }
         attempt.current = null; setUncertain(false);
-        if (latest) acceptSaved(latest); else refresh();
+        if (latest) { setBoundBudget(latest); acceptSaved(latest); } else refresh();
         setErrors({ general: 'Bu denemeye ait kayıt bulunmadı. Girdileriniz duruyor; kontrol edip yeniden kaydedebilirsiniz.' });
       }
     } catch (error) { if (mounted.current) setErrors({ general: storageErrorMessage(error) }); }
+    finally { busy.current = false; if (mounted.current) setWorking(false); }
+  }
+
+  async function reviewBudget() {
+    if (busy.current || uncertain) return;
+    busy.current = true; setWorking(true);
+    try {
+      const latest = await repository.load(new Date().toISOString());
+      if (!latest || (saved && !sameBudgetPeriod(saved.access, latest.access))) throw new BudgetStorageError('CONFLICT', 'Formun dönemi değişti. Girdiler yeni döneme uygulanmadı; ana ekrandan yeni bir form açın.');
+      setBoundBudget(latest); acceptSaved(latest); attempt.current = null; occurrence.current = null;
+      setErrors({ general: 'Güncel bütçe incelendi. Girdilerinizi kontrol ederek yeniden kaydedebilirsiniz.' });
+    } catch (error) { setErrors({ general: storageErrorMessage(error) }); }
     finally { busy.current = false; if (mounted.current) setWorking(false); }
   }
 
@@ -98,8 +124,14 @@ export default function ExpenseScreen() {
             </View>}
             {state.status === 'ready' && !saved && <Link href="/budget-setup" style={styles.link}>Önce bütçemi oluştur</Link>}
             {saved && <>
+              {periodChanged && <Text accessibilityLiveRegion="polite" style={styles.error}>Bu formun dönemi değişti. Girdileriniz korunuyor; yeni döneme otomatik kayıt yapılmaz. Ana ekrandan yeni bir form açın.</Text>}
               {state.status === 'ready' && state.message && <Text style={styles.error}>{state.message} Son okunan bilgiler gösteriliyor.</Text>}
-              {saved.result.requiresNewPeriod && <Text style={styles.error}>Bu dönem sona erdi. Yeni harcama eklenmez; ana ekrandan hatalı kayıtları iptal edebilirsiniz. Güvenli yeni dönem açılışı bu sürümde bulunmuyor.</Text>}
+              {saved.result.requiresNewPeriod && <>
+                <Text style={styles.error}>Bu dönem sona erdi. Yeni harcama eklenmez; arşivlemeden önce hatalı kayıtları ana ekrandan iptal edebilirsiniz. {saved.access.schema === 3
+                  ? 'Yeni dönem için güncel kullanılabilir bakiyenizi ayrıca girmeniz gerekir.'
+                  : 'Güvenli yeni dönem açılışı bu sürümde bulunmuyor.'}</Text>
+                {saved.access.schema === 3 && <Link href="/periods" style={styles.link}>Yeni dönem bilgilerini aç</Link>}
+              </>}
               <View style={styles.card}>
                 <SetupField label="Harcama tutarı (TL)" value={draft.amount} onChangeText={(amount) => edit({ ...draft, amount })}
                   placeholder="Örn. 245,50" helper="Ondalık için virgül kullanın. En fazla iki kuruş hanesi; tutar sıfırdan büyük olmalıdır."
@@ -115,19 +147,19 @@ export default function ExpenseScreen() {
                 <SetupField label="Açıklama (isteğe bağlı)" value={draft.description} onChangeText={(description) => edit({ ...draft, description })}
                   placeholder="Örn. Haftalık alışveriş" maxLength={200} editable={!locked} error={errors.description} />
               </View>
-              <Text style={styles.note}>Harcama zamanı, Kaydet’e dokunduğunuz andır. Bu sürümde geçmiş tarih seçimi yoktur. Bakiye yetmese de gerçek harcama kaydedilebilir; oluşan açık gösterilir.</Text>
+              <Text style={styles.note}>Harcama zamanı ilk geçerli Kaydet denemesidir; tekrar denemelerde ileri taşınmaz. Bu sürümde geçmiş tarih seçimi yoktur. Bakiye yetmese de gerçek harcama kaydedilebilir; oluşan açık gösterilir.</Text>
               <Text style={styles.note}>Bu işlem bekleyen faturayı ödenmiş saymaz; fatura ödeme takibi bu sürümde bulunmuyor.</Text>
               {errors.general && <Text accessibilityLiveRegion="polite" style={styles.error}>{errors.general} Girdileriniz korunuyor.</Text>}
               {uncertain && <View style={styles.card}>
                 <Text style={styles.note}>Kaydın sonucu kesinleşmedi. Çift kayıt oluşturmamak için girdiler geçici olarak kilitli. Aynı işlemi tekrar deneyin veya durumu kontrol edin.</Text>
                 <Pressable accessibilityRole="button" disabled={working} onPress={() => { void checkOutcome(); }} style={styles.secondary}><Text style={styles.link}>Kaydın durumunu kontrol et</Text></Pressable>
               </View>}
-              <Pressable accessibilityRole="button" accessibilityState={{ busy: working, disabled: working || (saved.result.requiresNewPeriod && !uncertain) }}
-                disabled={working || (saved.result.requiresNewPeriod && !uncertain)} onPress={() => { void save(); }}
-                style={[styles.button, (working || (saved.result.requiresNewPeriod && !uncertain)) && styles.disabled]}>
+              <Pressable accessibilityRole="button" accessibilityState={{ busy: working, disabled: working || periodChanged || (saved.result.requiresNewPeriod && !uncertain) }}
+                disabled={working || periodChanged || (saved.result.requiresNewPeriod && !uncertain)} onPress={() => { void save(); }}
+                style={[styles.button, (working || periodChanged || (saved.result.requiresNewPeriod && !uncertain)) && styles.disabled]}>
                 <Text style={styles.buttonText}>{working ? 'İşlem sürüyor…' : uncertain ? 'Aynı işlemi tekrar dene' : 'Harcamayı kaydet'}</Text>
               </Pressable>
-              <Pressable accessibilityRole="button" disabled={working || uncertain} onPress={refresh} style={styles.secondary}><Text style={styles.link}>Güncel bütçeyi yükle · girdiler korunur</Text></Pressable>
+              <Pressable accessibilityRole="button" disabled={working || uncertain} onPress={() => { void reviewBudget(); }} style={styles.secondary}><Text style={styles.link}>Güncel bütçeyi incele · girdiler korunur</Text></Pressable>
             </>}
           </View>
         </ScrollView>

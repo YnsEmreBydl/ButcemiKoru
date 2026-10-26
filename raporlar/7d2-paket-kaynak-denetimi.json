@@ -1,0 +1,61 @@
+{
+  "method": "recursive source maps; nearest node_modules attribution; compilation evidence only",
+  "graph": {
+    "android": {
+      "maps": 1,
+      "sources": 1692,
+      "auditPackages": [
+        {
+          "name": "@expo/cli",
+          "source": "/node_modules/expo/node_modules/@expo/cli/build/metro-require/require.js"
+        }
+      ],
+      "labPresent": false,
+      "upgradePreparationPresent": false,
+      "v3MigratorPresent": false,
+      "productionOpenerPresent": true
+    },
+    "ios": {
+      "maps": 1,
+      "sources": 1596,
+      "auditPackages": [
+        {
+          "name": "@expo/cli",
+          "source": "/node_modules/expo/node_modules/@expo/cli/build/metro-require/require.js"
+        }
+      ],
+      "labPresent": false,
+      "upgradePreparationPresent": false,
+      "v3MigratorPresent": false,
+      "productionOpenerPresent": true
+    },
+    "webClient": {
+      "maps": 14,
+      "sources": 1260,
+      "auditPackages": [
+        {
+          "name": "@expo/cli",
+          "source": "/node_modules/expo/node_modules/@expo/cli/build/metro-require/require.js"
+        }
+      ],
+      "labPresent": false,
+      "upgradePreparationPresent": false,
+      "v3MigratorPresent": false,
+      "productionOpenerPresent": false
+    },
+    "webServer": {
+      "maps": 1,
+      "sources": 1293,
+      "auditPackages": [
+        {
+          "name": "@expo/cli",
+          "source": "node_modules/expo/node_modules/@expo/cli/build/metro-require/require.js"
+        }
+      ],
+      "labPresent": false,
+      "upgradePreparationPresent": false,
+      "v3MigratorPresent": false,
+      "productionOpenerPresent": false
+    }
+  }
+}

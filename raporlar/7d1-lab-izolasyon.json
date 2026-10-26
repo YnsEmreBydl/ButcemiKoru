@@ -1,0 +1,11 @@
+{
+  "compiledOnly": true,
+  "nativeExecutionVerified": false,
+  "sourceCount": 811,
+  "productionDatabaseOpenerPresent": false,
+  "mainApplicationEntryPresent": false,
+  "labEntryPresent": true,
+  "mainDatabaseNamePresent": false,
+  "labSlug": "gb-v3-native-lab",
+  "filePrefix": "gb-v3lab-<random-run-id>-"
+}

@@ -1,0 +1,20 @@
+{
+  "activeRunId": "3fe740c011dccd272f600bb331fbf027",
+  "error": null,
+  "history": [],
+  "identity": {
+    "development": true,
+    "hermes": true,
+    "independentApp": true,
+    "physicalDevice": true,
+    "platform": "ios"
+  },
+  "report": null,
+  "resume": {
+    "freshJavaScriptRuntime": true,
+    "nativeProcessRestartVerified": false,
+    "passed": true
+  },
+  "stage": "resume-owned-checkpoints",
+  "status": "complete"
+}

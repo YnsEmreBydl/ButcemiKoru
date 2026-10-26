@@ -12,6 +12,6 @@
     "sourceMap": true,
     "declaration": false
   },
-  "include": ["src/domain/budget/**/*.ts", "src/features/budget-setup/*.ts", "src/features/expenses/*.ts", "src/data/budget/*.ts", "tests/**/*.ts"],
+  "include": ["src/domain/budget/**/*.ts", "src/features/budget-setup/*.ts", "src/features/expenses/*.ts", "src/features/periods/*.ts", "src/data/budget/*.ts", "tests/**/*.ts"],
   "exclude": ["node_modules", "src/data/budget/platform.native.ts"]
 }

@@ -1,0 +1,29 @@
+{
+  "date": "2026-10-26",
+  "nativeLab": {
+    "port": 8103,
+    "runId": "27b229ea4b637b2b494a627a6a3af3a0",
+    "slug": "gb-v3-integration",
+    "bundleIdentifier": "dev.gunlukbutcem.integration7d3",
+    "databaseDirectorySuffix": "gb-v3-integration",
+    "filePrefix": "gb-app-27b229ea4b637b2b494a627a6a3af3a0-",
+    "nativeEachCaseHasNewRandomId": true,
+    "openedRealUserDatabase": false
+  },
+  "portableBuild": {
+    "runId": "3346f1f896eb9f5efc80d305fc98e8bd",
+    "portable": true,
+    "profile": "preview/internal",
+    "signedBuildPerformed": false
+  },
+  "production": {
+    "allowV3": false,
+    "autoUpgrade": false,
+    "nativeStoreScope": "user-v2-only",
+    "source": "gunluk-butcem.db",
+    "metadata": "gunluk-butcem-control.db",
+    "realFilesOpenedByTask": false,
+    "backupOrCandidateCreationAllowed": false
+  },
+  "expoGoIsSeparateOSSandbox": false
+}

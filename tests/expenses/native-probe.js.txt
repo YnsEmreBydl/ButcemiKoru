@@ -1,0 +1,78 @@
+(async () => {
+  const modules = Array.from(__r.getModules().values());
+  const pick = suffix => modules.find(m => (m.verboseName || '').endsWith(suffix))?.publicModule?.exports;
+  const sqlite = pick('node_modules/expo-sqlite/build/index.js');
+  const migration = pick('src/data/budget/migrations.ts');
+  const create = pick('src/data/budget/repository.ts').createBudgetRepository;
+  const adapt = pick('src/data/budget/exclusive-adapter.ts').exclusiveAdapter;
+  const platform = pick('react-native/Libraries/Utilities/Platform.ios.js');
+  const checks = {};
+  const result = { isHermes: typeof HermesInternal !== 'undefined', platform: platform?.default?.OS ?? platform?.OS,
+    databaseScope: 'isolated generated test database; not the user budget', checks };
+  const name = 'stage6-isolated-' + Date.now() + '-' + Math.random().toString(16).slice(2) + '.db';
+  let db;
+  let stage = 'open';
+  const clock = '2026-10-25T09:00:00.000Z';
+  const expense = (id, amount, revision) => ({ operationId: id, expectedRevision: revision, periodId: 1, asOf: clock,
+    expense: { id, amountMinor: amount, category: 'market', description: 'Synthetic native test', occurredAt: '2026-10-25T08:00:00.000Z', createdAt: clock } });
+  const cancel = (id, revision, asOf = clock) => ({ operationId: 'cancel-' + id, expectedRevision: revision, periodId: 1, expenseId: id, cancelledAt: asOf, asOf });
+  try {
+    db = await sqlite.openDatabaseAsync(name, { useNewConnection: true });
+    await db.execAsync('PRAGMA journal_mode=WAL; PRAGMA foreign_keys=ON;');
+    result.sqliteVersion = (await db.getFirstAsync('SELECT sqlite_version() AS version')).version;
+    let gateway = adapt(db);
+    stage = 'seed-v1';
+    await gateway.transaction(async tx => {
+      await tx.exec(migration.migrations[0].sql);
+      await tx.exec('PRAGMA user_version=1');
+      await tx.run('INSERT INTO budget_periods VALUES(?,?,?,?,?,?,?,?)', [1,1,'TRY','Europe/Istanbul',1000000,'2026-10-20T06:00:00.000Z','2026-11-04',100000]);
+      await tx.run('INSERT INTO budget_payments VALUES(?,?,?,?,?)', [1,'rent','Synthetic bill',200000,'2026-10-28']);
+    });
+    stage = 'migrate-v2';
+    await migration.migrateDatabase(gateway);
+    let repo = create(gateway);
+    const opening = await repo.load(clock);
+    checks.v1BudgetAndInvoicePreserved = opening.input.balanceSnapshot.amountMinor === 1000000 && opening.input.payments.length === 1 && opening.expenses.length === 0;
+    checks.schemaV2 = (await db.getFirstAsync('PRAGMA user_version')).user_version === 2;
+    stage = 'add';
+    const command = expense('native-one', 10001, 1);
+    const added = await repo.addExpense(command);
+    checks.exactKurusAndDailyTargets = added.result.remainingBalanceMinor === 989999 && added.result.spendableMinor === 689999 && added.result.daily.todayStartTargetMinor === 70000 && added.result.daily.todayRemainingMinor === 59999;
+    checks.duplicateOperation = (await repo.addExpense(command)).revision === 2 && (await repo.load(clock)).expenses.length === 1;
+    stage = 'cancel';
+    const cancelled = await repo.cancelExpense(cancel('native-one', 2));
+    checks.softCancellation = cancelled.expenses[0].status === 'cancelled' && cancelled.result.spendableMinor === 700000;
+    checks.duplicateCancellation = (await repo.cancelExpense(cancel('native-one', 2))).revision === 3;
+    stage = 'safe-integer';
+    const maximum = await repo.addExpense(expense('native-max', Number.MAX_SAFE_INTEGER, 3));
+    checks.maxSafeIntegerRoundtrip = maximum.expenses.find(row => row.id === 'native-max').amountMinor === Number.MAX_SAFE_INTEGER;
+    checks.negativeBudgetAllowed = maximum.result.spendableMinor < 0 && maximum.result.budgetDeficitMinor > 0;
+    await repo.cancelExpense(cancel('native-max', 4));
+    stage = 'rollback';
+    await db.execAsync("CREATE TRIGGER stage6_abort BEFORE INSERT ON budget_save_operations WHEN NEW.operation_id='native-fail' BEGIN SELECT RAISE(ABORT,'synthetic rollback'); END;");
+    let failed = false;
+    try { await repo.addExpense(expense('native-fail', 100, 5)); } catch { failed = true; }
+    const afterFailure = await repo.load(clock);
+    checks.transactionRollback = failed && afterFailure.revision === 5 && afterFailure.expenses.length === 2 && afterFailure.result.spendableMinor === 700000;
+    await db.execAsync('DROP TRIGGER stage6_abort');
+    stage = 'reopen';
+    await repo.addExpense(expense('native-late', 100, 5));
+    await db.closeAsync(); db = await sqlite.openDatabaseAsync(name, { useNewConnection: true });
+    gateway = adapt(db); await migration.migrateDatabase(gateway); repo = create(gateway);
+    const reopened = await repo.load(clock);
+    checks.closeAndReopenPersistence = reopened.revision === 6 && reopened.expenses.length === 3 && reopened.result.remainingBalanceMinor === 999900;
+    stage = 'expired-period';
+    const late = '2026-11-05T09:00:00.000Z';
+    const corrected = await repo.cancelExpense(cancel('native-late', 6, late));
+    checks.expiredPeriodCancellation = corrected.result.requiresNewPeriod && corrected.result.remainingBalanceMinor === 1000000;
+    try { await repo.addExpense({ ...expense('native-expired', 100, 7), asOf: late }); checks.expiredPeriodNewEntryBlocked = false; }
+    catch (e) { checks.expiredPeriodNewEntryBlocked = e.code === 'NEW_PERIOD_REQUIRED'; }
+    stage = 'complete';
+  } catch (e) { result.failure = { stage, name: e.name, code: e.code ?? null }; }
+  finally {
+    try { if (db) await db.closeAsync(); await sqlite.deleteDatabaseAsync(name); checks.isolatedDatabaseCleanedUp = true; }
+    catch { checks.isolatedDatabaseCleanedUp = false; }
+  }
+  result.passed = !result.failure && Object.values(checks).every(value => value === true);
+  return result;
+})()

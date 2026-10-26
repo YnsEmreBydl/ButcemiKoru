@@ -1,0 +1,296 @@
+{
+  "runtime": "node:sqlite",
+  "first": {
+    "scope": "independent-synthetic-files",
+    "runId": "ceba9393d7db4e6a1bc470daa263f7ef",
+    "results": [
+      {
+        "id": "empty-to-v3-repeat-and-reopen",
+        "status": "passed"
+      },
+      {
+        "id": "v1-to-v3-all-identities-and-receipts",
+        "status": "passed"
+      },
+      {
+        "id": "v2-to-v3-all-identities-and-receipts",
+        "status": "passed"
+      },
+      {
+        "id": "v1-migration-rollback-copy",
+        "status": "passed"
+      },
+      {
+        "id": "v1-migration-rollback-replace",
+        "status": "passed"
+      },
+      {
+        "id": "v1-migration-rollback-guards",
+        "status": "passed"
+      },
+      {
+        "id": "v1-migration-rollback-version",
+        "status": "passed"
+      },
+      {
+        "id": "v2-migration-rollback-copy",
+        "status": "passed"
+      },
+      {
+        "id": "v2-migration-rollback-replace",
+        "status": "passed"
+      },
+      {
+        "id": "v2-migration-rollback-guards",
+        "status": "passed"
+      },
+      {
+        "id": "v2-migration-rollback-version",
+        "status": "passed"
+      },
+      {
+        "id": "a-b-c-replay-isolation-and-selected-bills",
+        "status": "passed"
+      },
+      {
+        "id": "revision-conflict-and-transaction-failure",
+        "status": "passed"
+      },
+      {
+        "id": "two-independent-connections-start-race",
+        "status": "passed"
+      },
+      {
+        "id": "readonly-write-error-rollback-and-retry",
+        "status": "passed"
+      },
+      {
+        "id": "bounded-sqlite-full-rolls-back-financial-write",
+        "status": "passed"
+      },
+      {
+        "id": "close-with-uncommitted-transaction-and-reopen",
+        "status": "passed"
+      },
+      {
+        "id": "wal-online-backup-restore-and-reopen",
+        "status": "passed"
+      },
+      {
+        "id": "owned-connections-closed",
+        "status": "passed"
+      },
+      {
+        "id": "prep-success",
+        "status": "passed"
+      },
+      {
+        "id": "prep-missing",
+        "status": "passed"
+      },
+      {
+        "id": "prep-corrupt",
+        "status": "passed"
+      },
+      {
+        "id": "prep-write-error",
+        "status": "passed"
+      },
+      {
+        "id": "prep-bad-restore",
+        "status": "passed"
+      },
+      {
+        "id": "prep-source-race",
+        "status": "passed"
+      },
+      {
+        "id": "prep-rollback-copy",
+        "status": "passed"
+      },
+      {
+        "id": "prep-rollback-replace",
+        "status": "passed"
+      },
+      {
+        "id": "prep-rollback-guards",
+        "status": "passed"
+      },
+      {
+        "id": "prep-rollback-version",
+        "status": "passed"
+      },
+      {
+        "id": "prep-postcommit",
+        "status": "passed"
+      },
+      {
+        "id": "prep-partial-open",
+        "status": "passed"
+      },
+      {
+        "id": "prep-v2-still-works",
+        "status": "passed"
+      },
+      {
+        "id": "prep-period-ui",
+        "status": "passed"
+      }
+    ],
+    "passed": 33,
+    "failed": 0,
+    "sqliteVersion": "3.50.2",
+    "notRun": [
+      "Physical whole-device disk exhaustion",
+      "OS process termination/power loss in shared Expo Go sandbox",
+      "Native cold application restart (separate from SQLite close/reopen)"
+    ]
+  },
+  "second": {
+    "scope": "independent-synthetic-files",
+    "runId": "1e9016f7f6dafef8161c1a11803b7e35",
+    "results": [
+      {
+        "id": "empty-to-v3-repeat-and-reopen",
+        "status": "passed"
+      },
+      {
+        "id": "v1-to-v3-all-identities-and-receipts",
+        "status": "passed"
+      },
+      {
+        "id": "v2-to-v3-all-identities-and-receipts",
+        "status": "passed"
+      },
+      {
+        "id": "v1-migration-rollback-copy",
+        "status": "passed"
+      },
+      {
+        "id": "v1-migration-rollback-replace",
+        "status": "passed"
+      },
+      {
+        "id": "v1-migration-rollback-guards",
+        "status": "passed"
+      },
+      {
+        "id": "v1-migration-rollback-version",
+        "status": "passed"
+      },
+      {
+        "id": "v2-migration-rollback-copy",
+        "status": "passed"
+      },
+      {
+        "id": "v2-migration-rollback-replace",
+        "status": "passed"
+      },
+      {
+        "id": "v2-migration-rollback-guards",
+        "status": "passed"
+      },
+      {
+        "id": "v2-migration-rollback-version",
+        "status": "passed"
+      },
+      {
+        "id": "a-b-c-replay-isolation-and-selected-bills",
+        "status": "passed"
+      },
+      {
+        "id": "revision-conflict-and-transaction-failure",
+        "status": "passed"
+      },
+      {
+        "id": "two-independent-connections-start-race",
+        "status": "passed"
+      },
+      {
+        "id": "readonly-write-error-rollback-and-retry",
+        "status": "passed"
+      },
+      {
+        "id": "bounded-sqlite-full-rolls-back-financial-write",
+        "status": "passed"
+      },
+      {
+        "id": "close-with-uncommitted-transaction-and-reopen",
+        "status": "passed"
+      },
+      {
+        "id": "wal-online-backup-restore-and-reopen",
+        "status": "passed"
+      },
+      {
+        "id": "owned-connections-closed",
+        "status": "passed"
+      },
+      {
+        "id": "prep-success",
+        "status": "passed"
+      },
+      {
+        "id": "prep-missing",
+        "status": "passed"
+      },
+      {
+        "id": "prep-corrupt",
+        "status": "passed"
+      },
+      {
+        "id": "prep-write-error",
+        "status": "passed"
+      },
+      {
+        "id": "prep-bad-restore",
+        "status": "passed"
+      },
+      {
+        "id": "prep-source-race",
+        "status": "passed"
+      },
+      {
+        "id": "prep-rollback-copy",
+        "status": "passed"
+      },
+      {
+        "id": "prep-rollback-replace",
+        "status": "passed"
+      },
+      {
+        "id": "prep-rollback-guards",
+        "status": "passed"
+      },
+      {
+        "id": "prep-rollback-version",
+        "status": "passed"
+      },
+      {
+        "id": "prep-postcommit",
+        "status": "passed"
+      },
+      {
+        "id": "prep-partial-open",
+        "status": "passed"
+      },
+      {
+        "id": "prep-v2-still-works",
+        "status": "passed"
+      },
+      {
+        "id": "prep-period-ui",
+        "status": "passed"
+      }
+    ],
+    "passed": 33,
+    "failed": 0,
+    "sqliteVersion": "3.50.2",
+    "notRun": [
+      "Physical whole-device disk exhaustion",
+      "OS process termination/power loss in shared Expo Go sandbox",
+      "Native cold application restart (separate from SQLite close/reopen)"
+    ]
+  },
+  "previousRunPreserved": true
+}

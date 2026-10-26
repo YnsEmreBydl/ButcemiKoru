@@ -1,0 +1,55 @@
+{
+  "isHermes": true,
+  "matches": 1,
+  "platform": "ios",
+  "renderStack": [
+    {
+      "methodName": "RNSlotHOC",
+      "file": "node_modules/expo-router/build/ui/Slot.js",
+      "lineNumber": 100,
+      "column": 35
+    },
+    {
+      "methodName": "callComponent.react_stack_bottom_frame",
+      "file": "node_modules/react-native/Libraries/Renderer/implementations/ReactFabric-dev.js",
+      "lineNumber": 18517,
+      "column": 28
+    },
+    {
+      "methodName": "renderWithHooks",
+      "file": "node_modules/react-native/Libraries/Renderer/implementations/ReactFabric-dev.js",
+      "lineNumber": 5926,
+      "column": 39
+    },
+    {
+      "methodName": "updateForwardRef",
+      "file": "node_modules/react-native/Libraries/Renderer/implementations/ReactFabric-dev.js",
+      "lineNumber": 8050,
+      "column": 33
+    },
+    {
+      "methodName": "beginWork",
+      "file": "node_modules/react-native/Libraries/Renderer/implementations/ReactFabric-dev.js",
+      "lineNumber": 9817,
+      "column": 33
+    },
+    {
+      "methodName": "runWithFiberInDEV",
+      "file": "node_modules/react-native/Libraries/Renderer/implementations/ReactFabric-dev.js",
+      "lineNumber": 721,
+      "column": 32
+    },
+    {
+      "methodName": "performUnitOfWork",
+      "file": "node_modules/react-native/Libraries/Renderer/implementations/ReactFabric-dev.js",
+      "lineNumber": 15229,
+      "column": 38
+    },
+    {
+      "methodName": "workLoopSync",
+      "file": "node_modules/react-native/Libraries/Renderer/implementations/ReactFabric-dev.js",
+      "lineNumber": 15061,
+      "column": 57
+    }
+  ]
+}

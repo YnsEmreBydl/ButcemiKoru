@@ -1,0 +1,5 @@
+{
+  "oldSyntheticRunId": "ac3e8af8ff2554894ced56ebc2e38020",
+  "reason": "Payday today with invoice dates after payday; checkLegacyData correctly rejected fixture",
+  "realUserDataTouched": false
+}

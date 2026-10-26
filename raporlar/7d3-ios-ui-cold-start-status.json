@@ -1,0 +1,20 @@
+{
+  "app": {
+    "hasOpened": true,
+    "message": "",
+    "phase": "ready",
+    "schema": 3
+  },
+  "error": null,
+  "identity": {
+    "development": true,
+    "hermes": true,
+    "independentApp": true,
+    "physicalDevice": true,
+    "platform": "ios",
+    "testBuild": true
+  },
+  "report": null,
+  "running": false,
+  "stage": ""
+}

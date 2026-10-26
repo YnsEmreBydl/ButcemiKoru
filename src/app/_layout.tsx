@@ -2,6 +2,7 @@ import { DefaultTheme, Stack, ThemeProvider } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 
 import { BudgetColors } from '@/constants/budget-theme';
+import { BudgetApplicationProvider } from '@/features/application/provider';
 
 const previewTheme = {
   ...DefaultTheme,
@@ -10,7 +11,7 @@ const previewTheme = {
 
 export default function RootLayout() {
   return (
-    <ThemeProvider value={previewTheme}>
+    <ThemeProvider value={previewTheme}><BudgetApplicationProvider>
       <StatusBar style="dark" />
       <Stack
         screenOptions={{
@@ -23,6 +24,6 @@ export default function RootLayout() {
         <Stack.Screen name="expense-add" options={{ title: 'Harcama ekle' }} />
         <Stack.Screen name="explore" options={{ headerShown: true, title: 'Başlangıç şablonu' }} />
       </Stack>
-    </ThemeProvider>
+    </BudgetApplicationProvider></ThemeProvider>
   );
 }
